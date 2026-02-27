@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Display elements
     const profileUsernameDisplay = document.getElementById('profileUsername');
     const profilePositionDisplay = document.getElementById('profilePosition');
-    const profileBackgroundImg = document.getElementById('profileBackgroundImg') as HTMLImageElement;
     const profileImg = document.getElementById('profileImg') as HTMLImageElement;
     
 
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Display profile data
             if (profileUsernameDisplay) profileUsernameDisplay.textContent = userData.username || 'Guest';
             if (profilePositionDisplay) profilePositionDisplay.textContent = userData.position || 'N/A';
-            if (profileBackgroundImg) profileBackgroundImg.src = userData.profileBackgroundImg;
             if (profileImg) profileImg.src = userData.profileImg;
 
             // Populate "About Me" display fields

@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Display elements
     var profileUsernameDisplay = document.getElementById('profileUsername');
     var profilePositionDisplay = document.getElementById('profilePosition');
-    var profileBackgroundImg = document.getElementById('profileBackgroundImg');
     var profileImg = document.getElementById('profileImg');
     // Display-only fields for the "About Me" section
     var showUsername = document.getElementById('show_username');
@@ -34,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 profileUsernameDisplay.textContent = userData.username || 'Guest';
             if (profilePositionDisplay)
                 profilePositionDisplay.textContent = userData.position || 'N/A';
-            if (profileBackgroundImg)
-                profileBackgroundImg.src = userData.profileBackgroundImg;
             if (profileImg)
                 profileImg.src = userData.profileImg;
             // Populate "About Me" display fields
