@@ -6,17 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const profilePositionDisplay = document.getElementById('profilePosition');
     const profileBackgroundImg = document.getElementById('profileBackgroundImg') as HTMLImageElement;
     const profileImg = document.getElementById('profileImg') as HTMLImageElement;
+    
 
     // Display-only fields for the "About Me" section
-    const showUsername = document.getElementById('show_username'); // Changed from edit_username to show_username
-    const showEmail = document.getElementById('show_email');     // Changed from edit_email to show_email
-    const showFullname = document.getElementById('show_fullname'); // Changed from edit_fullname to show_fullname
-    const showAge = document.getElementById('show_age');         // Changed from edit_age to show_age
-    const showGender = document.getElementById('show_gender');   // Changed from edit_gender to show_gender
-    const showPosition = document.getElementById('show_position'); // Changed from edit_position to show_position
-    const showPhone = document.getElementById('show_phone');     // Changed from edit_phone to show_phone
-    const showWeight = document.getElementById('show_weight');   // Changed from edit_weight to show_weight
-    const showHeight = document.getElementById('show_height');   // Changed from edit_height to show_height
+    const showUsername = document.getElementById('show_username');
+    const showEmail = document.getElementById('show_email');
+    const showFullname = document.getElementById('show_fullname');
+    const showAge = document.getElementById('show_age');
+    const showGender = document.getElementById('show_gender');
+    const showPosition = document.getElementById('show_position');
+    const showPhone = document.getElementById('show_phone');
+    const showWeight = document.getElementById('show_weight');
+    const showHeight = document.getElementById('show_height');
 
     const profileContent = document.getElementById('profileContent');
     const noProfileMessage = document.getElementById('noProfileMessage');
@@ -30,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Set default profile images if not present
             if (!userData.profileBackgroundImg) {
-                userData.profileBackgroundImg = 'https://via.placeholder.com/1500x400?text=Profile+Background';
+                userData.profileBackgroundImg = '/img/gym hub-2 สำเนา.png'; // Default background image
             }
             if (!userData.profileImg) {
-                userData.profileImg = 'https://via.placeholder.com/150x150?text=Profile';
+                userData.profileImg = '/img/Image-11 สำเนา.jpg'; // Default profile image
             }
 
             // Display profile data
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (profileBackgroundImg) profileBackgroundImg.src = userData.profileBackgroundImg;
             if (profileImg) profileImg.src = userData.profileImg;
 
-            // Populate display fields
+            // Populate "About Me" display fields
             if (showUsername) showUsername.textContent = userData.username || '-';
             if (showEmail) showEmail.textContent = userData.email || '-';
             if (showFullname) showFullname.textContent = userData.fullname || '-';
@@ -52,9 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (showPhone) showPhone.textContent = userData.phone || '-';
             if (showWeight) showWeight.textContent = userData.weight ? `${userData.weight} kg` : '-';
             if (showHeight) showHeight.textContent = userData.height ? `${userData.height} cm` : '-';
-            // The posiupdate element is likely for the header, which is handled by display_username.ts
-            // If it's meant for the profile summary, it should be updated here.
-            // Assuming it's for the profile summary in main_profile.html
+            
+            // Update the position in the small summary header within the About Me section
             const posiUpdate = document.getElementById('posiupdate');
             if (posiUpdate) posiUpdate.textContent = userData.position || '-';
 
@@ -67,7 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
             noProfileMessage.classList.remove('hidden');
         }
     } else {
-        // If profileContent or noProfileMessage elements are not found, log an error
-        console.error("Required profile elements not found.");
+        // If critical elements are missing, log an error and ensure noProfileMessage is visible
+        console.error("Required profile elements (profileContent, noProfileMessage) not found.");
+        if (noProfileMessage) noProfileMessage.classList.remove('hidden');
+        if (profileContent) profileContent.classList.add('hidden');
     }
 });

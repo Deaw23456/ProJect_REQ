@@ -14,19 +14,32 @@
         <nav class="flex items-center justify-between px-6 py-2">
             <!-- logo -->
             <div>
-                <a href="#" class="text-white text-4xl font-bold flex">Gym<div
+                <a href="index.html" class="text-white text-4xl font-bold flex">Gym<div
                         class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
             <!-- login sign up admin -->
-            <div>
+            <div id="guest-nav">
                 <ul class="flex gap-2 font-bold">
                     <li><a href="singup.html"
                             class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-2 py-3">Sing
                             up</a></li>
                     <li><a href="login.html"
-                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-5 py-3">login</a>
+                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-5 py-3">Login</a>
                     </li>
                 </ul>
+            </div>
+            <div id="user-nav" class="hidden relative border-2 border-[#ff8c00] rounded-md px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#ff8c00]/20">
+                <div class="flex items-center gap-2.5">
+                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User" class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                <button id="profile-btn" class="flex items-center gap-2 text-white font-bold">
+                    <span id="username-display"></span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="dropdown-menu" class="hidden absolute right-0 top-full mt-2 w-48 bg-[#2d2d2f] rounded-md shadow-lg py-1 z-20 border border-[#4c4c4c]">
+                    <a href="main_profile.html" class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">My Profile</a>
+                    <a href="#" id="logout-btn" class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">Logout</a>
+                </div>
+                </div>
             </div>
         </nav>
     </header>
@@ -231,6 +244,7 @@
             </section>
         </div>
     </main>
+    <script src="../dist/js/index.js"></script>
 </body>
 
 </html>

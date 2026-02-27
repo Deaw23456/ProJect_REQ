@@ -48,7 +48,7 @@
             <span class="text-white text-xl font-bold mb-2 text-center">Registration Complete!</span>
             <p class="text-gray-400 text-sm text-center mb-6">Your account details summary:</p>
 
-            <div id="display_data" class="hidden w-full bg-[#252526] rounded-xl  overflow-hidden mb-6">
+            <div id="display_data" class="hidden w-full bg-[#252526] rounded-xl overflow-hidden mb-6">
                 <!-- Header ส่วนข้อมูล -->
                 <div class="bg-[#1f1f1f] px-5 py-3 border-b border-[#3e3e3e] flex justify-between items-center">
                     <span class="text-gray-300 text-sm font-semibold">Profile Summary</span>
@@ -72,47 +72,44 @@
                     </div>
 
                     <!-- ส่วนที่ 2: Personal Details -->
-                    <h4 class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2">Personal Details</h4>
-                    <div class="flex flex-col mt-2 w-full rounded-lg p-4 space-y-3">   
-                        <div class="mr-5">
-                            <ul>
-                                <li class="flex text-sm mb-2">
-                                    <span class="text-gray-400">Name - Surname :</span>
-                                    <span id="show_fullname" class="text-white ml-4">-</span>
-                                </li>
-                                <li class="flex text-sm mb-2">
-                                    <span class="text-gray-400">Age :</span>
-                                    <span id="show_age" class="text-white ml-4">-</span>
-                                </li>
-                                <li class="flex text-sm mb-2">
-                                    <span class="text-gray-400">Gender :</span>
-                                    <span id="show_gender" class="text-white ml-4">-</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="ml-10">
-                            <ul>
-                                <li class="flex text-sm mb-2">
-                                    <span class="text-gray-400">Position :</span>
-                                    <span id="show_position" class="text-white ml-4">-</span>
-                                </li>
-                                <li class="flex text-sm mb-2">
-                                    <span class="text-gray-400">Weight :</span>
-                                    <span id="show_weight" class="text-white ml-4">-</span>
-                                </li>
-                                <li class="flex text-sm mb-2">
-                                    <span class="text-gray-400">Height :</span>
-                                    <span id="show_height" class="text-white ml-4">-</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="index.html" class="block w-full max-w-md mx-auto bg-[#ff8c00] py-2 px-4 mt-10 rounded-md text-black font-bold text-center hover:bg-[#ffae00] transition-colors">
-                            Suscess 
-                        </a>
+                    <h4 class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2 mt-4">Personal Details</h4>
+                    <div class="rounded-lg p-4 space-y-3">
+                        <ul>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Name - Surname :</span>
+                                <span id="show_fullname" class="text-white ml-4">-</span>
+                            </li>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Age :</span>
+                                <span id="show_age" class="text-white ml-4">-</span>
+                            </li>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Gender :</span>
+                                <span id="show_gender" class="text-white ml-4">-</span>
+                            </li>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Phone :</span>
+                                <span id="show_phone" class="text-white ml-4">-</span>
+                            </li>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Position :</span>
+                                <span id="show_position" class="text-white ml-4">-</span>
+                            </li>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Weight :</span>
+                                <span id="show_weight" class="text-white ml-4">-</span>
+                            </li>
+                            <li class="flex text-sm mb-2">
+                                <span class="text-gray-400 w-28 shrink-0">Height :</span>
+                                <span id="show_height" class="text-white ml-4">-</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
+            <a href="index.html" class="block w-full max-w-md mx-auto bg-[#ff8c00] py-2 px-4 mt-6 rounded-md text-black font-bold text-center hover:bg-[#ffae00] transition-colors">
+                Success
+            </a>
         </div>
     </main>
     <script type="module" src="../dist/js/finish_singup.js"></script>

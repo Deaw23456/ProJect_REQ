@@ -1,0 +1,50 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var guestNav = document.getElementById('guest-nav');
+    var userNav = document.getElementById('user-nav');
+    var usernameDisplay = document.getElementById('username-display');
+    var profileBtn = document.getElementById('profile-btn');
+    var dropdownMenu = document.getElementById('dropdown-menu');
+    var logoutBtn = document.getElementById('logout-btn');
+    var navProfileImg = document.getElementById('nav-profile-img');
+    var userDataStr = localStorage.getItem('userData');
+    if (userDataStr) {
+        // User is logged in
+        var userData = JSON.parse(userDataStr);
+        if (guestNav)
+            guestNav.classList.add('hidden');
+        if (userNav)
+            userNav.classList.remove('hidden');
+        if (usernameDisplay)
+            usernameDisplay.textContent = userData.username;
+        if (navProfileImg && userData.profileImg) {
+            navProfileImg.src = userData.profileImg;
+        }
+    }
+    else {
+        // User is not logged in
+        if (guestNav)
+            guestNav.classList.remove('hidden');
+        if (userNav)
+            userNav.classList.add('hidden');
+    }
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function () {
+            if (dropdownMenu)
+                dropdownMenu.classList.toggle('hidden');
+        });
+    }
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function (e) {
+        if (userNav && !userNav.contains(e.target)) {
+            if (dropdownMenu)
+                dropdownMenu.classList.add('hidden');
+        }
+    });
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            localStorage.removeItem('userData');
+            window.location.href = 'index.html';
+        });
+    }
+});
