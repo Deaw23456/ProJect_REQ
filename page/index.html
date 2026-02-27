@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="bg-[#181819]">
+    <header class="border-b-2 border-amber-50 pb-4">
+        <div class="text-white opacity-30 flex justify-center">Project REQ & Font-end</div>
+        <nav class="flex items-center justify-between px-6 py-2">
+            <!-- logo -->
+            <div>
+                <a href="#" class="text-white text-4xl font-bold flex">Gym<div
+                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+            </div>
+            <!-- login sign up admin -->
+            <div>
+                <ul class="flex gap-2 font-bold">
+                    <li><a href="singup.html"
+                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-2 py-3">Sing
+                            up</a></li>
+                    <li><a href="login.html"
+                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-5 py-3">login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- slider_img -->
+        <div id="slider"
+            class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth border-0 rounded-2xl ml-5 mr-5 mt-10">
+            <div class="snap-center shrink-0 w-full h-120">
+                <img src="/img/gym hub-2 สำเนา.png" alt="Slide 1" class="w-full h-full object-cover">
+            </div>
+            <div class="snap-center shrink-0 w-full h-120">
+                <img src="/img/gym hub-5 สำเนา.png" alt="Slide 2" class="w-full h-full object-cover">
+            </div>
+            <div class="snap-center shrink-0 w-full h-120">
+                <img src="/img/gym hub-3 สำเนา.png" alt="Slide 3" class="w-full h-full object-cover">
+            </div>
+            <div class="snap-center shrink-0 w-full h-120">
+                <img src="/img/gym hub-1 สำเนา.png" alt="Slide 4" class="w-full h-full object-cover">
+            </div>
+            <div class="snap-center shrink-0 w-full h-120">
+                <img src="/img/gym hub-4 สำเนา.png" alt="Slide 5" class="w-full h-full object-cover">
+            </div>
+        </div>
+        <!-- search_bar -->
+        <div class="w-full flex items-center justify-end mt-10 px-5">
+            <div class="relative w-full max-w-md ml-auto flex items-center justify-end">
+                <input type="search" name="search" id="search-input"
+                    class="block w-full p-2 pr-10 text-black bg-white border-2 rounded-md" placeholder="Search">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                    <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- filter -->
+        <div class="flex mt-10">
+            <aside class="w-100 bg-[#181819] p-4 rounded-lg h-fit px-6 border-2 border-[#ff8c00] mt-10 ml-5 mr-5">
+                <h2 class="font-bold text-xl mb-4 text-white">Filters</h2>
+                <!-- Specialty -->
+                <div class="mb-10">
+                    <h2 class="font-bold text-xl mb-4 text-white">Specialty</h2>
+                    <div class="flex flex-col gap-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Cardio</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Weight Lifting</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Yoga</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- Gender -->
+                <div class="mb-10">
+                    <h2 class="font-bold text-xl mb-4 text-white">Gender</h2>
+                    <div class="flex flex-col gap-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Male</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Female</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-10">
+                    <h2 class="font-bold text-xl mb-4 text-white">Location</h2>
+                    <div class="flex flex-col gap-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Bangkok</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Chiang Mai</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">Phuket</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mb-10">
+                    <h2 class="font-bold text-xl mb-4 text-white">Price Range</h2>
+                    <div class="flex flex-col gap-2">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">0 - 1000 THB</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">1000 - 3000 THB</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" class="w-4 h-4 accent-[#ff8c00]">
+                            <span class="text-gray-400">3000 - 5000 THB</span>
+                        </label>
+                    </div>
+                </div>
+                <div><input type="submit" value="Apply Filters"
+                        class="bg-[#ff8c00] text-white px-4 py-2 rounded-md hover:bg-[#ff6a00] transition-colors duration-300">
+                </div>
+            </aside>
+            <section class="flex gap-4 mx-5 flex-wrap justify-center">
+                <div
+                    class="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-[#2d2d2f] bg-clip-border text-white shadow-md mt-10 hover:scale-105 transition-all duration-300">
+                    <div
+                        class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-[#7e7e7e] bg-gradient-to-r flex items-center justify-center">
+                        <img src="" alt=""></div>
+                    <div class="p-6">
+                        <h5
+                            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            content</h5>
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti repudiandae laudantium
+                            sunt aliquam temporibus inventore rem velit accusantium harum voluptate, excepturi, tempora,
+                            veritatis voluptas culpa quaerat assumenda sint ab?</p>
+                    </div>
+                </div>
+                <div
+                    class="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-[#2d2d2f] bg-clip-border text-white shadow-md mt-10 hover:scale-105 transition-all duration-300">
+                    <div
+                        class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-[#7e7e7e] bg-gradient-to-r flex items-center justify-center">
+                        <img src="" alt=""></div>
+                    <div class="p-6">
+                        <h5
+                            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            content</h5>
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti repudiandae laudantium
+                            sunt aliquam temporibus inventore rem velit accusantium harum voluptate, excepturi, tempora,
+                            veritatis voluptas culpa quaerat assumenda sint ab?</p>
+                    </div>
+                </div>
+                <div
+                    class="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-[#2d2d2f] bg-clip-border text-white shadow-md mt-10 hover:scale-105 transition-all duration-300">
+                    <div
+                        class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-[#7e7e7e] bg-gradient-to-r flex items-center justify-center">
+                        <img src="" alt=""></div>
+                    <div class="p-6">
+                        <h5
+                            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            content</h5>
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti repudiandae laudantium
+                            sunt aliquam temporibus inventore rem velit accusantium harum voluptate, excepturi, tempora,
+                            veritatis voluptas culpa quaerat assumenda sint ab?</p>
+                    </div>
+                </div>
+                <div
+                    class="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-[#2d2d2f] bg-clip-border text-white shadow-md mt-10 hover:scale-105 transition-all duration-300">
+                    <div
+                        class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-[#7e7e7e] bg-gradient-to-r flex items-center justify-center">
+                        <img src="" alt=""></div>
+                    <div class="p-6">
+                        <h5
+                            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            content</h5>
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti repudiandae laudantium
+                            sunt aliquam temporibus inventore rem velit accusantium harum voluptate, excepturi, tempora,
+                            veritatis voluptas culpa quaerat assumenda sint ab?</p>
+                    </div>
+                </div>
+                <div
+                    class="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-[#2d2d2f] bg-clip-border text-white shadow-md mt-10 hover:scale-105 transition-all duration-300">
+                    <div
+                        class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-[#7e7e7e] bg-gradient-to-r flex items-center justify-center">
+                        <img src="" alt=""></div>
+                    <div class="p-6">
+                        <h5
+                            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            content</h5>
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti repudiandae laudantium
+                            sunt aliquam temporibus inventore rem velit accusantium harum voluptate, excepturi, tempora,
+                            veritatis voluptas culpa quaerat assumenda sint ab?</p>
+                    </div>
+                </div>
+                <div
+                    class="relative flex w-full max-w-[20rem] flex-col rounded-xl bg-[#2d2d2f] bg-clip-border text-white shadow-md mt-10 hover:scale-105 transition-all duration-300">
+                    <div
+                        class="relative mx-4 -mt-6 h-50 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-[#7e7e7e] bg-gradient-to-r flex items-center justify-center">
+                        <img src="" alt=""></div>
+                    <div class="p-6">
+                        <h5
+                            class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                            content</h5>
+                        <p class="block font-sans text-base font-light leading-relaxed text-inherit antialiased">Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit. Cumque corrupti repudiandae laudantium
+                            sunt aliquam temporibus inventore rem velit accusantium harum voluptate, excepturi, tempora,
+                            veritatis voluptas culpa quaerat assumenda sint ab?</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>

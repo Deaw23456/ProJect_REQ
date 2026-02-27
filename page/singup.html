@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="bg-[#181819]">
+    <header class="pb-4">
+        <div class="text-white opacity-30 flex justify-center">Project REQ & Font-end</div>
+    </header>
+    <main>
+        <div class="flex justify-center mt-20 mb-10">
+            <a href="#" class="text-white text-5xl font-bold flex">Gym<div
+                    class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+        </div>
+        <div class="max-w-md mx-auto mb-8 px-4">
+            <div class="relative flex items-center justify-between">
+                <div class="absolute left-5 top-1/2 transform -translate-y-1/2 w-95 h-0.5 bg-[#4c4c4c] -z-10"></div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-8 h-8 bg-[#ff8c00] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        1</div>
+                    <span class="text-[#ff8c00] text-xs mt-1">Account</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-8 h-8 bg-[#4c4c4c] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        2</div>
+                    <span class="text-gray-500 text-xs mt-1">Details</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div
+                        class="w-8 h-8 bg-[#4c4c4c] rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        3</div>
+                    <span class="text-gray-500 text-xs mt-1">Finish</span>
+                </div>
+            </div>
+        </div>
+        <div class="bg-[#2f2f2f] p-8 rounded-lg max-w-md mx-auto py-10">
+            <form action="#" method="POST" id="Form" class="space-y-6">
+                <div>
+                    <label for="user_Name" class="block text-sm font-medium text-white">Username</label>
+                    <input type="text" id="user_Name" name="user_Name" placeholder="Enter Username" required
+                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-white">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required
+                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-white">Password</label>
+                    <input type="password" id="pass" name="password" placeholder="Enter Password" required
+                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                </div>
+                <div>
+                    <label for="confirm_password" class="block text-sm font-medium text-white">Confirm Password</label>
+                    <input type="password" id="confirm_pass" name="confirm_password" placeholder="Confirm Password" class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                </div>
+                <button type="button" onclick="UserSignup()" class="w-full bg-[#ff8c00] text-black py-2 px-4 rounded-md hover:bg-[#ff8c00]/90 font-bold items-center flex justify-center cursor-pointer">Next</button>
+            </form>
+        </div>
+    </main>
+<script src="../dist/js/singup.js"></script>
+</body>
+</html>

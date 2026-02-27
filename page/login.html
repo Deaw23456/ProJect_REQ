@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="bg-[#181819]">
+    <header class="border-b-2 border-amber-50 pb-4">
+        <div class="text-white opacity-30 flex justify-center">Project REQ & Font-end</div>
+    </header>
+    <main>
+        <div class="flex justify-center mt-30 mb-5">
+            <a href="#" class="text-white text-4xl font-bold flex">Gym<div
+                    class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+        </div>
+        <div class="bg-[#2f2f2f] p-8 rounded-lg max-w-md mx-auto py-20">
+            <form action="#" method="POST" class="space-y-6">
+                <div>
+                    <label for="user_Name" class="block text-sm font-medium text-white">Username</label>
+                    <input type="text" id="userName" name="user_Name" placeholder="Enter Username" required
+                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-white">Password</label>
+                    <input type="PassWord" id="pass" name="password" placeholder="Enter Password" required
+                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                </div>
+                <button type="button" onclick="Userlogin()"
+                    class="w-full bg-[#ff8c00] text-black py-2 px-4 rounded-md hover:bg-[#ff8c00]/90 flex justify-center items-center cursor-pointer">Login</button>
+                <div class="text-center text-white">
+                    <a href="#" class="text-[#ff8c00] hover:underline">Forgot Password?</a>
+                </div>
+                <div class="text-center text-white">
+                    Don't have an account? <a href="singup.html" class="text-[#ff8c00] hover:underline">Signup</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script type="module" src="../dist/js/login.js"></script>
+</body>
+</html>
