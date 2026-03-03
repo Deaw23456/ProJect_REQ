@@ -1,14 +1,16 @@
 {
   "name": "main-req",
   "version": "1.0.0",
-  "description": "",
+  "description": "// คำสัง complie ts เป็น js",
   "license": "ISC",
   "author": "",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/style.css --watch"
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/style.css --watch",
+    "build": "tsc", 
+    "start": "serve dist"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.2.1",
@@ -16,5 +18,14 @@
   },
   "devDependencies": {
     "ts-node": "^10.9.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://ghp_xLavm8euliQkdT1clpUmBieyQn0XTh0W4TYm@github.com/Deaw23456/Project_REQ.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Deaw23456/Project_REQ/issues"
+  },
+  "homepage": "https://github.com/Deaw23456/Project_REQ#readme"
 }
