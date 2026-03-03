@@ -10,7 +10,7 @@
     <header class="border-b-2 border-amber-50 pb-4">
         <nav class="flex items-center justify-between px-6 py-2">
             <!-- logo -->
-            <div>
+            <div class="flex-shrink-0">
                 <a href="index.html" class="text-white text-4xl font-bold flex">Gym<div
                         class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
@@ -38,14 +38,14 @@
                     </li>
                 </ul>
             </div>
-            <div id="user-nav" class="hidden relative border-2 border-[#ff8c00] rounded-md px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#ff8c00]/20">
+            <div id="user-nav" class="hidden relative z-50 border-2 border-[#ff8c00] rounded-md px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#ff8c00]/20">
                 <div class="flex items-center gap-2.5">
                     <img id="nav-profile-img" src="../img/Image-11.jpg" alt="User" class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
                 <button id="profile-btn" class="flex items-center gap-2 text-white font-bold">
                     <span id="username-display"></span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div id="dropdown-menu" class="hidden absolute right-0 top-full mt-2 w-48 bg-[#2d2d2f] rounded-md shadow-lg py-1 z-20 border border-[#4c4c4c]">
+                <div id="dropdown-menu" class="hidden absolute right-0 top-full mt-2 w-48 bg-[#2d2d2f] rounded-md shadow-lg py-1 z-50 border border-[#4c4c4c]">
                     <a href="main_profile.html" class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">My Profile</a>
                     <a href="#" id="logout-btn" class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">Logout</a>
                 </div>
@@ -55,11 +55,11 @@
     </header>
     <main>
         <div class="relative w-full h-64 bg-gray-700 rounded-lg">
-            <!-- Profile Background Image --> 
-            <img src="../img/gym hub-2 img.png.png" alt="" class="w-full h-70 object-cover brightness-50">
+            <!-- Profile Background Image (Parent div has h-64, so image should fill it) -->
+            <img src="/img/gym hub-2 สำเนา.png" alt="" class="w-full h-full object-cover brightness-50">
             <!-- Profile Image -->
-            <div class="absolute -bottom-18 left-1/2 transform -translate-x-1/2"> 
-                <img id="Profile_Img" src="../img/Image-11.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full border-4 border-[#ff8c00] object-cover p-2 bg-[#2f2f2f] ">
+            <div class="absolute -bottom-18 left-1/2 transform -translate-x-1/2">
+                <img id="profileImg" src="/img/Image-11 สำเนา.jpg" alt="Profile Picture" class="w-40 h-40 rounded-full border-4 border-[#ff8c00] object-cover p-2 bg-[#2f2f2f] ">
             </div>
         </div>
 
@@ -158,7 +158,7 @@
                     <section id="review-section" class="bg-[#2f2f2f] max-w-5xl p-10 rounded-xl">
                         <h2 class="text-white text-2xl font-semibold mb-4">Reviwe</h2>
                         <div class="max-w-5xl mx-auto p-6 bg-[#252526] rounded-lg shadow-xl text-white">
-                            <h2 class="text-xl font-bold mb-4 text-[#ff8c00]">รีวิวการใช้บริการ</h2>
+                            <h2 class="text-xl font-bold mb-4 text-[#ff8c00]">Review & Comment</h2>
                             <div class="flex items-center mb-4">
                                 <div id="star-rating" class="flex space-x-1">
                                     <button class="star text-3xl text-gray-400 hover:text-yellow-400 transition" data-value="1">★</button>
@@ -170,10 +170,10 @@
                                 <span id="rating-value" class="ml-3 text-gray-400">0/5</span>
                             </div>
 
-                            <textarea id="review-text" class="w-full p-3 bg-[#1e1e1e] border border-[#4c4c4c] rounded-md focus:outline-none focus:border-[#ff8c00] text-sm" placeholder="เขียนรีวิวของคุณที่นี่..." rows="3"></textarea>
+                            <textarea id="review-text" class="w-full p-3 bg-[#1e1e1e] border border-[#4c4c4c] rounded-md focus:outline-none focus:border-[#ff8c00] text-sm" placeholder="Comment..." rows="3"></textarea>
                             
                             <button id="submit-review" class="w-full mt-4 bg-[#ff8c00] text-black font-bold py-2 rounded-md hover:bg-[#e67e00] transition">
-                                ส่งรีวิว
+                                Post Review 
                             </button>
 
                             <hr class="my-6 border-[#4c4c4c]">
@@ -202,5 +202,6 @@
         </div>
     </main>
     <script src="../dist/js/view_profile.js"></script>
+    <script src="../dist/js/index.js"></script>
 </body>
 </html>
