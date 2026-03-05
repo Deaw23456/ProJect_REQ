@@ -1,47 +1,44 @@
-window.onload = () => {
+interface UserData {
+    username: string;
+    email: string;
+    password?: string;
+    fullname?: string;
+    age?: number;
+    gender?: string;
+    position?: 'member' | 'trainer';
+    phone?: string;
+    weight?: number;
+    height?: number;
+    profileImg?: string;
+    profileBackgroundImg?: string;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     // 1. ดึงข้อมูลจากลิ้นชักทั้ง 2 ส่วน
     const signupDataStr = localStorage.getItem('temp_signup');
-    const detailDataStr = localStorage.getItem('temp_details');
     const displayArea = document.getElementById('display_data');
 
-    if (signupDataStr && detailDataStr && displayArea) {
-        // แกะกล่อง JSON
-        const user = JSON.parse(signupDataStr);
-        const details = JSON.parse(detailDataStr);
+    // Retrieve the currently logged-in user's data to display a personalized message
+    const userDataString = localStorage.getItem('userData');
 
-        // แสดงผลกล่องข้อมูล
+    if (userDataString && displayArea) {
+        const userData: UserData = JSON.parse(userDataString);
         displayArea.classList.remove('hidden');
 
-        // ฟังก์ชันช่วยใส่ข้อมูล (Helper)
-        const setText = (id: string, text: string | number | undefined) => {
-            const el = document.getElementById(id);
-            if (el) el.textContent = String(text || '-');
-        };
-
-        // ยัดข้อมูลลง ID ต่างๆ ให้ตรงกับ HTML
-        setText('show_username', user.username);
-        setText('show_email', user.email);
-        setText('show_fullname', details.fullname);
-        setText('show_gender', details.gender);
-        setText('show_age', details.age);
-        setText('show_phone', details.phone);
-        setText('show_position', details.position);
-        setText('show_weight', details.weight);
-        setText('show_height', details.height);
-        setText('posiupdate', details.position);
-
-        // --- จุดสำคัญ: บันทึกข้อมูลตัวจริงลง 'userData' เพื่อไว้ใช้ Login ---
-        const finalData = {
-            ...user,
-            ...details,
-            profileImg: '/img/Image-11 สำเนา.jpg', // Add default profile image
-            profileBackgroundImg: 'https://via.placeholder.com/1500x400?text=Profile+Background' // Add default background
-        };
-        localStorage.setItem('userData', JSON.stringify(finalData));
+        // Clear temporary signup details if they still exist (should be cleared by data_detail.ts)
+        localStorage.removeItem('temp_signup');
+        localStorage.removeItem('temp_details'); // Ensure this is cleared if it was ever set
 
     } else if (displayArea) {
-        // กรณีไม่มีข้อมูล ให้แจ้งเตือนผู้ใช้
+        // Fallback if userData is not found (e.g., direct access to finish_singup.html)
         displayArea.classList.remove('hidden');
-        displayArea.innerHTML = `<p class="text-red-400 text-center text-xs">Error: Data not found. Please register again.</p>`;
+        displayArea.innerHTML = `
+            <h2 class="text-2xl font-bold text-white mb-4">สมัครสมาชิกสำเร็จ!</h2>
+            <p class="text-white text-lg">ยินดีต้อนรับสู่ GymHub!</p>
+            <p class="text-gray-400 text-sm mt-4">คุณสามารถไปที่หน้าโปรไฟล์ของคุณได้เลย</p>
+            <div class="mt-6">
+                <a href="/index.html" class="bg-[#ff8c00] text-black py-2 px-4 rounded-md hover:bg-[#ff8c00]/90 font-bold">กลับหน้าหลัก</a>
+            </div>
+        `;
     }
-};
+});

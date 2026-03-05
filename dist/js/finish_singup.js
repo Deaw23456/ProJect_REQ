@@ -1,50 +1,19 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-window.onload = function () {
+document.addEventListener('DOMContentLoaded', function () {
     // 1. ดึงข้อมูลจากลิ้นชักทั้ง 2 ส่วน
     var signupDataStr = localStorage.getItem('temp_signup');
-    var detailDataStr = localStorage.getItem('temp_details');
     var displayArea = document.getElementById('display_data');
-    if (signupDataStr && detailDataStr && displayArea) {
-        // แกะกล่อง JSON
-        var user = JSON.parse(signupDataStr);
-        var details = JSON.parse(detailDataStr);
-        // แสดงผลกล่องข้อมูล
+    // Retrieve the currently logged-in user's data to display a personalized message
+    var userDataString = localStorage.getItem('userData');
+    if (userDataString && displayArea) {
+        var userData = JSON.parse(userDataString);
         displayArea.classList.remove('hidden');
-        // ฟังก์ชันช่วยใส่ข้อมูล (Helper)
-        var setText = function (id, text) {
-            var el = document.getElementById(id);
-            if (el)
-                el.textContent = String(text || '-');
-        };
-        // ยัดข้อมูลลง ID ต่างๆ ให้ตรงกับ HTML
-        setText('show_username', user.username);
-        setText('show_email', user.email);
-        setText('show_fullname', details.fullname);
-        setText('show_gender', details.gender);
-        setText('show_age', details.age);
-        setText('show_phone', details.phone);
-        setText('show_position', details.position);
-        setText('show_weight', details.weight);
-        setText('show_height', details.height);
-        setText('posiupdate', details.position);
-        // --- จุดสำคัญ: บันทึกข้อมูลตัวจริงลง 'userData' เพื่อไว้ใช้ Login ---
-        var finalData = __assign(__assign(__assign({}, user), details), { profileImg: '/img/Image-11 สำเนา.jpg', profileBackgroundImg: 'https://via.placeholder.com/1500x400?text=Profile+Background' // Add default background
-         });
-        localStorage.setItem('userData', JSON.stringify(finalData));
+        // Clear temporary signup details if they still exist (should be cleared by data_detail.ts)
+        localStorage.removeItem('temp_signup');
+        localStorage.removeItem('temp_details'); // Ensure this is cleared if it was ever set
     }
     else if (displayArea) {
-        // กรณีไม่มีข้อมูล ให้แจ้งเตือนผู้ใช้
+        // Fallback if userData is not found (e.g., direct access to finish_singup.html)
         displayArea.classList.remove('hidden');
-        displayArea.innerHTML = "<p class=\"text-red-400 text-center text-xs\">Error: Data not found. Please register again.</p>";
+        displayArea.innerHTML = "\n            <h2 class=\"text-2xl font-bold text-white mb-4\">\u0E2A\u0E21\u0E31\u0E04\u0E23\u0E2A\u0E21\u0E32\u0E0A\u0E34\u0E01\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08!</h2>\n            <p class=\"text-white text-lg\">\u0E22\u0E34\u0E19\u0E14\u0E35\u0E15\u0E49\u0E2D\u0E19\u0E23\u0E31\u0E1A\u0E2A\u0E39\u0E48 GymHub!</p>\n            <p class=\"text-gray-400 text-sm mt-4\">\u0E04\u0E38\u0E13\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E44\u0E1B\u0E17\u0E35\u0E48\u0E2B\u0E19\u0E49\u0E32\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E44\u0E14\u0E49\u0E40\u0E25\u0E22</p>\n            <div class=\"mt-6\">\n                <a href=\"/index.html\" class=\"bg-[#ff8c00] text-black py-2 px-4 rounded-md hover:bg-[#ff8c00]/90 font-bold\">\u0E01\u0E25\u0E31\u0E1A\u0E2B\u0E19\u0E49\u0E32\u0E2B\u0E25\u0E31\u0E01</a>\n            </div>\n        ";
     }
-};
+});

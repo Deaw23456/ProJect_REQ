@@ -62,3 +62,67 @@ var renderMiniProfiles = function () {
     listArea.innerHTML = members.map(function (member) { return "\n        <div class=\"flex items-center p-2 hover:bg-[#3a3a3c] rounded-md transition cursor-pointer group\">\n            <div class=\"relative\">\n                <img src=\"".concat(member.img, "\" class=\"w-10 h-10 rounded-full border border-[#ff8c00] object-cover\">\n                ").concat(member.online ? '<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#2d2d2f] rounded-full"></div>' : '', "\n            </div>\n            <div class=\"ml-3\">\n                <p class=\"text-sm font-bold text-white group-hover:text-[#ff8c00]\">").concat(member.name, "</p>\n                <p class=\"text-[10px] text-gray-400\">").concat(member.role, "</p>\n            </div>\n            <button class=\"ml-auto text-[#ff8c00] opacity-0 group-hover:opacity-100 transition text-xs\">\n                \u0E17\u0E31\u0E01\u0E17\u0E32\u0E22\n            </button>\n        </div>\n    "); }).join('');
 };
 renderMiniProfiles();
+document.addEventListener('DOMContentLoaded', function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var targetUsername = urlParams.get('username');
+    if (targetUsername) {
+        var registeredUsersString = localStorage.getItem('registeredUsers');
+        var registeredUsers = registeredUsersString ? JSON.parse(registeredUsersString) : [];
+        var userProfile = registeredUsers.find(function (user) { return user.username === targetUsername; });
+        if (userProfile) {
+            // Update main profile header
+            var profileUsernameDisplay = document.getElementById('Profile_Username'); // Assuming this ID exists in view_profile.html
+            var profilePositionDisplay = document.getElementById('Profile_Position'); // Assuming this ID exists
+            var profileImg = document.getElementById('profileImg'); // Assuming this ID exists
+            var profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img'); // Assuming this selector works
+            if (profileUsernameDisplay)
+                profileUsernameDisplay.textContent = userProfile.username;
+            if (profilePositionDisplay)
+                profilePositionDisplay.textContent = userProfile.position ? userProfile.position.charAt(0).toUpperCase() + userProfile.position.slice(1) : 'N/A';
+            if (profileImg)
+                profileImg.src = userProfile.profileImg || '/img/Image-11 สำเนา.jpg';
+            if (profileBackgroundImg)
+                profileBackgroundImg.src = userProfile.profileBackgroundImg || '/img/gym hub-2 สำเนา.png';
+            // Populate "About Me" display fields (assuming similar IDs to main_profile.html)
+            var showUsername = document.getElementById('Show_Username');
+            var showEmail = document.getElementById('Show_Email');
+            var showFullname = document.getElementById('Show_Fullname');
+            var showAge = document.getElementById('Show_Age');
+            var showGender = document.getElementById('Show_Gender');
+            var showPosition = document.getElementById('Show_Position');
+            var showPhone = document.getElementById('Show_Phone');
+            var showWeight = document.getElementById('Show_Weight');
+            var showHeight = document.getElementById('Show_Height');
+            var posiUpdate = document.getElementById('Posi_update');
+            if (showUsername)
+                showUsername.textContent = userProfile.username || '-';
+            if (showEmail)
+                showEmail.textContent = userProfile.email || '-';
+            if (showFullname)
+                showFullname.textContent = userProfile.fullname || '-';
+            if (showAge)
+                showAge.textContent = userProfile.age ? userProfile.age.toString() : '-';
+            if (showGender)
+                showGender.textContent = userProfile.gender || '-';
+            if (showPosition)
+                showPosition.textContent = userProfile.position || '-';
+            if (showPhone)
+                showPhone.textContent = userProfile.phone || '-';
+            if (showWeight)
+                showWeight.textContent = userProfile.weight ? "".concat(userProfile.weight, " kg") : '-';
+            if (showHeight)
+                showHeight.textContent = userProfile.height ? "".concat(userProfile.height, " cm") : '-';
+            if (posiUpdate)
+                posiUpdate.textContent = userProfile.position || '-';
+            var noProfileMessage = document.getElementById('noProfileMessage');
+            if (noProfileMessage)
+                noProfileMessage.classList.add('hidden');
+        }
+        else {
+            console.warn("User with username '".concat(targetUsername, "' not found."));
+        }
+    }
+    else {
+        console.log("No username parameter found in URL. Displaying current user's profile or default.");
+    }
+});

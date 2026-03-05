@@ -109,3 +109,77 @@ const renderMiniProfiles = () => {
 };
 
 renderMiniProfiles();
+
+// --- New logic for displaying specific user profile based on URL parameter ---
+
+interface UserData {
+    username: string;
+    email: string;
+    password?: string;
+    fullname?: string;
+    age?: number;
+    gender?: string;
+    position?: 'member' | 'trainer';
+    phone?: string;
+    weight?: number;
+    height?: number;
+    profileImg?: string;
+    profileBackgroundImg?: string;
+    // Add any other fields that might be stored for a user
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetUsername = urlParams.get('username');
+
+    if (targetUsername) {
+        const registeredUsersString = localStorage.getItem('registeredUsers');
+        const registeredUsers: UserData[] = registeredUsersString ? JSON.parse(registeredUsersString) : [];
+
+        const userProfile = registeredUsers.find(user => user.username === targetUsername);
+
+        if (userProfile) {
+            // Update main profile header
+            const profileUsernameDisplay = document.getElementById('Profile_Username'); // Assuming this ID exists in view_profile.html
+            const profilePositionDisplay = document.getElementById('Profile_Position'); // Assuming this ID exists
+            const profileImg = document.getElementById('profileImg') as HTMLImageElement; // Assuming this ID exists
+            const profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img') as HTMLImageElement; // Assuming this selector works
+
+            if (profileUsernameDisplay) profileUsernameDisplay.textContent = userProfile.username;
+            if (profilePositionDisplay) profilePositionDisplay.textContent = userProfile.position ? userProfile.position.charAt(0).toUpperCase() + userProfile.position.slice(1) : 'N/A';
+            if (profileImg) profileImg.src = userProfile.profileImg || '/img/Image-11 สำเนา.jpg';
+            if (profileBackgroundImg) profileBackgroundImg.src = userProfile.profileBackgroundImg || '/img/gym hub-2 สำเนา.png';
+
+            // Populate "About Me" display fields (assuming similar IDs to main_profile.html)
+            const showUsername = document.getElementById('Show_Username');
+            const showEmail = document.getElementById('Show_Email');
+            const showFullname = document.getElementById('Show_Fullname');
+            const showAge = document.getElementById('Show_Age');
+            const showGender = document.getElementById('Show_Gender');
+            const showPosition = document.getElementById('Show_Position');
+            const showPhone = document.getElementById('Show_Phone');
+            const showWeight = document.getElementById('Show_Weight');
+            const showHeight = document.getElementById('Show_Height');
+            const posiUpdate = document.getElementById('Posi_update');
+
+            if (showUsername) showUsername.textContent = userProfile.username || '-';
+            if (showEmail) showEmail.textContent = userProfile.email || '-';
+            if (showFullname) showFullname.textContent = userProfile.fullname || '-';
+            if (showAge) showAge.textContent = userProfile.age ? userProfile.age.toString() : '-';
+            if (showGender) showGender.textContent = userProfile.gender || '-';
+            if (showPosition) showPosition.textContent = userProfile.position || '-';
+            if (showPhone) showPhone.textContent = userProfile.phone || '-';
+            if (showWeight) showWeight.textContent = userProfile.weight ? `${userProfile.weight} kg` : '-';
+            if (showHeight) showHeight.textContent = userProfile.height ? `${userProfile.height} cm` : '-';
+            if (posiUpdate) posiUpdate.textContent = userProfile.position || '-';
+
+            const noProfileMessage = document.getElementById('noProfileMessage');
+            if (noProfileMessage) noProfileMessage.classList.add('hidden');
+
+        } else {
+            console.warn(`User with username '${targetUsername}' not found.`);
+        }
+    } else {
+        console.log("No username parameter found in URL. Displaying current user's profile or default.");
+    }
+});

@@ -1,33 +1,43 @@
-function Userlogin(event) {
-    event.preventDefault(); // Prevent default form submission
-    var usernameEl = document.getElementById('user_Name');
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+document.addEventListener('DOMContentLoaded', function () {
+    var usernameEl = document.getElementById('userName');
     var passwordEl = document.getElementById('pass');
-    if (!usernameEl || !passwordEl) {
-        alert("ไม่พบช่องกรอกข้อมูล กรุณาตรวจสอบอีกครั้ง");
+    var loginButton = document.getElementById('login-button');
+    if (!usernameEl || !passwordEl || !loginButton) {
+        console.error("Login elements not found.");
         return;
     }
-    var username = usernameEl.value;
-    var password = passwordEl.value;
-    if (!username || !password) {
-        alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
-        return;
-    }
-    // ดึงข้อมูลผู้ใช้จาก localStorage (key: 'userData')
-    var userDataStr = localStorage.getItem('userData');
-    if (userDataStr) {
-        var userData = JSON.parse(userDataStr);
-        // ตรวจสอบ Username และ Password
-        if (userData.username === username && userData.password === password) {
-            alert("เข้าสู่ระบบสำเร็จ");
-            window.location.href = 'index.html';
+    loginButton.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        var username = usernameEl.value.trim();
+        var password = passwordEl.value.trim();
+        if (!username || !password) {
+            alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+            return;
+        }
+        var registeredUsersString = localStorage.getItem('registeredUsers');
+        var registeredUsers = registeredUsersString ? JSON.parse(registeredUsersString) : [];
+        var foundUser = registeredUsers.find(function (user) { return user.username === username && user.password === password; });
+        if (foundUser) {
+            // Store current logged-in user data (excluding password for security if not needed)
+            var currentUserData = __assign({}, foundUser);
+            delete currentUserData.password; // Remove password before storing in userData
+            localStorage.setItem('userData', JSON.stringify(currentUserData));
+            alert("เข้าสู่ระบบสำเร็จ!");
+            window.location.href = '/index.html'; // Redirect to home page
         }
         else {
             alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
         }
-    }
-    else {
-        alert("ไม่พบข้อมูลผู้ใช้ กรุณาสมัครสมาชิกก่อน");
-    }
-}
-// ทำให้ฟังก์ชันเรียกใช้ได้จาก HTML
-window.Userlogin = Userlogin;
+    });
+});

@@ -1,9 +1,6 @@
 // src/scripts/main_profile.ts
 document.addEventListener('DOMContentLoaded', function () {
     // Display elements
-    var profileUsernameDisplay = document.getElementById('profileUsername');
-    var profilePositionDisplay = document.getElementById('profilePosition');
-    var profileImg = document.getElementById('profileImg');
     // Display-only fields for the "About Me" section
     var showUsername = document.getElementById('show_username');
     var showEmail = document.getElementById('show_email');
@@ -14,9 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
     var showPhone = document.getElementById('show_phone');
     var showWeight = document.getElementById('show_weight');
     var showHeight = document.getElementById('show_height');
+    var profileUsernameDisplay = document.getElementById('profileUsername');
+    var profilePositionDisplay = document.getElementById('profilePosition');
+    var profileImg = document.getElementById('profileImg');
+    var profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img');
     var profileContent = document.getElementById('profileContent');
     var noProfileMessage = document.getElementById('noProfileMessage');
-    var saveProfileButton = document.getElementById('saveProfileButton');
     var userDataString = localStorage.getItem('userData');
     if (profileContent && noProfileMessage) {
         try {
@@ -28,13 +28,16 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!userData.profileImg) {
                 userData.profileImg = '/img/Image-11 สำเนา.jpg'; // Default profile image
             }
-            // Display profile data
+            // Update main profile header
             if (profileUsernameDisplay)
                 profileUsernameDisplay.textContent = userData.username || 'Guest';
             if (profilePositionDisplay)
-                profilePositionDisplay.textContent = userData.position || 'N/A';
+                profilePositionDisplay.textContent = userData.position ? userData.position.charAt(0).toUpperCase() + userData.position.slice(1) : 'N/A';
             if (profileImg)
                 profileImg.src = userData.profileImg;
+            if (profileBackgroundImg)
+                profileBackgroundImg.src = userData.profileBackgroundImg;
+            // Display profile data
             // Populate "About Me" display fields
             if (showUsername)
                 showUsername.textContent = userData.username || '-';
@@ -55,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (showHeight)
                 showHeight.textContent = userData.height ? "".concat(userData.height, " cm") : '-';
             // Update the position in the small summary header within the About Me section
-            var posiUpdate = document.getElementById('posiupdate');
+            var posiUpdate = document.getElementById('posiupdate'); // Corrected ID to match view_profile.ts
             if (posiUpdate)
                 posiUpdate.textContent = userData.position || '-';
             profileContent.classList.remove('hidden');
