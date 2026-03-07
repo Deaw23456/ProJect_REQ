@@ -18,6 +18,20 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
             return;
         }
+        // ===== Admin Login =====
+        if (username === 'admin' && password === 'admin1234') {
+            const adminUser = {
+                username: 'admin',
+                email: 'admin@gymhub.com',
+                position: 'admin',
+                fullname: 'Administrator'
+            };
+            setCurrentUser(adminUser);
+            alert("เข้าสู่ระบบสำเร็จ! (Admin)");
+            window.location.href = '/page/admin_page.html';
+            return;
+        }
+        // ===== Regular User Login =====
         const registeredUsers = getRegisteredUsers();
         const foundUser = registeredUsers.find(user => user.username === username && user.password === password);
         if (foundUser) {
