@@ -1,17 +1,6 @@
-interface UserData {
-    username: string;
-    email: string;
-    password?: string; // Password might not be stored in all contexts or might be hashed
-    fullname?: string;
-    age?: number;
-    gender?: string;
-    position?: 'member' | 'trainer';
-    phone?: string;
-    weight?: number;
-    height?: number;
-    profileImg?: string;
-    profileBackgroundImg?: string;
-}
+// =============================================
+// Login Page
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     const usernameEl = document.getElementById('userName') as HTMLInputElement;
@@ -24,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loginButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
         const username = usernameEl.value.trim();
         const password = passwordEl.value.trim();
@@ -34,18 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        const registeredUsersString = localStorage.getItem('registeredUsers');
-        const registeredUsers: UserData[] = registeredUsersString ? JSON.parse(registeredUsersString) : [];
-
+        const registeredUsers = getRegisteredUsers();
         const foundUser = registeredUsers.find(user => user.username === username && user.password === password);
 
         if (foundUser) {
-            // Store current logged-in user data (excluding password for security if not needed)
+            // Store current user (exclude password)
             const currentUserData: UserData = { ...foundUser };
-            delete currentUserData.password; // Remove password before storing in userData
-            localStorage.setItem('userData', JSON.stringify(currentUserData));
+            delete currentUserData.password;
+            setCurrentUser(currentUserData);
             alert("เข้าสู่ระบบสำเร็จ!");
-            window.location.href = '/index.html'; // Redirect to home page
+            window.location.href = '/index.html';
         } else {
             alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
         }

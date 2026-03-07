@@ -1,4 +1,6 @@
-const nameInput = ["user_Name","email","pass","confirm_pass"];
+// =============================================
+// Signup Page — Step 1: Account Info
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     const usernameEl = document.getElementById('user_Name') as HTMLInputElement;
@@ -28,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert("รหัสผ่านไม่ตรง กรุณาตรวจสอบอีกครั้ง");
                 return;
             }
-            
+
             // สร้างอ็อบเจ็กต์ข้อมูลผู้ใช้ชั่วคราว
             const tempUserData = {
                 username: username,

@@ -1,36 +1,18 @@
-interface UserData {
-    username: string;
-    email: string;
-    password?: string;
-    fullname?: string;
-    age?: number;
-    gender?: string;
-    position?: 'member' | 'trainer';
-    phone?: string;
-    weight?: number;
-    height?: number;
-    profileImg?: string;
-    profileBackgroundImg?: string;
-}
+// =============================================
+// Finish Signup Page — Step 3: Completion
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. ดึงข้อมูลจากลิ้นชักทั้ง 2 ส่วน
-    const signupDataStr = localStorage.getItem('temp_signup');
     const displayArea = document.getElementById('display_data');
+    const userData = getCurrentUser();
 
-    // Retrieve the currently logged-in user's data to display a personalized message
-    const userDataString = localStorage.getItem('userData');
-
-    if (userDataString && displayArea) {
-        const userData: UserData = JSON.parse(userDataString);
+    if (userData && displayArea) {
         displayArea.classList.remove('hidden');
-
-        // Clear temporary signup details if they still exist (should be cleared by data_detail.ts)
+        // ลบข้อมูลชั่วคราว
         localStorage.removeItem('temp_signup');
-        localStorage.removeItem('temp_details'); // Ensure this is cleared if it was ever set
-
+        localStorage.removeItem('temp_details');
     } else if (displayArea) {
-        // Fallback if userData is not found (e.g., direct access to finish_singup.html)
+        // Fallback: แสดง message ถ้าไม่มี userData
         displayArea.classList.remove('hidden');
         displayArea.innerHTML = `
             <h2 class="text-2xl font-bold text-white mb-4">สมัครสมาชิกสำเร็จ!</h2>

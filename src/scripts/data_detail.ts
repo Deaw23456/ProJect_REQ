@@ -1,17 +1,6 @@
-interface UserData {
-    username: string;
-    email: string;
-    password?: string;
-    fullname?: string;
-    age?: number;
-    gender?: string;
-    position?: 'member' | 'trainer';
-    phone?: string;
-    weight?: number;
-    height?: number;
-    profileImg?: string;
-    profileBackgroundImg?: string;
-}
+// =============================================
+// Data Detail Page — Step 2: Personal Info
+// =============================================
 
 document.addEventListener('DOMContentLoaded', () => {
     const fullnameInput = document.getElementById('fullname') as HTMLInputElement;
@@ -29,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     submitButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default form submission
+        event.preventDefault();
 
         const fullname = fullnameInput.value.trim();
         const age = parseInt(ageInput.value.trim());
@@ -62,22 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
             phone,
             weight,
             height,
-            profileImg: '/img/Image-11 สำเนา.jpg', // Default profile image
-            profileBackgroundImg: '/img/gym hub-2 สำเนา.png' // Default background image
+            profileImg: DEFAULT_PROFILE_IMG,
+            profileBackgroundImg: DEFAULT_BG_IMG
         };
 
-        const registeredUsersString = localStorage.getItem('registeredUsers');
-        const registeredUsers: UserData[] = registeredUsersString ? JSON.parse(registeredUsersString) : [];
+        // บันทึกลง registeredUsers
+        const registeredUsers = getRegisteredUsers();
         registeredUsers.push(newUserData);
-        localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-        localStorage.removeItem('temp_signup'); // Clear temporary data
+        saveRegisteredUsers(registeredUsers);
+        localStorage.removeItem('temp_signup');
 
-        // Set the newly registered user as the currently logged-in user
-        // Exclude password for security when storing in 'userData'
+        // ตั้งเป็นผู้ใช้ที่ login อยู่ (ไม่เก็บ password)
         const currentUserData: UserData = { ...newUserData };
         delete currentUserData.password;
-        localStorage.setItem('userData', JSON.stringify(currentUserData));
+        setCurrentUser(currentUserData);
 
-        window.location.href = 'finish_singup.html'; // Redirect to finish page
+        window.location.href = 'finish_singup.html';
     });
 });
