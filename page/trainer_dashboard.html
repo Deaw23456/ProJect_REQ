@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/style.css" rel="stylesheet">
+    <title>Gym Hub - Trainer Dashboard</title>
+</head>
+<body class="bg-[#181819] text-white min-h-screen p-4 md:p-8 font-sans">
+
+    <nav class="flex justify-between items-center border-b border-gray-800 pb-4 mb-8">
+        <a href="../index.html" class="text-3xl font-bold tracking-tighter">
+            Gym <span class="bg-[#ff8c00] text-black px-1 rounded-md ml-0.5">Hub</span>
+        </a>
+
+        <div class="flex items-center gap-6 relative">
+            <div class="relative">
+                <button id="noti-btn" class="text-xl hover:text-orange-500 transition">🔔</button>
+                <div id="noti-dropdown" class="hidden absolute top-10 right-0 bg-[#2f2f2f] w-64 p-4 rounded-xl shadow-2xl border border-gray-700 z-50">
+                    <h4 class="font-bold border-b border-gray-600 pb-2 mb-2">Notifications</h4>
+                    <p class="text-sm text-gray-400 italic">ไม่มีการแจ้งเตือนใหม่</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 bg-[#2f2f2f] py-1 px-3 rounded-full border border-gray-700">
+                <span class="text-sm font-medium">BallKonlhor_01</span>
+                <button id="logout-btn" class="text-gray-400 hover:text-red-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <div class="lg:col-span-3 space-y-8">
+            <h1 class="text-2xl font-bold">Hello, Trainer</h1>
+
+            <section class="bg-[#1f1f20] border-2 border-orange-500/30 rounded-2xl p-6">
+                <h2 class="text-lg font-semibold mb-4 text-gray-300">Today's Agenda</h2>
+                <div id="agenda-container" class="flex flex-col items-center justify-center py-10 border-2 border-dashed border-gray-700 rounded-xl">
+                    <p class="text-xl text-orange-500 font-bold uppercase tracking-widest">Available</p>
+                    <p class="text-gray-500 text-sm mt-2">คุณยังไม่มีคิวสอนสำหรับวันนี้</p>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button class="group bg-[#1f1f20] p-6 rounded-2xl border border-gray-800 hover:border-orange-500 transition-all text-left">
+                    <div class="text-2xl mb-2">📋</div>
+                    <h3 class="font-bold group-hover:text-orange-500">Manage Program</h3>
+                    <p class="text-xs text-gray-500 mt-1">สร้างคอร์สให้ลูกค้า</p>
+                </button>
+                <button class="group bg-[#1f1f20] p-6 rounded-2xl border border-gray-800 hover:border-orange-500 transition-all text-left">
+                    <div class="text-2xl mb-2">📅</div>
+                    <h3 class="font-bold group-hover:text-orange-500">Availability</h3>
+                    <p class="text-xs text-gray-500 mt-1">ตั้งค่าเวลาว่างของคุณ</p>
+                </button>
+                <button class="group bg-[#1f1f20] p-6 rounded-2xl border border-gray-800 hover:border-orange-500 transition-all text-left">
+                    <div class="text-2xl mb-2">👥</div>
+                    <h3 class="font-bold group-hover:text-orange-500">Client Management</h3>
+                    <p class="text-xs text-gray-500 mt-1">จัดการรายชื่อสมาชิก</p>
+                </button>
+            </div>
+        </div>
+
+        <aside class="bg-[#1f1f20] p-6 rounded-2xl border border-gray-800 h-fit">
+            <h3 class="font-bold mb-6 flex justify-between items-center">
+                Pending Actions
+                <span class="bg-red-500 text-[10px] px-2 py-0.5 rounded-full">2 New</span>
+            </h3>
+            <div class="space-y-4">
+                <div class="bg-[#2a2a2b] p-3 rounded-lg flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-bold">Liam Carter</p>
+                        <p class="text-[10px] text-gray-400">New Booking</p>
+                    </div>
+                    <button class="text-[10px] bg-orange-500 px-2 py-1 rounded">Approve</button>
+                </div>
+                <div class="bg-[#2a2a2b] p-3 rounded-lg flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-bold">Olivia Bennett</p>
+                        <p class="text-[10px] text-gray-400">New Booking</p>
+                    </div>
+                    <button class="text-[10px] bg-orange-500 px-2 py-1 rounded">Approve</button>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <script type="module">
+        // 1. จัดการ Dropdown แจ้งเตือน
+        const notiBtn = document.getElementById('noti-btn');
+        const notiDropdown = document.getElementById('noti-dropdown');
+
+        notiBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notiDropdown?.classList.toggle('hidden');
+        });
+
+        // 2. ปิด Dropdown เมื่อคลิกที่อื่น
+        document.addEventListener('click', () => {
+            notiDropdown?.classList.add('hidden');
+        });
+
+        // 3. ระบบ Logout เบื้องต้น
+        const logoutBtn = document.getElementById('logout-btn');
+        logoutBtn?.addEventListener('click', () => {
+            if(confirm('คุณต้องการออกจากระบบใช่หรือไม่?')) {
+                // สมมติว่าล้าง session แล้วกลับหน้า login
+                window.location.href = './login.html'; 
+            }
+        });
+
+        // 4. ตัวอย่างการเช็ค Agenda (Logic สมมติ)
+        const hasClientToday = false; // ลองเปลี่ยนเป็น true เพื่อดูความต่าง
+        const agendaContainer = document.getElementById('agenda-container');
+
+        if (hasClientToday && agendaContainer) {
+            agendaContainer.innerHTML = `
+                <div class="flex items-center gap-4 w-full px-6">
+                    <div class="w-16 h-16 bg-gray-700 rounded-full overflow-hidden">
+                        <img src="https://via.placeholder.com/150" alt="client">
+                    </div>
+                    <div>
+                        <p class="font-bold text-lg">Client Name_01</p>
+                        <p class="text-orange-500 text-sm italic">10:00 AM - 11:00 AM</p>
+                    </div>
+                    <button class="ml-auto bg-orange-500 text-black px-4 py-1 rounded-lg text-sm font-bold">Next up</button>
+                </div>
+            `;
+            agendaContainer.classList.remove('border-dashed');
+        }
+    </script>
+</body>
+</html>
