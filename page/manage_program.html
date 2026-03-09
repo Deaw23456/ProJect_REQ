@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Hub - Manage Program</title>
+
+    <style>
+        html,
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background: #121213;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        body {
+            display: flex;
+            width: 100vw;
+        }
+
+        .sidebar {
+            width: 320px;
+            background: #181819;
+            border-right: 1px solid #2a2a2a;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .sidebar-header {
+            padding: 30px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .sidebar-title {
+            font-size: 22px;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .new-btn {
+            width: 100%;
+            padding: 16px;
+            background: #ff8c00;
+            border: none;
+            border-radius: 14px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .new-btn:hover {
+            background: white;
+        }
+
+        .template-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .sidebar-item {
+            background: #1f1f20;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .sidebar-item:hover {
+            background: #2a2a2b;
+        }
+
+        .sidebar-item-active {
+            background: #2a2a2b;
+            border-left: 4px solid #ff8c00;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 60px;
+        }
+
+        .page-title {
+            font-size: 64px;
+            font-weight: 900;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .title-line {
+            width: 120px;
+            height: 6px;
+            background: #ff8c00;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .exercise-container {
+            max-width: 900px;
+        }
+
+        .exercise-card {
+            background: #1f1f20;
+            border: 1px solid #2a2a2a;
+            padding: 30px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: 0.2s;
+        }
+
+        .exercise-card:hover {
+            border-color: #ff8c00;
+        }
+
+        .exercise-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            font-size: 32px;
+            font-weight: 900;
+            color: white;
+            outline: none;
+        }
+
+        .exercise-detail {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            color: #ff8c00;
+            font-weight: 700;
+            outline: none;
+        }
+
+        .add-btn {
+            margin-top: 30px;
+            width: 100%;
+            padding: 30px;
+            border: 2px dashed #333;
+            border-radius: 30px;
+            background: transparent;
+            color: #888;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-btn:hover {
+            border-color: #ff8c00;
+            color: #ff8c00;
+        }
+
+        .footer {
+            padding: 25px 60px;
+            background: #181819;
+            border-top: 1px solid #2a2a2a;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .save-btn {
+            background: #ff8c00;
+            border: none;
+            padding: 18px 60px;
+            border-radius: 14px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .save-btn:hover {
+            background: white;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ff8c00;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-title">Your Program</div>
+
+            <button onclick="createNewTemplate()" class="new-btn">
+                + NEW TEMPLATE
+            </button>
+
+        </div>
+
+        <div id="template-list" class="template-list">
+
+            <div onclick="switchProgram(this,'LEG DAY')" class="sidebar-item sidebar-item-active">
+
+                <span>LEG DAY</span>
+
+                <button onclick="event.stopPropagation(); this.parentElement.remove();">
+                    🗑️
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main">
+
+        <div class="content">
+
+            <h1 id="display-title" class="page-title">LEG DAY</h1>
+
+            <div class="title-line"></div>
+
+            <div id="exercise-container" class="exercise-container">
+
+                <div class="exercise-card">
+
+                    <input type="text" value="SQUAT" class="exercise-input" placeholder="Exercise Name" />
+
+                    <input type="text" value="20 reps / 4 sets" class="exercise-detail" placeholder="Sets / Reps" />
+
+                    <button onclick="this.parentElement.remove()">
+                        REMOVE
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button onclick="addExercise()" class="add-btn">
+
+                + Add New Exercise
+
+            </button>
+
+        </div>
+
+
+        <footer class="footer">
+
+            <button class="save-btn">
+
+                Save Template
+
+            </button>
+
+        </footer>
+
+    </main>
+
+
+    <script>
+
+        function createNewTemplate() {
+
+            const name = prompt("Enter Template Name:")
+
+            if (name) {
+
+                const list = document.getElementById("template-list")
+
+                const div = document.createElement("div")
+
+                div.className = "sidebar-item"
+
+                div.onclick = function () {
+                    switchProgram(this, name)
+                }
+
+                div.innerHTML =
+                    `
+<span>${name}</span>
+<button onclick="event.stopPropagation(); this.parentElement.remove();">🗑️</button>
+`
+
+                list.appendChild(div)
+
+                switchProgram(div, name)
+
+            }
+
+        }
+
+        function switchProgram(element, title) {
+
+            document.querySelectorAll(".sidebar-item")
+                .forEach(item => item.classList.remove("sidebar-item-active"))
+
+            element.classList.add("sidebar-item-active")
+
+            document.getElementById("display-title").innerText = title
+
+        }
+
+        function addExercise() {
+
+            const container = document.getElementById("exercise-container")
+
+            const div = document.createElement("div")
+
+            div.className = "exercise-card"
+
+            div.innerHTML =
+
+                `
+<input type="text" placeholder="Exercise Name" class="exercise-input">
+
+<input type="text" placeholder="Sets / Reps" class="exercise-detail">
+
+<button onclick="this.parentElement.remove()">REMOVE</button>
+`
+
+            container.appendChild(div)
+
+        }
+
+    </script>
+
+</body>
+
+</html>

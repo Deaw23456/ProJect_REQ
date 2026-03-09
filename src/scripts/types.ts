@@ -9,7 +9,7 @@ interface UserData {
     fullname?: string;
     age?: number;
     gender?: string;
-    position?: 'member' | 'trainer';
+    position?: 'member' | 'trainer' | 'admin';
     phone?: string;
     weight?: number;
     height?: number;
