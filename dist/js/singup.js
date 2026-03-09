@@ -1,23 +1,22 @@
-"use strict";
 // =============================================
 // Signup Page — Step 1: Account Info
 // =============================================
-document.addEventListener('DOMContentLoaded', () => {
-    const usernameEl = document.getElementById('user_Name');
-    const emailEl = document.getElementById('email');
-    const passwordEl = document.getElementById('pass');
-    const confirmPasswordEl = document.getElementById('confirm_pass');
-    const nextButton = document.getElementById('next-button');
+document.addEventListener('DOMContentLoaded', function () {
+    var usernameEl = document.getElementById('user_Name');
+    var emailEl = document.getElementById('email');
+    var passwordEl = document.getElementById('pass');
+    var confirmPasswordEl = document.getElementById('confirm_pass');
+    var nextButton = document.getElementById('next-button');
     if (nextButton) {
-        nextButton.addEventListener('click', () => {
+        nextButton.addEventListener('click', function () {
             if (!usernameEl || !emailEl || !passwordEl || !confirmPasswordEl) {
                 alert("ไม่พบช่องกรอกข้อมูล กรุณาตรวจสอบอีกครั้ง");
                 return;
             }
-            const username = usernameEl.value;
-            const email = emailEl.value;
-            const password = passwordEl.value;
-            const confirmPassword = confirmPasswordEl.value;
+            var username = usernameEl.value;
+            var email = emailEl.value;
+            var password = passwordEl.value;
+            var confirmPassword = confirmPasswordEl.value;
             if (!username || !email || !password || !confirmPassword) {
                 alert("กรอกข้อมูลให้ครบทุกช่อง");
                 return;
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             // สร้างอ็อบเจ็กต์ข้อมูลผู้ใช้ชั่วคราว
-            const tempUserData = {
+            var tempUserData = {
                 username: username,
                 email: email,
                 password: password
@@ -39,4 +38,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-//# sourceMappingURL=../../data/singup.js.map

@@ -1,8 +1,1 @@
-{
-"version":3,
-"file":"types.js",
-"sourceRoot":"",
-"sources":["../src/scripts/types.ts"],
-"names":[],
-"mappings":";AAAA,gDAAgD;AAChD,mCAAmC;AACnC,gDAAgD"
-}
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../src/scripts/types.ts"],"names":[],"mappings":";AAAA,gDAAgD;AAChD,mCAAmC;AACnC,gDAAgD"}

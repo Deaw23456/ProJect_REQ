@@ -1,17 +1,16 @@
-"use strict";
 // =============================================
 // Shared Navigation Logic — GymHub
 // =============================================
 /** เริ่มต้น navigation bar: toggle guest/user nav, dropdown menu, logout */
 function initNav() {
-    const guestNav = document.getElementById('guest-nav');
-    const userNav = document.getElementById('user-nav');
-    const usernameDisplay = document.getElementById('username-display');
-    const profileBtn = document.getElementById('profile-btn');
-    const dropdownMenu = document.getElementById('dropdown-menu');
-    const logoutBtn = document.getElementById('logout-btn');
-    const navProfileImg = document.getElementById('nav-profile-img');
-    const userData = getCurrentUser();
+    var guestNav = document.getElementById('guest-nav');
+    var userNav = document.getElementById('user-nav');
+    var usernameDisplay = document.getElementById('username-display');
+    var profileBtn = document.getElementById('profile-btn');
+    var dropdownMenu = document.getElementById('dropdown-menu');
+    var logoutBtn = document.getElementById('logout-btn');
+    var navProfileImg = document.getElementById('nav-profile-img');
+    var userData = getCurrentUser();
     if (userData) {
         // User is logged in
         if (guestNav)
@@ -37,13 +36,13 @@ function initNav() {
     }
     // Toggle dropdown menu
     if (profileBtn) {
-        profileBtn.addEventListener('click', () => {
+        profileBtn.addEventListener('click', function () {
             if (dropdownMenu)
                 dropdownMenu.classList.toggle('hidden');
         });
     }
     // Close dropdown if clicked outside
-    window.addEventListener('click', (e) => {
+    window.addEventListener('click', function (e) {
         if (userNav && !userNav.contains(e.target)) {
             if (dropdownMenu)
                 dropdownMenu.classList.add('hidden');
@@ -51,11 +50,10 @@ function initNav() {
     });
     // Logout
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
+        logoutBtn.addEventListener('click', function (e) {
             e.preventDefault();
             removeCurrentUser();
             window.location.href = '/index.html';
         });
     }
 }
-//# sourceMappingURL=../../data/nav.js.map

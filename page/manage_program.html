@@ -7,347 +7,110 @@
 
     <title>Gym Hub - Manage Program</title>
 
-    <style>
-        html,
-        body {
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            background: #121213;
-            font-family: sans-serif;
-            color: white;
-        }
-
-        body {
-            display: flex;
-            width: 100vw;
-        }
-
-        .sidebar {
-            width: 320px;
-            background: #181819;
-            border-right: 1px solid #2a2a2a;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .sidebar-header {
-            padding: 30px;
-            border-bottom: 1px solid #2a2a2a;
-        }
-
-        .sidebar-title {
-            font-size: 22px;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .new-btn {
-            width: 100%;
-            padding: 16px;
-            background: #ff8c00;
-            border: none;
-            border-radius: 14px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .new-btn:hover {
-            background: white;
-        }
-
-        .template-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px;
-        }
-
-        .sidebar-item {
-            background: #1f1f20;
-            padding: 16px;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .sidebar-item:hover {
-            background: #2a2a2b;
-        }
-
-        .sidebar-item-active {
-            background: #2a2a2b;
-            border-left: 4px solid #ff8c00;
-        }
-
-        .main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        .content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 60px;
-        }
-
-        .page-title {
-            font-size: 64px;
-            font-weight: 900;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-
-        .title-line {
-            width: 120px;
-            height: 6px;
-            background: #ff8c00;
-            border-radius: 10px;
-            margin-bottom: 40px;
-        }
-
-        .exercise-container {
-            max-width: 900px;
-        }
-
-        .exercise-card {
-            background: #1f1f20;
-            border: 1px solid #2a2a2a;
-            padding: 30px;
-            border-radius: 30px;
-            margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            transition: 0.2s;
-        }
-
-        .exercise-card:hover {
-            border-color: #ff8c00;
-        }
-
-        .exercise-input {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #333;
-            font-size: 32px;
-            font-weight: 900;
-            color: white;
-            outline: none;
-        }
-
-        .exercise-detail {
-            background: transparent;
-            border: none;
-            font-size: 20px;
-            color: #ff8c00;
-            font-weight: 700;
-            outline: none;
-        }
-
-        .add-btn {
-            margin-top: 30px;
-            width: 100%;
-            padding: 30px;
-            border: 2px dashed #333;
-            border-radius: 30px;
-            background: transparent;
-            color: #888;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .add-btn:hover {
-            border-color: #ff8c00;
-            color: #ff8c00;
-        }
-
-        .footer {
-            padding: 25px 60px;
-            background: #181819;
-            border-top: 1px solid #2a2a2a;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .save-btn {
-            background: #ff8c00;
-            border: none;
-            padding: 18px 60px;
-            border-radius: 14px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .save-btn:hover {
-            background: white;
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #ff8c00;
-            border-radius: 10px;
-        }
-    </style>
+    <link href="../src/style.css" rel="stylesheet">
 </head>
 
-<body>
-
-    <aside class="sidebar">
-
-        <div class="sidebar-header">
-
-            <div class="sidebar-title">Your Program</div>
-
-            <button onclick="createNewTemplate()" class="new-btn">
-                + NEW TEMPLATE
-            </button>
-
-        </div>
-
-        <div id="template-list" class="template-list">
-
-            <div onclick="switchProgram(this,'LEG DAY')" class="sidebar-item sidebar-item-active">
-
-                <span>LEG DAY</span>
-
-                <button onclick="event.stopPropagation(); this.parentElement.remove();">
-                    🗑️
-                </button>
-
+<body class="flex flex-col h-screen bg-[#121213] font-sans text-white">
+    <header class="border-b-2 border-amber-50 pb-4">
+        <nav class="flex items-center justify-between px-6 py-2">
+            <!-- logo -->
+            <div class="flex-shrink-0">
+                <a href="index.html" class="text-white text-4xl font-bold flex">Gym<div
+                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
 
-        </div>
-
-    </aside>
-
-
-    <main class="main">
-
-        <div class="content">
-
-            <h1 id="display-title" class="page-title">LEG DAY</h1>
-
-            <div class="title-line"></div>
-
-            <div id="exercise-container" class="exercise-container">
-
-                <div class="exercise-card">
-
-                    <input type="text" value="SQUAT" class="exercise-input" placeholder="Exercise Name" />
-
-                    <input type="text" value="20 reps / 4 sets" class="exercise-detail" placeholder="Sets / Reps" />
-
-                    <button onclick="this.parentElement.remove()">
-                        REMOVE
+            <!-- login sign up admin -->
+            <div id="guest-nav">
+                <ul class="flex gap-2 font-bold">
+                    <li><a href="/page/singup.html"
+                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-2 py-3">Sing
+                            up</a></li>
+                    <li><a href="/page/login.html"
+                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-5 py-3">Login</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="user-nav"
+                class="hidden relative border-2 border-[#ff8c00] rounded-md px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#ff8c00]/20">
+                <div class="flex items-center gap-2.5">
+                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                        class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                    <button id="profile-btn" type="button" title="Profile menu" class="flex items-center gap-2 text-white font-bold">
+                        <span id="username-display"></span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
                     </button>
-
+                    <div id="dropdown-menu"
+                        class="hidden absolute right-0 top-full mt-2 w-48 bg-[#2d2d2f] rounded-md shadow-lg py-1 z-20 border border-[#4c4c4c]">
+                        <a href="/page/main_profile.html"
+                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">My
+                            Profile</a>
+                        <a href="#" id="logout-btn"
+                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">Logout</a>
+                    </div>
                 </div>
-
             </div>
-
-            <button onclick="addExercise()" class="add-btn">
-
-                + Add New Exercise
-
-            </button>
-
-        </div>
-
-
-        <footer class="footer">
-
-            <button class="save-btn">
-
-                Save Template
-
-            </button>
-
-        </footer>
-
-    </main>
-
-
-    <script>
-
-        function createNewTemplate() {
-
-            const name = prompt("Enter Template Name:")
-
-            if (name) {
-
-                const list = document.getElementById("template-list")
-
-                const div = document.createElement("div")
-
-                div.className = "sidebar-item"
-
-                div.onclick = function () {
-                    switchProgram(this, name)
-                }
-
-                div.innerHTML =
-                    `
-<span>${name}</span>
-<button onclick="event.stopPropagation(); this.parentElement.remove();">🗑️</button>
-`
-
-                list.appendChild(div)
-
-                switchProgram(div, name)
-
-            }
-
-        }
-
-        function switchProgram(element, title) {
-
-            document.querySelectorAll(".sidebar-item")
-                .forEach(item => item.classList.remove("sidebar-item-active"))
-
-            element.classList.add("sidebar-item-active")
-
-            document.getElementById("display-title").innerText = title
-
-        }
-
-        function addExercise() {
-
-            const container = document.getElementById("exercise-container")
-
-            const div = document.createElement("div")
-
-            div.className = "exercise-card"
-
-            div.innerHTML =
-
-                `
-<input type="text" placeholder="Exercise Name" class="exercise-input">
-
-<input type="text" placeholder="Sets / Reps" class="exercise-detail">
-
-<button onclick="this.parentElement.remove()">REMOVE</button>
-`
-
-            container.appendChild(div)
-
-        }
-
-    </script>
+        </nav>
+    </header>
+    <div class="flex flex-1"> <!-- Container for sidebar and main content -->
+        <aside class="w-80 bg-[#181819] border-r border-[#2a2a2a] flex flex-col">
+            <div class="p-[30px] border-b border-[#2a2a2a]">
+                <div class="text-[22px] font-black italic uppercase mb-5">Your Program</div>
+                <button onclick="createNewTemplate()"
+                    class="w-full p-4 bg-[#ff8c00] border-none rounded-[14px] font-black cursor-pointer transition-all duration-200 hover:bg-[#ff8c00]/50">
+                    + NEW TEMPLATE
+                </button>
+            </div>
+            <div id="template-list" class="flex-1 overflow-y-auto p-4">
+                <div onclick="switchProgram(this,'LEG DAY')"
+                    class="sidebar-item bg-[#2a2a2b] border-l-4 border-[#ff8c00] p-4 rounded-xl mb-2.5 flex justify-between items-center cursor-pointer transition-all duration-200 hover:scale-106">
+                    <span>LEG DAY</span>
+                    <button onclick="event.stopPropagation(); this.parentElement.remove();">
+                        <svg class="w-8 h-8 duration-200 hover:scale-110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                            <g id="SVGRepo_iconCarrier"> <path d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+        <main class="flex-1 flex flex-col overflow-y-auto">
+            <div class="flex-1 p-[60px]">
+                <h1 id="display-title" class="text-[64px] font-black italic mb-2.5">LEG DAY</h1>
+                <div class="w-[120px] h-1.5 bg-[#ff8c00] rounded-[10px] mb-10"></div>
+                <div id="exercise-container" class="max-w-[900px]">
+                    <div
+                        class="bg-[#1f1f20] border border-[#2a2a2a] p-30px rounded-[30px] mb-5 flex flex-col gap-5 transition-all duration-200 hover:border-[#ff8c00] p-3">
+                        <input type="text" value="SQUAT"
+                            class="bg-transparent border-b border-[#333] text-[32px] font-black text-white outline-none"
+                            placeholder="Exercise Name" />
+                        <input type="text" value="20 reps / 4 sets"
+                            class="bg-transparent border-none text-xl text-[#ff8c00] font-bold outline-none"
+                            placeholder="Sets / Reps" />
+                        <button onclick="this.parentElement.remove()" class="text-white font-bold py-2 px-4 rounded-md mt-2 self-end hover:text-[#ff8c00]">
+                            REMOVE
+                        </button>
+                    </div>
+                </div>
+                <button onclick="addExercise()"
+                    class="mt-[30px] w-100 p-[30px] border-2 border-dashed border-[#333] rounded-[30px] bg-transparent text-[#888] font-black cursor-pointer transition-all duration-200 hover:border-[#ff8c00] hover:text-[#ff8c00]">
+                    + Add New Exercise
+                </button>
+            </div>
+            <footer class="py-[25px] px-[60px] bg-[#181819] border-t border-[#2a2a2a] flex justify-end">
+                <button
+                    class="bg-[#ff8c00] border-none py-[18px] px-[60px] rounded-[14px] font-black cursor-pointer transition-all duration-200 hover:bg-[#ff8c00]/50">
+                    Save Template
+                </button>
+            </footer>
+        </main>
+    </div>
+    <script src="../dist/js/helpers.js"></script>
+    <script src="../dist/js/nav.js"></script>
+    <script type="module" src="../dist/js/manage_program.js"></script>
 
 </body>
 
