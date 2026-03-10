@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../src/style.css" rel="stylesheet">
+    <title>Gym Hub - Progress Tracker</title>
+    <style>
+        html, body { height: 100vh; margin: 0; overflow: hidden; background-color: #0a0a0b; }
+        .scroll-custom::-webkit-scrollbar { width: 4px; }
+        .scroll-custom::-webkit-scrollbar-thumb { background: #ff8c00; border-radius: 10px; }
+        
+        /* Animation สำหรับตอนติ๊กถูก */
+        .check-pop { animation: pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        @keyframes pop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="text-white font-sans relative overflow-x-hidden">
+
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[20%] w-[300px] h-[300px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-white/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <main class="max-w-3xl mx-auto h-screen flex flex-col relative z-10">
+        
+        <header class="p-6 flex items-center justify-between relative">
+            <a href="trainer_dashboard.html" class="w-10 h-10 bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transition-all border border-white/10">
+                ←
+            </a>
+            <h1 class="absolute left-1/2 -translate-x-1/2 text-[10px] text-[#ff8c00] font-black uppercase tracking-[0.3em]">
+                Progress Tracker
+            </h1>
+            <div class="w-10"></div> </header>
+
+        <div class="flex flex-col items-center mt-2 mb-10">
+            <div class="w-20 h-20 rounded-full border-2 border-[#ff8c00] p-1 shadow-[0_0_15px_rgba(255,140,0,0.4)] mb-3">
+                <img src="../img/pho_member.png" alt="Client" class="w-full h-full rounded-full object-cover">
+            </div>
+            <h2 class="font-bold text-lg tracking-wide">BallKhonlhor_02</h2>
+        </div>
+
+        <div class="flex-1 overflow-y-auto scroll-custom px-6 pb-32">
+            <h3 class="font-bold text-white mb-4">Today's Exercises</h3>
+            
+            <div class="space-y-4" id="exercise-list">
+                <div class="exercise-item bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl flex justify-between items-center cursor-pointer hover:border-[#ff8c00]/50 hover:bg-white/10 transition-all duration-300 shadow-lg" onclick="toggleTask(this)">
+                    <div>
+                        <h4 class="font-bold text-lg text-white">Barbell Squats</h4>
+                        <p class="text-xs text-gray-400 mt-1">3 Sets x 12 Reps</p>
+                    </div>
+                    <div class="checkbox-circle w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center transition-all duration-300">
+                        <svg class="check-icon w-5 h-5 text-white hidden check-pop" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+
+                <div class="exercise-item bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl flex justify-between items-center cursor-pointer hover:border-[#ff8c00]/50 hover:bg-white/10 transition-all duration-300 shadow-lg" onclick="toggleTask(this)">
+                    <div>
+                        <h4 class="font-bold text-lg text-white">Bench Press</h4>
+                        <p class="text-xs text-gray-400 mt-1">3 Sets x 10 Reps</p>
+                    </div>
+                    <div class="checkbox-circle w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center transition-all duration-300">
+                        <svg class="check-icon w-5 h-5 text-white hidden check-pop" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+
+                <div class="exercise-item bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl flex justify-between items-center cursor-pointer hover:border-[#ff8c00]/50 hover:bg-white/10 transition-all duration-300 shadow-lg" onclick="toggleTask(this)">
+                    <div>
+                        <h4 class="font-bold text-lg text-white">Deadlifts</h4>
+                        <p class="text-xs text-gray-400 mt-1">4 Sets x 8 Reps</p>
+                    </div>
+                    <div class="checkbox-circle w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center transition-all duration-300">
+                        <svg class="check-icon w-5 h-5 text-white hidden check-pop" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+                
+                <div class="exercise-item bg-white/5 backdrop-blur-xl border border-white/10 p-5 rounded-2xl flex justify-between items-center cursor-pointer hover:border-[#ff8c00]/50 hover:bg-white/10 transition-all duration-300 shadow-lg" onclick="toggleTask(this)">
+                    <div>
+                        <h4 class="font-bold text-lg text-white">Plank</h4>
+                        <p class="text-xs text-gray-400 mt-1">3 Sets x 60 Seconds</p>
+                    </div>
+                    <div class="checkbox-circle w-8 h-8 rounded-full border-2 border-gray-600 flex items-center justify-center transition-all duration-300">
+                        <svg class="check-icon w-5 h-5 text-white hidden check-pop" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fixed bottom-8 right-8 z-50">
+            <button onclick="finishSession()" class="bg-[#ff8c00] text-white font-bold px-8 py-3 rounded-full flex items-center gap-2 shadow-[0_0_20px_rgba(255,140,0,0.4)] hover:scale-105 hover:bg-white hover:text-black transition-all transform active:scale-95">
+                เสร็จสิ้น 
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        // ฟังก์ชันสำหรับสลับติ๊กถูก (Toggle Checkbox)
+        function toggleTask(element) {
+            const circle = element.querySelector('.checkbox-circle');
+            const icon = element.querySelector('.check-icon');
+
+            if (circle.classList.contains('bg-[#ff8c00]')) {
+                // ถ้ามีสีส้มอยู่แล้ว (คือติ๊กแล้ว) ให้เอาออก
+                circle.classList.remove('bg-[#ff8c00]', 'border-[#ff8c00]');
+                circle.classList.add('border-gray-600');
+                icon.classList.add('hidden');
+            } else {
+                // ถ้ายังไม่ติ๊ก ให้เติมสีส้มและโชว์ไอคอน
+                circle.classList.remove('border-gray-600');
+                circle.classList.add('bg-[#ff8c00]', 'border-[#ff8c00]');
+                icon.classList.remove('hidden');
+            }
+        }
+
+        // ฟังก์ชันจบงาน
+        function finishSession() {
+            // เช็คว่าติ๊กครบไหม (Optional ลูกเล่นเสริม)
+            const totalTasks = document.querySelectorAll('.exercise-item').length;
+            const completedTasks = document.querySelectorAll('.bg-\\[\\#ff8c00\\]').length; // นับกล่องที่เป็นสีส้ม
+
+            if(completedTasks < totalTasks) {
+                if(!confirm(`ลูกค้าทำเสร็จไปแค่ ${completedTasks}/${totalTasks} ท่า คุณต้องการจบการฝึกใช่หรือไม่?`)) {
+                    return; // ถ้ายกเลิก ก็ไม่ต้องเปลี่ยนหน้า
+                }
+            } else {
+                alert("🎉 ยอดเยี่ยม! ลูกค้าทำครบทุกท่าแล้ว บันทึกข้อมูลเรียบร้อย");
+            }
+
+            // เด้งกลับหน้า Dashboard
+            window.location.href = 'trainer_dashboard.html';
+        }
+    </script>
+</body>
+</html>
