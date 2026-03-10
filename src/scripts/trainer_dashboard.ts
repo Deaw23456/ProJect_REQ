@@ -2,6 +2,10 @@
 // Trainer Dashboard Page — Notifications, Logout & Agenda
 // =============================================
 
+// Initialize navigation
+initNav();
+
+
 // 1. จัดการ Dropdown แจ้งเตือน
 const notiBtn = document.getElementById('noti-btn');
 const notiDropdown = document.getElementById('noti-dropdown');

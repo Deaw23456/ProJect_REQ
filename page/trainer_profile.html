@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../src/style.css">
+    <title>Trainer Profile</title>
+</head>
+
+<body class="bg-[#0a0a0b] text-white font-sans flex flex-col h-screen overflow-hidden">
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+    </div>
+
+    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50">
+        <nav class="flex items-center justify-between px-6 py-2">
+            <div class="flex-shrink-0">
+                <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
+                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+            </div>
+
+            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
+                <input type="search" name="search" id="search-input"
+                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
+                    placeholder="Search">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div id="guest-nav">
+                <ul class="flex gap-2 font-bold mt-2">
+                    <li><a href="/page/singup.html"
+                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
+                            up</a></li>
+                    <li><a href="/page/login.html"
+                            class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="user-nav"
+                class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
+                <div class="flex items-center gap-2.5">
+                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                        class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                    <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
+                        <span id="username-display"></span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="dropdown-menu"
+                        class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
+                        <a href="/page/main_profile.html"
+                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My
+                            Profile</a>
+                        <a href="#" id="logout-btn"
+                            class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex flex-1 overflow-hidden p-6 gap-6">
+        <!-- Sidebar -->
+        <aside class="w-72 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl flex flex-col h-full p-6 shrink-0">
+            <div class="flex items-center gap-4 mb-10">
+                <h2 class="text-2xl font-black italic uppercase tracking-tighter">Trainer Menu</h2>
+            </div>
+            <nav class="space-y-2 flex-1">
+                <a href="trainer_dashboard.html" class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:bg-white/10 hover:text-white transition-all font-bold">
+                    <span>Dashboard</span>
+                </a>
+                <a href="trainer_profile.html" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-white transition-all font-bold border-l-4 border-[#ff8c00]">
+                    <span>My Profile</span>
+                </a>
+            </nav>
+            <div class="mt-auto">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-4 mb-2">
+                    <div id="trainer_profile" class="flex items-center">
+                        <img id="trainer-profile-img" src="/img/Image-11 สำเนา.jpg" alt="Trainer Profile" class="w-10 h-10 rounded-full object-cover border-2 border-[#ff8c00]">
+                        <div class="ml-3">
+                            <p id="trainer-profile-name" class="font-bold text-white">Trainer Name</p>
+                            <p id="trainer-profile-position" class="text-xs text-gray-400">Trainer</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="sidebar-logout-btn" class="bg-white/5 border border-white/10 p-3 w-full flex items-center justify-center cursor-pointer rounded-2xl duration-300 transition-all hover:bg-red-100">
+                    <svg class="w-5 h-5 mr-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 12L13 12" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 15L21 12L18 9" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="text-red-400 font-bold ">Logout</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Trainer Profile Content -->
+        <div class="flex-1 overflow-y-auto pr-4">
+            <!-- Cover Photo -->
+            <div class="relative w-full h-64 rounded-3xl overflow-hidden mb-[-80px]">
+                <img id="trainer-bg-img" src="/img/gym%20hub-2%20%E0%B8%AA%E0%B8%B3%E0%B9%80%E0%B8%99%E0%B8%B2.png" alt="Background" class="w-full h-full object-cover brightness-75">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            </div>
+
+            <!-- Profile Header -->
+            <div class="relative flex items-end gap-6 px-8">
+                <div class="w-40 h-40 rounded-full border-4 border-[#ff8c00] bg-[#181819] p-1 overflow-hidden shadow-2xl">
+                    <img id="trainer-main-profile-img" src="/img/Image-11%20%E0%B8%AA%E0%B8%B3%E0%B9%80%E0%B8%99%E0%B8%B2.jpg" alt="Profile" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div>
+                    <h1 id="trainer-display-name" class="text-4xl font-black italic uppercase tracking-tighter">Trainer Name</h1>
+                    <p id="trainer-display-position" class="text-lg font-bold text-[#ff8c00]">Trainer</p>
+                </div>
+            </div>
+            
+            <!-- About Me Section -->
+            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mt-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-lg font-bold text-gray-200 uppercase tracking-widest">About Me</h2>
+                    <span id="trainer-posi-update" class="font-semibold bg-[#ff8c00]/20 text-[#ff8c00] px-3 py-1 rounded-full text-xs">-</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Username</span>
+                        <span id="trainer-show-username" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Full Name</span>
+                        <span id="trainer-show-fullname" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Email</span>
+                        <span id="trainer-show-email" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Phone</span>
+                        <span id="trainer-show-phone" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Age</span>
+                        <span id="trainer-show-age" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Gender</span>
+                        <span id="trainer-show-gender" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Weight</span>
+                        <span id="trainer-show-weight" class="font-semibold">-</span>
+                    </div>
+                    <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Height</span>
+                        <span id="trainer-show-height" class="font-semibold">-</span>
+                    </div>
+                     <div class="flex justify-between border-b border-white/10 py-3">
+                        <span class="text-gray-400">Position</span>
+                        <span id="trainer-show-position" class="font-semibold">-</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="../dist/js/helpers.js"></script>
+    <script src="../dist/js/nav.js"></script>
+    <script src="../dist/js/trainer_profile.js"></script>
+</body>
+
+</html>

@@ -67,4 +67,6 @@ function addExercise() {
 window.createNewTemplate = createNewTemplate;
 window.switchProgram = switchProgram;
 window.addExercise = addExercise;
+// Initialize navigation
+initNav();
 //# sourceMappingURL=../../data/manage_program.js.map

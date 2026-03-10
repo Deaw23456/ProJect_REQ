@@ -23,6 +23,11 @@ function initNav() {
         if (navProfileImg && userData.profileImg) {
             navProfileImg.src = userData.profileImg;
         }
+        // ถ้าเป็น trainer ให้ลิงก์ My Profile ไปที่ trainer_profile
+        const myProfileLink = document.querySelector('#dropdown-menu a[href="/page/main_profile.html"]');
+        if (myProfileLink && userData.position === 'trainer') {
+            myProfileLink.href = '/page/trainer_profile.html';
+        }
     }
     else {
         // User is not logged in
