@@ -98,6 +98,17 @@
 
     </main>
 
+    <div id="success-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0">
+        <div class="bg-white/10 border border-[#ff8c00]/50 p-8 rounded-3xl text-center shadow-[0_0_40px_rgba(255,140,0,0.3)] max-w-sm w-full mx-4 transform scale-90 transition-transform duration-300" id="modal-content">
+            <div class="text-7xl mb-4 animate-bounce">🏆</div>
+            <h2 class="text-2xl font-black text-white uppercase tracking-wider mb-2">Session Complete!</h2>
+            <p class="text-gray-400 text-sm mb-8">บันทึกผลการฝึกของ BallKhonlhor_02 เรียบร้อยแล้ว เยี่ยมมาก!</p>
+            <button onclick="window.location.href='trainer_dashboard.html'" class="w-full bg-[#ff8c00] text-black font-black py-4 rounded-xl hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all transform active:scale-95 uppercase tracking-widest">
+                กลับสู่หน้าหลัก
+            </button>
+        </div>
+    </div>
+
     <script>
         // ฟังก์ชันสำหรับสลับติ๊กถูก (Toggle Checkbox)
         function toggleTask(element) {
@@ -117,22 +128,32 @@
             }
         }
 
-        // ฟังก์ชันจบงาน
+        // ฟังก์ชันจบงาน (อัปเดตใหม่)
         function finishSession() {
-            // เช็คว่าติ๊กครบไหม (Optional ลูกเล่นเสริม)
             const totalTasks = document.querySelectorAll('.exercise-item').length;
-            const completedTasks = document.querySelectorAll('.bg-\\[\\#ff8c00\\]').length; // นับกล่องที่เป็นสีส้ม
+            const completedTasks = document.querySelectorAll('.bg-\\[\\#ff8c00\\]').length;
 
             if(completedTasks < totalTasks) {
+                // ถ้ายังทำไม่ครบ ใช้ confirm ดักไว้ก่อน
                 if(!confirm(`ลูกค้าทำเสร็จไปแค่ ${completedTasks}/${totalTasks} ท่า คุณต้องการจบการฝึกใช่หรือไม่?`)) {
-                    return; // ถ้ายกเลิก ก็ไม่ต้องเปลี่ยนหน้า
+                    return; 
                 }
-            } else {
-                alert("🎉 ยอดเยี่ยม! ลูกค้าทำครบทุกท่าแล้ว บันทึกข้อมูลเรียบร้อย");
             }
 
-            // เด้งกลับหน้า Dashboard
-            window.location.href = 'trainer_dashboard.html';
+            // ถ้าทำครบ (หรือกดยืนยันแล้ว) ให้โชว์ Modal แทน alert
+            const modal = document.getElementById('success-modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            // แสดง Modal
+            modal.classList.remove('hidden');
+            
+            // ใส่ Timeout เล็กน้อยเพื่อให้ Animation ทำงานลื่นไหล
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                modalContent.classList.remove('scale-90');
+                modalContent.classList.add('scale-100');
+            }, 10);
         }
     </script>
 </body>

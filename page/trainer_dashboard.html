@@ -85,11 +85,26 @@
                     <span class="w-2 h-2 rounded-full bg-[#ff8c00] animate-pulse"></span> Today's Agenda
                 </h2>
                 <div id="agenda-container"
-                    class="flex flex-col items-center justify-center py-12 bg-white/5 border border-white/10 border-dashed rounded-2xl group-hover:border-[#ff8c00]/50 transition-colors">
-                    <p
-                        class="text-2xl text-[#ff8c00] font-black uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(255,140,0,0.5)]">
-                        Available</p>
-                    <p class="text-gray-400 text-sm mt-3">คุณยังไม่มีคิวสอนสำหรับวันนี้</p>
+                    class="relative flex items-center gap-6 p-6 bg-white/5 border border-white/10 rounded-2xl group-hover:border-[#ff8c00]/50 transition-colors shadow-lg overflow-hidden">
+                    
+                    <div class="absolute top-1/2 left-10 -translate-y-1/2 w-24 h-24 bg-[#ff8c00]/30 blur-2xl rounded-full pointer-events-none"></div>
+
+                    <div class="w-20 h-20 rounded-full border-2 border-[#ff8c00] p-1 shadow-[0_0_15px_rgba(255,140,0,0.4)] shrink-0 z-10 bg-[#121212]">
+                        <img src="../img/pho_member.png" alt="Client" class="w-full h-full rounded-full object-cover">
+                    </div>
+
+                    <div class="flex-1 z-10">
+                        <p class="text-[10px] text-[#ff8c00] font-black uppercase tracking-widest mb-1">10:00 AM - 11:00 AM</p>
+                        <h3 class="text-2xl font-black text-white tracking-wide">Liam Carter</h3>
+                        <p class="text-sm text-gray-400 mt-1">Goal: Fat Loss • Level: Beginner</p>
+                    </div>
+
+                    <div class="shrink-0 z-10">
+                        <button onclick="window.location.href='assign_program.html'" 
+                            class="bg-[#ff8c00] text-black font-black px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(255,140,0,0.3)] hover:bg-white hover:shadow-[0_0_20px_rgba(255,255,255,0.5)] transition-all transform hover:scale-105 active:scale-95 uppercase tracking-wide text-sm flex items-center gap-2">
+                            Next <span>→</span>
+                        </button>
+                    </div>
                 </div>
             </section>
 
