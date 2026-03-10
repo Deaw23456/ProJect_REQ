@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-400: oklch(70.4% 0.191 22.216);
     --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-600: oklch(57.7% 0.245 27.325);
     --color-orange-400: oklch(75% 0.183 55.934);
@@ -254,6 +253,7 @@
   .start {
     inset-inline-start: var(--spacing);
   }
+<<<<<<< Updated upstream
   .top-0 {
     top: calc(var(--spacing) * 0);
   }
@@ -269,6 +269,11 @@
   .top-\[40\%\] {
     top: 40%;
   }
+=======
+  .top-1\/2 {
+    top: calc(1 / 2 * 100%);
+  }
+>>>>>>> Stashed changes
   .top-full {
     top: 100%;
   }
@@ -287,12 +292,15 @@
   .bottom-0 {
     bottom: calc(var(--spacing) * 0);
   }
+<<<<<<< Updated upstream
   .bottom-\[-10\%\] {
     bottom: -10%;
   }
   .left-1 {
     left: calc(var(--spacing) * 1);
   }
+=======
+>>>>>>> Stashed changes
   .left-1\/2 {
     left: calc(1 / 2 * 100%);
   }
@@ -392,9 +400,6 @@
   .mt-\[30px\] {
     margin-top: 30px;
   }
-  .mr-1 {
-    margin-right: calc(var(--spacing) * 1);
-  }
   .mr-1\.5 {
     margin-right: calc(var(--spacing) * 1.5);
   }
@@ -434,9 +439,6 @@
   .mb-10 {
     margin-bottom: calc(var(--spacing) * 10);
   }
-  .ml-0 {
-    margin-left: calc(var(--spacing) * 0);
-  }
   .ml-0\.5 {
     margin-left: calc(var(--spacing) * 0.5);
   }
@@ -467,17 +469,8 @@
   .hidden {
     display: none;
   }
-  .table {
-    display: table;
-  }
-  .h-0 {
-    height: calc(var(--spacing) * 0);
-  }
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
-  }
-  .h-1 {
-    height: calc(var(--spacing) * 1);
   }
   .h-1\.5 {
     height: calc(var(--spacing) * 1.5);
@@ -626,9 +619,12 @@
   .w-60 {
     width: calc(var(--spacing) * 60);
   }
+<<<<<<< Updated upstream
   .w-72 {
     width: calc(var(--spacing) * 72);
   }
+=======
+>>>>>>> Stashed changes
   .w-80 {
     width: calc(var(--spacing) * 80);
   }
@@ -656,9 +652,12 @@
   .w-full {
     width: 100%;
   }
+<<<<<<< Updated upstream
   .max-w-4xl {
     max-width: var(--container-4xl);
   }
+=======
+>>>>>>> Stashed changes
   .max-w-5xl {
     max-width: var(--container-5xl);
   }
@@ -683,15 +682,13 @@
   .flex-1 {
     flex: 1;
   }
-  .flex-shrink {
-    flex-shrink: 1;
-  }
   .flex-shrink-0 {
     flex-shrink: 0;
   }
   .shrink-0 {
     flex-shrink: 0;
   }
+<<<<<<< Updated upstream
   .border-collapse {
     border-collapse: collapse;
   }
@@ -702,12 +699,10 @@
     --tw-translate-x: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
+=======
+>>>>>>> Stashed changes
   .-translate-x-1\/2 {
     --tw-translate-x: calc(calc(1 / 2 * 100%) * -1);
-    translate: var(--tw-translate-x) var(--tw-translate-y);
-  }
-  .-translate-y-1 {
-    --tw-translate-y: calc(var(--spacing) * -1);
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
   .-translate-y-1\/2 {
@@ -737,9 +732,6 @@
   }
   .cursor-pointer {
     cursor: pointer;
-  }
-  .resize {
-    resize: both;
   }
   .snap-x {
     scroll-snap-type: x var(--tw-scroll-snap-strictness);
@@ -965,6 +957,7 @@
   .border-\[\#333\] {
     border-color: #333;
   }
+<<<<<<< Updated upstream
   .border-\[\#FF6600\] {
     border-color: #FF6600;
   }
@@ -974,6 +967,11 @@
   .border-\[\#ff8c00\]\/50 {
     border-color: color-mix(in oklab, #ff8c00 50%, transparent);
   }
+=======
+  .border-\[\#ff8c00\] {
+    border-color: #ff8c00;
+  }
+>>>>>>> Stashed changes
   .border-amber-50 {
     border-color: var(--color-amber-50);
   }
@@ -982,9 +980,6 @@
   }
   .border-gray-800 {
     border-color: var(--color-gray-800);
-  }
-  .border-orange-500 {
-    border-color: var(--color-orange-500);
   }
   .border-orange-500\/30 {
     border-color: color-mix(in srgb, oklch(70.5% 0.213 47.604) 30%, transparent);
@@ -1127,6 +1122,7 @@
   .bg-red-500 {
     background-color: var(--color-red-500);
   }
+<<<<<<< Updated upstream
   .bg-red-500\/20 {
     background-color: color-mix(in srgb, oklch(63.7% 0.237 25.331) 20%, transparent);
     @supports (color: color-mix(in lab, red, red)) {
@@ -1139,6 +1135,8 @@
       background-color: color-mix(in oklab, var(--color-red-500) 80%, transparent);
     }
   }
+=======
+>>>>>>> Stashed changes
   .bg-transparent {
     background-color: transparent;
   }
@@ -1201,9 +1199,12 @@
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
+<<<<<<< Updated upstream
   .p-12 {
     padding: calc(var(--spacing) * 12);
   }
+=======
+>>>>>>> Stashed changes
   .p-\[30px\] {
     padding: 30px;
   }
@@ -1239,9 +1240,6 @@
   }
   .px-\[60px\] {
     padding-inline: 60px;
-  }
-  .py-0 {
-    padding-block: calc(var(--spacing) * 0);
   }
   .py-0\.5 {
     padding-block: calc(var(--spacing) * 0.5);
@@ -1287,9 +1285,6 @@
   }
   .pr-10 {
     padding-right: calc(var(--spacing) * 10);
-  }
-  .pb-2 {
-    padding-bottom: calc(var(--spacing) * 2);
   }
   .pb-4 {
     padding-bottom: calc(var(--spacing) * 4);
@@ -1401,6 +1396,7 @@
     --tw-tracking: var(--tracking-normal);
     letter-spacing: var(--tracking-normal);
   }
+<<<<<<< Updated upstream
   .tracking-tight {
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
@@ -1413,6 +1409,8 @@
     --tw-tracking: var(--tracking-wide);
     letter-spacing: var(--tracking-wide);
   }
+=======
+>>>>>>> Stashed changes
   .tracking-widest {
     --tw-tracking: var(--tracking-widest);
     letter-spacing: var(--tracking-widest);
@@ -1477,9 +1475,6 @@
   .italic {
     font-style: italic;
   }
-  .underline {
-    text-decoration-line: underline;
-  }
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -1498,6 +1493,7 @@
   .opacity-30 {
     opacity: 30%;
   }
+<<<<<<< Updated upstream
   .shadow-2xl {
     --tw-shadow: 0 25px 50px -12px var(--tw-shadow-color, rgb(0 0 0 / 0.25));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1538,6 +1534,8 @@
     --tw-shadow: 0 8px 32px 0 var(--tw-shadow-color, rgba(0,0,0,0.3));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+=======
+>>>>>>> Stashed changes
   .shadow-lg {
     --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
@@ -1572,6 +1570,7 @@
       --tw-shadow-color: color-mix(in oklab, #ff8c00 var(--tw-shadow-alpha), transparent);
     }
   }
+<<<<<<< Updated upstream
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
@@ -1596,6 +1595,8 @@
     --tw-blur: blur(150px);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
+=======
+>>>>>>> Stashed changes
   .brightness-50 {
     --tw-brightness: brightness(50%);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -1647,11 +1648,14 @@
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+<<<<<<< Updated upstream
   .transition-transform {
     transition-property: transform, translate, scale, rotate;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
   }
+=======
+>>>>>>> Stashed changes
   .duration-200 {
     --tw-duration: 200ms;
     transition-duration: 200ms;
@@ -1709,6 +1713,7 @@
       }
     }
   }
+<<<<<<< Updated upstream
   .hover\:-translate-y-1 {
     &:hover {
       @media (hover: hover) {
@@ -1717,6 +1722,8 @@
       }
     }
   }
+=======
+>>>>>>> Stashed changes
   .hover\:scale-104 {
     &:hover {
       @media (hover: hover) {
@@ -1765,6 +1772,7 @@
       }
     }
   }
+<<<<<<< Updated upstream
   .hover\:border-\[\#FF6600\]\/50 {
     &:hover {
       @media (hover: hover) {
@@ -1772,6 +1780,8 @@
       }
     }
   }
+=======
+>>>>>>> Stashed changes
   .hover\:border-\[\#ff8c00\] {
     &:hover {
       @media (hover: hover) {
@@ -1779,6 +1789,7 @@
       }
     }
   }
+<<<<<<< Updated upstream
   .hover\:border-\[\#ff8c00\]\/50 {
     &:hover {
       @media (hover: hover) {
@@ -1803,6 +1814,8 @@
       }
     }
   }
+=======
+>>>>>>> Stashed changes
   .hover\:bg-\[\#2a2a2b\] {
     &:hover {
       @media (hover: hover) {
@@ -1873,6 +1886,7 @@
       }
     }
   }
+<<<<<<< Updated upstream
   .hover\:bg-gray-700 {
     &:hover {
       @media (hover: hover) {
@@ -1887,6 +1901,8 @@
       }
     }
   }
+=======
+>>>>>>> Stashed changes
   .hover\:bg-white {
     &:hover {
       @media (hover: hover) {
@@ -1894,6 +1910,7 @@
       }
     }
   }
+<<<<<<< Updated upstream
   .hover\:bg-white\/10 {
     &:hover {
       @media (hover: hover) {
@@ -1904,6 +1921,8 @@
       }
     }
   }
+=======
+>>>>>>> Stashed changes
   .hover\:text-\[\#ff8c00\] {
     &:hover {
       @media (hover: hover) {
@@ -1918,6 +1937,7 @@
       }
     }
   }
+<<<<<<< Updated upstream
   .hover\:text-red-500 {
     &:hover {
       @media (hover: hover) {
@@ -1925,6 +1945,8 @@
       }
     }
   }
+=======
+>>>>>>> Stashed changes
   .hover\:text-white {
     &:hover {
       @media (hover: hover) {
@@ -2333,11 +2355,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
-}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -2481,7 +2498,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
