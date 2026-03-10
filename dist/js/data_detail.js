@@ -56,7 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentUserData = { ...newUserData };
         delete currentUserData.password;
         setCurrentUser(currentUserData);
-        window.location.href = 'finish_singup.html';
+        // Redirect based on position
+        if (newUserData.position === 'trainer') {
+            window.location.href = 'trainer_profile.html';
+        }
+        else {
+            window.location.href = 'finish_singup.html';
+        }
     });
 });
 //# sourceMappingURL=../../data/data_detail.js.map

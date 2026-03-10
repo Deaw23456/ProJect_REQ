@@ -1,49 +1,41 @@
 "use strict";
 // =============================================
-// Login Page
+// Login Page Logic — GymHub
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
-    const usernameEl = document.getElementById('userName');
-    const passwordEl = document.getElementById('pass');
     const loginButton = document.getElementById('login-button');
-    if (!usernameEl || !passwordEl || !loginButton) {
-        console.error("Login elements not found.");
+    const usernameInput = document.getElementById('userName');
+    const passwordInput = document.getElementById('pass');
+    if (!loginButton || !usernameInput || !passwordInput) {
+        console.error('Login form elements not found!');
         return;
     }
-    loginButton.addEventListener('click', (event) => {
-        event.preventDefault();
-        const username = usernameEl.value.trim();
-        const password = passwordEl.value.trim();
+    loginButton.addEventListener('click', () => {
+        const username = usernameInput.value.trim();
+        const password = passwordInput.value.trim();
         if (!username || !password) {
-            alert("กรุณากรอกชื่อผู้ใช้และรหัสผ่าน");
+            alert('Please enter both username and password.');
             return;
         }
-        // ===== Admin Login =====
-        if (username === 'admin' && password === 'admin1234') {
-            const adminUser = {
-                username: 'admin',
-                email: 'admin@gymhub.com',
-                position: 'admin',
-                fullname: 'Administrator'
-            };
-            setCurrentUser(adminUser);
-            alert("เข้าสู่ระบบสำเร็จ! (Admin)");
-            window.location.href = 'page/admin_page.html';
-            return;
-        }
-        // ===== Regular User Login =====
         const registeredUsers = getRegisteredUsers();
         const foundUser = registeredUsers.find(user => user.username === username && user.password === password);
         if (foundUser) {
-            // Store current user (exclude password)
+            // Login successful
             const currentUserData = { ...foundUser };
-            delete currentUserData.password;
+            delete currentUserData.password; // Don't store password in current session
             setCurrentUser(currentUserData);
-            alert("เข้าสู่ระบบสำเร็จ!");
-            window.location.href = '/index.html';
+            alert(`Welcome back, ${foundUser.username}!`);
+            // Redirect based on position
+            if (foundUser.position === 'trainer') {
+                window.location.href = 'trainer_profile.html';
+            }
+            else {
+                window.location.href = '/index.html';
+            }
         }
         else {
-            alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+            // Login failed
+            alert('Invalid username or password.');
         }
     });
 });

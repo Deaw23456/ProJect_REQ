@@ -78,3 +78,6 @@ function addExercise(): void {
 (window as any).createNewTemplate = createNewTemplate;
 (window as any).switchProgram = switchProgram;
 (window as any).addExercise = addExercise;
+
+// Initialize navigation
+initNav();
