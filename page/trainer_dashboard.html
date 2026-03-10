@@ -11,21 +11,24 @@
 <body class="bg-[#0a0a0b] text-white min-h-screen font-sans relative overflow-x-hidden">
 
     <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full">
+        </div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full">
+        </div>
         <div class="absolute top-[40%] left-[50%] w-[300px] h-[300px] bg-white/5 blur-[80px] rounded-full"></div>
     </div>
 
     <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50">
         <nav class="flex items-center justify-between px-6 py-2">
             <div class="flex-shrink-0">
-                <a href="index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
+                <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
                         class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
-            
+
             <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
                 <input type="search" name="search" id="search-input"
-                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm" placeholder="Search">
+                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
+                    placeholder="Search">
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -37,7 +40,8 @@
             <div id="guest-nav">
                 <ul class="flex gap-2 font-bold mt-2">
                     <li><a href="/page/singup.html"
-                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign up</a></li>
+                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
+                            up</a></li>
                     <li><a href="/page/login.html"
                             class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
                     </li>
@@ -52,13 +56,15 @@
                     <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
                         <span id="username-display"></span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
                     <div id="dropdown-menu"
                         class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
                         <a href="/page/main_profile.html"
-                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My Profile</a>
+                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My
+                            Profile</a>
                         <a href="#" id="logout-btn"
                             class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors">Logout</a>
                     </div>
@@ -70,15 +76,19 @@
     <main class="grid grid-cols-1 lg:grid-cols-4 gap-8 p-6 max-w-7xl mx-auto z-10 relative">
 
         <div class="lg:col-span-3 space-y-8">
-            <h1 class="text-3xl font-black italic tracking-tight">Hello, Trainer <span class="text-[#ff8c00]">!</span></h1>
+            <h1 class="text-3xl font-black italic tracking-tight">Hello, Trainer <span class="text-[#ff8c00]">!</span>
+            </h1>
 
-            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,140,0,0.15)] hover:border-[#ff8c00]/50 group">
+            <section
+                class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(255,140,0,0.15)] hover:border-[#ff8c00]/50 group">
                 <h2 class="text-lg font-bold mb-6 text-gray-200 uppercase tracking-widest flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-[#ff8c00] animate-pulse"></span> Today's Agenda
                 </h2>
                 <div id="agenda-container"
                     class="flex flex-col items-center justify-center py-12 bg-white/5 border border-white/10 border-dashed rounded-2xl group-hover:border-[#ff8c00]/50 transition-colors">
-                    <p class="text-2xl text-[#ff8c00] font-black uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(255,140,0,0.5)]">Available</p>
+                    <p
+                        class="text-2xl text-[#ff8c00] font-black uppercase tracking-[0.2em] drop-shadow-[0_0_10px_rgba(255,140,0,0.5)]">
+                        Available</p>
                     <p class="text-gray-400 text-sm mt-3">คุณยังไม่มีคิวสอนสำหรับวันนี้</p>
                 </div>
             </section>
@@ -87,51 +97,46 @@
                 <button onclick="window.location.href='manage_program.html'"
                     class="group bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-[#ff8c00] hover:shadow-[0_10px_20px_rgba(255,140,0,0.1)] transition-all duration-300 text-left hover:-translate-y-1">
                     <div class="text-3xl mb-4 group-hover:scale-110 transition-transform origin-left">📋</div>
-                    <h3 class="font-black text-lg text-gray-200 group-hover:text-[#ff8c00] transition-colors">Manage Program</h3>
+                    <h3 class="font-black text-lg text-gray-200 group-hover:text-[#ff8c00] transition-colors">Manage
+                        Program</h3>
                     <p class="text-xs text-gray-400 mt-2">สร้างคอร์สให้ลูกค้า</p>
                 </button>
 
                 <button onclick="window.location.href='availability.html'"
                     class="group bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-[#ff8c00] hover:shadow-[0_10px_20px_rgba(255,140,0,0.1)] transition-all duration-300 text-left hover:-translate-y-1">
                     <div class="text-3xl mb-4 group-hover:scale-110 transition-transform origin-left">📅</div>
-                    <h3 class="font-black text-lg text-gray-200 group-hover:text-[#ff8c00] transition-colors">Availability</h3>
+                    <h3 class="font-black text-lg text-gray-200 group-hover:text-[#ff8c00] transition-colors">
+                        Availability</h3>
                     <p class="text-xs text-gray-400 mt-2">ตั้งค่าเวลาว่างของคุณ</p>
                 </button>
 
                 <button onclick="window.location.href='client_management.html'"
                     class="group bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 hover:bg-white/10 hover:border-[#ff8c00] hover:shadow-[0_10px_20px_rgba(255,140,0,0.1)] transition-all duration-300 text-left hover:-translate-y-1">
                     <div class="text-3xl mb-4 group-hover:scale-110 transition-transform origin-left">👥</div>
-                    <h3 class="font-black text-lg text-gray-200 group-hover:text-[#ff8c00] transition-colors">Clients</h3>
+                    <h3 class="font-black text-lg text-gray-200 group-hover:text-[#ff8c00] transition-colors">Clients
+                    </h3>
                     <p class="text-xs text-gray-400 mt-2">จัดการรายชื่อสมาชิก</p>
                 </button>
             </div>
         </div>
 
-        <aside class="bg-white/5 backdrop-blur-xl p-6 rounded-3xl border border-white/10 h-fit shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-[#ff8c00]/10 blur-3xl rounded-full pointer-events-none"></div>
-            
+        <aside
+            class="bg-white/5 backdrop-blur-xl p-6 rounded-3xl border border-white/10 h-fit shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-[#ff8c00]/10 blur-3xl rounded-full pointer-events-none">
+            </div>
+
             <h3 class="font-black mb-8 flex justify-between items-center text-lg">
                 Pending Actions
-                <span class="bg-red-500/20 text-red-500 border border-red-500/50 text-xs px-3 py-1 rounded-full animate-pulse">2 New</span>
+                <span id="pending-count"
+                    class="bg-red-500/20 text-red-500 border border-red-500/50 text-xs px-3 py-1 rounded-full animate-pulse">0
+                    New</span>
             </h3>
-            
-            <div class="space-y-4">
-                <div class="bg-white/5 border border-white/5 p-4 rounded-2xl flex justify-between items-center transition-all duration-300 cursor-pointer hover:border-[#ff8c00]/50 hover:bg-white/10 hover:shadow-lg">
-                    <div>
-                        <p class="text-md font-bold text-white">Liam Carter</p>
-                        <p class="text-xs text-[#ff8c00]">New Booking</p>
-                    </div>
-                    <button class="bg-[#ff8c00] text-black font-bold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white shadow-[0_0_10px_rgba(255,140,0,0.3)]">Approve</button>
-                </div>
-                
-                <div class="bg-white/5 border border-white/5 p-4 rounded-2xl flex justify-between items-center transition-all duration-300 cursor-pointer hover:border-[#ff8c00]/50 hover:bg-white/10 hover:shadow-lg">
-                    <div>
-                        <p class="text-md font-bold text-white">Olivia Bennett</p>
-                        <p class="text-xs text-[#ff8c00]">New Booking</p>
-                    </div>
-                    <button class="bg-[#ff8c00] text-black font-bold px-4 py-2 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-white shadow-[0_0_10px_rgba(255,140,0,0.3)]">Approve</button>
-                </div>
+
+            <div id="member-list-container" class="space-y-4">
+                <!-- member cards will be injected here by JS -->
             </div>
+            <p id="no-members-msg" class="text-gray-500 text-sm text-center py-4">ยังไม่มี member ที่รอการอนุมัติ</p>
+
         </aside>
 
     </main>
@@ -141,4 +146,5 @@
     <script type="module" src="../dist/js/trainer_dashboard.js"></script>
 
 </body>
+
 </html>

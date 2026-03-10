@@ -1,60 +1,62 @@
+"use strict";
 // =============================================
 // Data Detail Page — Step 2: Personal Info
 // =============================================
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-document.addEventListener('DOMContentLoaded', function () {
-    var fullnameInput = document.getElementById('fullname');
-    var ageInput = document.getElementById('age');
-    var genderSelect = document.getElementById('gender');
-    var positionSelect = document.getElementById('position');
-    var phoneInput = document.getElementById('phone');
-    var weightInput = document.getElementById('weight');
-    var heightInput = document.getElementById('height');
-    var submitButton = document.getElementById('submit-details-button');
+document.addEventListener('DOMContentLoaded', () => {
+    const fullnameInput = document.getElementById('fullname');
+    const ageInput = document.getElementById('age');
+    const genderSelect = document.getElementById('gender');
+    const positionSelect = document.getElementById('position');
+    const phoneInput = document.getElementById('phone');
+    const weightInput = document.getElementById('weight');
+    const heightInput = document.getElementById('height');
+    const submitButton = document.getElementById('submit-details-button');
     if (!fullnameInput || !ageInput || !genderSelect || !positionSelect || !phoneInput || !weightInput || !heightInput || !submitButton) {
         console.error("Data detail elements not found.");
         return;
     }
-    submitButton.addEventListener('click', function (event) {
+    submitButton.addEventListener('click', (event) => {
         event.preventDefault();
-        var fullname = fullnameInput.value.trim();
-        var age = parseInt(ageInput.value.trim());
-        var gender = genderSelect.value;
-        var position = positionSelect.value;
-        var phone = phoneInput.value.trim();
-        var weight = parseFloat(weightInput.value.trim());
-        var height = parseFloat(heightInput.value.trim());
+        const fullname = fullnameInput.value.trim();
+        const age = parseInt(ageInput.value.trim());
+        const gender = genderSelect.value;
+        const position = positionSelect.value;
+        const phone = phoneInput.value.trim();
+        const weight = parseFloat(weightInput.value.trim());
+        const height = parseFloat(heightInput.value.trim());
         if (!fullname || isNaN(age) || !gender || !position || !phone || isNaN(weight) || isNaN(height)) {
             alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
             return;
         }
-        var tempSignupDataString = localStorage.getItem('temp_signup');
+        const tempSignupDataString = localStorage.getItem('temp_signup');
         if (!tempSignupDataString) {
             alert("ไม่พบข้อมูลการลงทะเบียนชั่วคราว กรุณาลงทะเบียนใหม่");
             window.location.href = 'singup.html';
             return;
         }
-        var tempSignupData = JSON.parse(tempSignupDataString);
-        var newUserData = __assign(__assign({}, tempSignupData), { fullname: fullname, age: age, gender: gender, position: position, phone: phone, weight: weight, height: height, profileImg: DEFAULT_PROFILE_IMG, profileBackgroundImg: DEFAULT_BG_IMG });
+        const tempSignupData = JSON.parse(tempSignupDataString);
+        const newUserData = {
+            ...tempSignupData,
+            fullname,
+            age,
+            gender,
+            position,
+            phone,
+            weight,
+            height,
+            profileImg: DEFAULT_PROFILE_IMG,
+            profileBackgroundImg: DEFAULT_BG_IMG
+        };
         // บันทึกลง registeredUsers
-        var registeredUsers = getRegisteredUsers();
+        const registeredUsers = getRegisteredUsers();
         registeredUsers.push(newUserData);
         saveRegisteredUsers(registeredUsers);
         localStorage.removeItem('temp_signup');
         // ตั้งเป็นผู้ใช้ที่ login อยู่ (ไม่เก็บ password)
-        var currentUserData = __assign({}, newUserData);
+        const currentUserData = { ...newUserData };
         delete currentUserData.password;
         setCurrentUser(currentUserData);
         window.location.href = 'finish_singup.html';
     });
 });
+//# sourceMappingURL=../../data/data_detail.js.map
