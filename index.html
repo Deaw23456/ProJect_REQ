@@ -9,18 +9,17 @@
 </head>
 
 <body class="bg-[#181819]">
-    <header class="border-b-2 border-amber-50 pb-4">
+    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50 items-center">
         <nav class="flex items-center justify-between px-6 py-2">
-            <!-- logo -->
             <div class="flex-shrink-0">
-                <a href="index.html" class="text-white text-4xl font-bold flex">Gym<div
+                <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
                         class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
-            </div>
-            <!-- search_bar -->
-            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5 hover:shadow-lg">
+
+            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
                 <input type="search" name="search" id="search-input"
-                    class="block w-full p-2 pr-10 text-white bg-[#2f2f2f] rounded-xl" placeholder="Search">
+                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
+                    placeholder="Search">
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,23 +28,23 @@
                 </div>
             </div>
 
-            <!-- login sign up admin -->
             <div id="guest-nav">
-                <ul class="flex gap-2 font-bold">
+                <ul class="flex gap-2 font-bold mt-2">
                     <li><a href="/page/singup.html"
-                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-2 py-3">Sing
+                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
                             up</a></li>
                     <li><a href="/page/login.html"
-                            class="text-white hover:shadow-2xl shadow-[#ff8c00] border-2 border-[#ff8c00] rounded-md px-5 py-3">Login</a>
+                            class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
                     </li>
                 </ul>
             </div>
+
             <div id="user-nav"
-                class="hidden relative border-2 border-[#ff8c00] rounded-md px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:shadow-xl hover:shadow-[#ff8c00]/20">
+                class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
                 <div class="flex items-center gap-2.5">
                     <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
                         class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
-                    <button id="profile-btn" type="button" title="Profile menu" class="flex items-center gap-2 text-white font-bold">
+                    <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
                         <span id="username-display"></span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
@@ -53,12 +52,12 @@
                         </svg>
                     </button>
                     <div id="dropdown-menu"
-                        class="hidden absolute right-0 top-full mt-2 w-48 bg-[#2d2d2f] rounded-md shadow-lg py-1 z-20 border border-[#4c4c4c]">
+                        class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
                         <a href="/page/main_profile.html"
-                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">My
+                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors rounded-lg">My
                             Profile</a>
                         <a href="#" id="logout-btn"
-                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors duration-300">Logout</a>
+                            class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors rounded-lg">Logout</a>
                     </div>
                 </div>
             </div>
