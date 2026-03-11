@@ -30,10 +30,10 @@
 
             <div id="guest-nav">
                 <ul class="flex gap-2 font-bold mt-2">
-                    <li><a href="/page/singup.html"
+                    <li><a href="./singup.html"
                             class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
                             up</a></li>
-                    <li><a href="/page/login.html"
+                    <li><a href="./login.html"
                             class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
                     </li>
                 </ul>
@@ -42,7 +42,7 @@
             <div id="user-nav"
                 class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
                 <div class="flex items-center gap-2.5">
-                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                    <img id="nav-profile-img" src="../img/Image-11 สำเนา.jpg" alt="User"
                         class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
                     <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
                         <span id="username-display"></span>
@@ -53,7 +53,7 @@
                     </button>
                     <div id="dropdown-menu"
                         class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
-                        <a href="/page/main_profile.html"
+                        <a href="./main_profile.html"
                             class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My
                             Profile</a>
                         <a href="#" id="logout-btn"
@@ -66,10 +66,10 @@
     <main>
         <div class="relative w-full h-64 bg-gray-700 rounded-lg">
             <!-- Profile Background Image -->
-            <img src="/img/gym hub-2 สำเนา.png" alt="" class="w-full h-70 object-cover brightness-50">
+            <img src="../img/gym hub-2 สำเนา.png" alt="" class="w-full h-70 object-cover brightness-50">
             <!-- Profile Image -->
             <div class="absolute -bottom-18 left-1/2 transform -translate-x-1/2">
-                <img id="profileImg" src="/img/Image-11 สำเนา.jpg" alt="Profile Picture"
+                <img id="profileImg" src="../img/Image-11 สำเนา.jpg" alt="Profile Picture"
                     class="w-40 h-40 rounded-full border-4 border-[#ff8c00] object-cover p-2 bg-[#2f2f2f] ">
             </div>
         </div>
@@ -152,8 +152,14 @@
                 </div>
                 <div id="noProfileMessage" class="hidden text-white text-center">
                     <p>No profile data found. Please log in or sign up.</p>
-                    <a href="login.html"
-                        class="block w-full max-w-xs mx-auto bg-[#ff8c00] py-2 px-4 mt-4 rounded-md text-black font-bold text-center hover:bg-[#ffae00] transition-colors">Login</a>
+                    <div class="flex max-w-50 items-center ml-30 gap-3">
+                        <a href="./singup.html"
+                        class="block w-full max-w-xs mx-auto  py-2 px-4 mt-4 rounded-md font-bold text-center border-2 border-[#ff8c00] text-white hover:bg-[#ffae00] transition-colors hover:text-black">Sing up
+                    </a>
+                    <a href="./login.html"
+                        class="block w-full max-w-xs mx-auto bg-[#ff8c00] py-2 px-4 mt-4 rounded-md text-black font-bold text-center hover:bg-[#ffae00] transition-colors">Login
+                    </a>
+                    </div>
                 </div>
             </section>
             <!-- Show Work/Gallery Section -->
