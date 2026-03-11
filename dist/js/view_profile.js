@@ -12,20 +12,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render mini profiles sidebar
     renderMiniProfiles();
 });
+
 // --- Profile Loading ---
 function loadProfileFromUrl() {
     const urlParams = new URLSearchParams(window.location.search);
     const targetUsername = urlParams.get('username');
+    
     if (!targetUsername) {
         console.log("No username parameter found in URL.");
         return;
     }
+    
     const registeredUsers = getRegisteredUsers();
     const userProfile = registeredUsers.find(user => user.username === targetUsername);
+    
     if (!userProfile) {
         console.warn(`User with username '${targetUsername}' not found.`);
         return;
     }
+    
     // Set profile images
     const profileImg = document.getElementById('profileImg');
     const profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img');
@@ -33,6 +38,7 @@ function loadProfileFromUrl() {
         profileImg.src = userProfile.profileImg || DEFAULT_PROFILE_IMG;
     if (profileBackgroundImg)
         profileBackgroundImg.src = userProfile.profileBackgroundImg || DEFAULT_BG_IMG;
+        
     // Populate profile fields ด้วย shared helper
     populateProfileFields(userProfile, {
         profileUsername: 'Profile_Username',
@@ -48,10 +54,38 @@ function loadProfileFromUrl() {
         height: 'Show_Height',
         posiUpdate: 'Posi_update'
     });
+
+    // 🎯 [ส่วนที่เพิ่มใหม่] เช็คว่าเป็นเทรนเนอร์ไหม ถ้าใช่ให้แสดงปุ่ม Booking Now
+    const userPosition = (userProfile.position || '').toLowerCase();
+    const isTrainer = userPosition.includes('trainer') || userPosition.includes('เทรนเนอร์');
+
+    if (isTrainer) {
+        // ป้องกันการสร้างปุ่มซ้ำ
+        if (!document.getElementById('booking-now-btn')) {
+            const bookingBtn = document.createElement('button');
+            bookingBtn.id = 'booking-now-btn';
+            bookingBtn.innerHTML = 'Booking Now 🚀';
+            // ใส่คลาส Tailwind ให้ปุ่มเด่นๆ สีส้มสไตล์ Gym Hub
+            bookingBtn.className = 'mt-6 w-full bg-[#ff8c00] text-black font-black py-3 px-6 rounded-xl hover:bg-white hover:shadow-[0_0_15px_rgba(255,140,0,0.5)] transition-all transform active:scale-95 uppercase tracking-widest';
+            
+            // ลิงก์ไปหน้าจองเมื่อกดปุ่ม
+            bookingBtn.onclick = () => {
+                window.location.href = '/page/RateLaka.html';
+            };
+
+            // หาจุดที่จะยัดปุ่มลงไป (เอาไปต่อท้ายส่วนที่แสดง Position หรือ Username รูปโปรไฟล์)
+            const positionDisplay = document.getElementById('Profile_Position') || document.getElementById('Profile_Username');
+            if (positionDisplay && positionDisplay.parentNode) {
+                positionDisplay.parentNode.appendChild(bookingBtn);
+            }
+        }
+    }
+
     const noProfileMessage = document.getElementById('noProfileMessage');
     if (noProfileMessage)
         noProfileMessage.classList.add('hidden');
 }
+
 // --- Review System ---
 function initReviewSystem() {
     let currentRating = 0;
@@ -63,6 +97,7 @@ function initReviewSystem() {
     const reviewListArea = document.getElementById('review-list');
     if (!ratingText || !submitBtn || !reviewInput || !reviewListArea)
         return;
+        
     const updateStars = (rating) => {
         stars.forEach((star, index) => {
             if (index < rating) {
@@ -73,6 +108,7 @@ function initReviewSystem() {
             }
         });
     };
+    
     stars.forEach((star, index) => {
         star.addEventListener('click', () => {
             currentRating = index + 1;
@@ -80,6 +116,7 @@ function initReviewSystem() {
             ratingText.innerText = `${currentRating}/5`;
         });
     });
+    
     const renderReviews = () => {
         reviewListArea.innerHTML = '';
         reviews.forEach(rev => {
@@ -95,6 +132,7 @@ function initReviewSystem() {
             reviewListArea.prepend(div);
         });
     };
+    
     submitBtn.addEventListener('click', () => {
         const text = reviewInput.value.trim();
         if (currentRating === 0)
@@ -114,6 +152,7 @@ function initReviewSystem() {
         renderReviews();
     });
 }
+
 // --- Mini Profiles Sidebar ---
 function renderMiniProfiles() {
     const members = [
@@ -124,6 +163,7 @@ function renderMiniProfiles() {
     const listArea = document.getElementById('mini-profile-list');
     if (!listArea)
         return;
+        
     listArea.innerHTML = members.map(member => `
         <div class="flex items-center p-2 hover:bg-[#3a3a3c] rounded-md transition cursor-pointer group">
             <div class="relative">
@@ -140,4 +180,3 @@ function renderMiniProfiles() {
         </div>
     `).join('');
 }
-//# sourceMappingURL=../../data/view_profile.js.map

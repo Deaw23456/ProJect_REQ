@@ -8,7 +8,13 @@
     <title>Trainer</title>
 </head>
 
-<body class="bg-[#181819]">
+<body class="bg-[#0a0a0b] text-white font-sans">
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+        <div class="absolute top-[40%] left-[50%] w-[300px] h-[300px] bg-white/5 blur-[80px] rounded-full"></div>
+    </div>
+
     <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50">
         <nav class="flex items-center justify-between px-6 py-2">
             <div class="flex-shrink-0">
@@ -30,10 +36,10 @@
 
             <div id="guest-nav">
                 <ul class="flex gap-2 font-bold mt-2">
-                    <li><a href="/page/singup.html"
+                    <li><a href="./singup.html"
                             class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
                             up</a></li>
-                    <li><a href="/page/login.html"
+                    <li><a href="./login.html"
                             class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
                     </li>
                 </ul>
@@ -42,7 +48,7 @@
             <div id="user-nav"
                 class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
                 <div class="flex items-center gap-2.5">
-                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                    <img id="nav-profile-img" src="../img/Image-11 สำเนา.jpg" alt="User"
                         class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
                     <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
                         <span id="username-display"></span>
@@ -53,10 +59,10 @@
                     </button>
                     <div id="dropdown-menu"
                         class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
-                        <a href="/page/main_profile.html"
+                        <a href="./main_profile.html"
                             class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My
                             Profile</a>
-                        <a href="#" id="logout-btn"
+                        <a href="/index.html" id="logout-btn"
                             class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors">Logout</a>
                     </div>
                 </div>
@@ -66,10 +72,10 @@
     <main>
         <div class="relative w-full h-64 bg-gray-700 rounded-lg">
             <!-- Profile Background Image (Parent div has h-64, so image should fill it) -->
-            <img src="/img/gym hub-2 สำเนา.png" alt="" class="w-full h-full object-cover brightness-50">
+            <img src="../img/gym hub-2 สำเนา.png" alt="" class="w-full h-full object-cover brightness-50">
             <!-- Profile Image -->
             <div class="absolute -bottom-18 left-1/2 transform -translate-x-1/2">
-                <img id="profileImg" src="/img/Image-11 สำเนา.jpg" alt="Profile Picture"
+                <img id="profileImg" src="../img/Image-11 สำเนา.jpg" alt="Profile Picture"
                     class="w-40 h-40 rounded-full border-4 border-[#ff8c00] object-cover p-2 bg-[#2f2f2f] ">
             </div>
         </div>
@@ -81,12 +87,12 @@
             </div>
 
             <!-- About Section (with editable fields) -->
-            <section class="bg-[#2f2f2f] p-8 rounded-lg mb-8">
+            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-8">
                 <h2 class="text-white text-2xl font-semibold mb-4">About Me</h2>
                 <div id="Profile_Content" class="w-full">
-                    <div class="w-full bg-[#252526] rounded-xl overflow-hidden mb-6">
+                    <div class="w-full bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden mb-6">
                         <!-- Header ส่วนข้อมูล -->
-                        <div class="bg-[#1f1f1f] px-5 py-3 border-b border-[#3e3e3e] flex justify-between items-center">
+                        <div class="bg-white/10 px-5 py-3 border-b border-white/10 flex justify-between items-center">
                             <span class="text-gray-300 text-sm font-semibold">Profile Summary</span>
                             <span id="Posi_update"
                                 class="text-[#ff8c00] text-[10px] font-bold px-5 py-1 border border-[#ff8c00] rounded-md">-</span>
@@ -151,30 +157,30 @@
                     </div>
                 </div>
                 <div id="noProfileMessage" class="hidden text-white text-center">
-                    <p>No profile data found. Please log in or sign up.</p>
-                    <a href="login.html"
+                    <p>No profile data found. Please log in.</p>
+                    <a href="./login.html"
                         class="block w-full max-w-xs mx-auto bg-[#ff8c00] py-2 px-4 mt-4 rounded-md text-black font-bold text-center hover:bg-[#ffae00] transition-colors">Login</a>
                 </div>
             </section>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-8xl p-4">
                 <div class="lg:col-span-8 space-y-6">
-                    <section id="my-work" class="bg-[#2f2f2f] max-w-5xl p-10 rounded-xl">
+                    <section id="my-work" class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10">
                         <h2 class="text-white text-2xl font-semibold mb-4">My Work</h2>
                         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                             <!-- Placeholder for work images -->
-                            <div class="bg-gray-600 h-48 rounded-md flex items-center justify-center text-gray-300">Work
+                            <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work
                                 1</div>
-                            <div class="bg-gray-600 h-48 rounded-md flex items-center justify-center text-gray-300">Work
+                            <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work
                                 2</div>
-                            <div class="bg-gray-600 h-48 rounded-md flex items-center justify-center text-gray-300">Work
+                            <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work
                                 3</div>
-                            <div class="bg-gray-600 h-48 rounded-md flex items-center justify-center text-gray-300">Work
+                            <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work
                                 4</div>
                         </div>
                     </section>
-                    <section id="review-section" class="bg-[#2f2f2f] max-w-5xl p-10 rounded-xl">
-                        <h2 class="text-white text-2xl font-semibold mb-4">Reviwe</h2>
-                        <div class="max-w-5xl mx-auto p-6 bg-[#252526] rounded-lg shadow-xl text-white">
+                    <section id="review-section" class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10">
+                        <h2 class="text-white text-2xl font-semibold mb-4">Review</h2>
+                        <div class="max-w-5xl mx-auto p-6 bg-white/10 backdrop-blur-lg border border-white/10 rounded-2xl shadow-xl text-white">
                             <h2 class="text-xl font-bold mb-4 text-[#ff8c00]">Review & Comment</h2>
                             <div class="flex items-center mb-4">
                                 <div id="star-rating" class="flex space-x-1">
@@ -193,8 +199,8 @@
                             </div>
 
                             <textarea id="review-text"
-                                class="w-full p-3 bg-[#1e1e1e] border border-[#4c4c4c] rounded-md focus:outline-none focus:border-[#ff8c00] text-sm"
-                                placeholder="Comment..." rows="3"></textarea>
+                                class="w-full p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-md focus:outline-none focus:ring-1 focus:ring-[#ff8c00] focus:border-[#ff8c00] text-sm placeholder-gray-400 transition"
+                                placeholder="แสดงความคิดเห็นของคุณ..." rows="3"></textarea>
 
                             <button id="submit-review"
                                 class="w-full mt-4 bg-[#ff8c00] text-black font-bold py-2 rounded-md hover:bg-[#e67e00] transition">
@@ -210,7 +216,7 @@
                 </div>
 
                 <aside class="lg:col-span-4 space-y-4">
-                    <div class="bg-[#2f2f2f] rounded-lg p-5 shadow-xl border border-[#4c4c4c]">
+                    <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-5 shadow-xl">
                         <h3 class="text-[#ff8c00] font-bold mb-4 flex items-center">
                             <span class="mr-2">🔥</span> สมาชิกที่น่าสนใจ
                         </h3>
