@@ -1,88 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/style.css" rel="stylesheet">
-    <title>Assign</title>
+    <title>Assign Program</title>
     <style>
-        html,
-        body {
-            background-color: #121212;
-            min-height: 100vh;
-        }
-
-        .scroll-custom::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .scroll-custom::-webkit-scrollbar-thumb {
-            background: #ff8c00;
-            border-radius: 10px;
-        }
-
-        /* สไตล์ปุ่มที่ถูกเลือก */
-        .template-active {
-            border-color: #ff8c00 !important;
-            background-color: #2a1a0a !important;
-        }
+        html, body { background-color: #121212; min-height: 100vh; }
+        .scroll-custom::-webkit-scrollbar { width: 5px; }
+        .scroll-custom::-webkit-scrollbar-thumb { background: #ff8c00; border-radius: 10px; }
     </style>
 </head>
-
 <body class="text-white font-sans flex flex-col h-screen overflow-hidden">
 
     <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 sticky top-0 z-50">
         <nav class="flex items-center justify-between px-6 py-2">
             <div class="flex-shrink-0">
-                <a href="/page/trainer_dashboard.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
-                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+                <a href="/page/trainer_dashboard.html" class="text-white text-4xl font-bold flex mt-2">Gym<div class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
-
-            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
-                <input type="search" name="search" id="search-input"
-                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
-                    placeholder="Search">
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </div>
-            </div>
-
-            <div id="guest-nav">
-                <ul class="flex gap-2 font-bold mt-2">
-                    <li><a href="/page/singup.html"
-                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
-                            up</a></li>
-                    <li><a href="/page/login.html"
-                            class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="user-nav"
-                class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
-                <div class="flex items-center gap-2.5">
-                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
-                        class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
-                    <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
-                        <span id="username-display"></span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
-                    </button>
-                    <div id="dropdown-menu"
-                        class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
-                        <a href="/page/main_profile.html"
-                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My
-                            Profile</a>
-                        <a href="#" id="logout-btn"
-                            class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors">Logout</a>
-                    </div>
-                </div>
+            <div id="user-nav" class="relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 flex items-center gap-2 mt-2 ml-auto">
+                <img src="../img/pho_member.png" alt="User" class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                <span class="font-bold text-white">Trainer_Ball</span>
             </div>
         </nav>
     </header>
@@ -91,56 +29,23 @@
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 h-full">
 
             <div class="lg:col-span-1 flex flex-col h-full">
-                <h2
-                    class="text-[11px] text-gray-500 font-black uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
+                <h2 class="text-[11px] text-gray-500 font-black uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-[#ff8c00]"></span> 1. Select Template
                 </h2>
-
                 <div class="space-y-4 overflow-y-auto pr-2 scroll-custom pb-10" id="template-options">
-                    <button onclick="loadTemplate(this, 'Full Body Blast')"
-                        class="w-full bg-[#1f1f20] border-2 border-transparent p-6 rounded-2xl text-left hover:border-gray-600 transition-all duration-300 group shadow-lg">
-                        <h3
-                            class="text-xl font-black text-white group-hover:text-[#ff8c00] uppercase italic transition-colors">
-                            Full Body Blast</h3>
-                        <p class="text-gray-400 text-sm mt-2 font-medium">4 Exercises • ~20 Min</p>
-                    </button>
-
-                    <button onclick="loadTemplate(this, 'Leg Day')"
-                        class="w-full bg-[#1f1f20] border-2 border-transparent p-6 rounded-2xl text-left hover:border-gray-600 transition-all duration-300 group shadow-lg">
-                        <h3
-                            class="text-xl font-black text-white group-hover:text-[#ff8c00] uppercase italic transition-colors">
-                            Leg Day</h3>
-                        <p class="text-gray-400 text-sm mt-2 font-medium">3 Exercises • ~15 Min</p>
-                    </button>
-
-                    <button onclick="loadTemplate(this, 'Cardio Burn')"
-                        class="w-full bg-[#1f1f20] border-2 border-transparent p-6 rounded-2xl text-left hover:border-gray-600 transition-all duration-300 group shadow-lg">
-                        <h3
-                            class="text-xl font-black text-white group-hover:text-[#ff8c00] uppercase italic transition-colors">
-                            Cardio Burn</h3>
-                        <p class="text-gray-400 text-sm mt-2 font-medium">2 Exercises • ~30 Min</p>
-                    </button>
-                </div>
+                    </div>
             </div>
 
-            <div
-                class="lg:col-span-2 bg-[#181819] border border-gray-800 rounded-[2rem] p-8 flex flex-col shadow-2xl relative">
-
+            <div class="lg:col-span-2 bg-[#181819] border border-gray-800 rounded-[2rem] p-8 flex flex-col shadow-2xl relative">
                 <div class="flex justify-between items-center mb-6 border-b border-gray-800 pb-4">
                     <h2 class="text-[11px] text-gray-500 font-black uppercase tracking-[0.2em]">2. Program Preview</h2>
-                    <span id="preview-badge"
-                        class="bg-gray-800 text-gray-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">No
-                        Selection</span>
+                    <span id="preview-badge" class="bg-gray-800 text-gray-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                        0 Exercises
+                    </span>
                 </div>
 
                 <div id="exercise-preview" class="flex-1 overflow-y-auto pr-4 scroll-custom space-y-3 mb-6">
-                    <div
-                        class="h-full min-h-[300px] flex flex-col items-center justify-center text-gray-600 border-2 border-dashed border-gray-800 rounded-3xl p-10 transition-all">
-                        <span class="text-5xl mb-4">📋</span>
-                        <p class="font-bold text-lg">Select a template</p>
-                        <p class="text-sm mt-1">to preview exercises here.</p>
                     </div>
-                </div>
 
                 <div class="mt-auto pt-4 flex justify-end">
                     <button id="assign-btn" onclick="assignToClient()" disabled
@@ -148,15 +53,114 @@
                         Confirm Assignment
                     </button>
                 </div>
-
             </div>
-
         </div>
     </main>
 
-    <script src="../dist/js/helpers.js"></script>
-    <script src="../dist/js/nav.js"></script>
-    <script src="../dist/js/assign_program.js"></script>
-</body>
+    <script>
+        const mockDatabase = {
+            "UPPER": [
+                { name: "Smith Machine Flat Bench Press", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Smith Machine" },
+                { name: "Lat Pulldown", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Lat Pulldown Machine" },
+                { name: "Seated Cable Row", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Seated Cable Row Machine" }
+            ],
+            "LOWER": [
+                { name: "Barbell Squat", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Squat Rack" },
+                { name: "Leg Press", detail: "4 เซต 10-15 ครั้ง | อุปกรณ์: Leg Press Machine" },
+                { name: "Leg Extension", detail: "3 เซต 12-15 ครั้ง | อุปกรณ์: Leg Extension Machine" }
+            ]
+        };
 
+        // 🌟 ตัวแปรเก็บท่าทั้งหมดที่เทรนเนอร์เลือก (ผสมกันได้)
+        let currentWorkoutList = [];
+
+        function renderTemplateButtons() {
+            const container = document.getElementById('template-options');
+            container.innerHTML = ''; 
+
+            Object.keys(mockDatabase).forEach(templateName => {
+                const btn = document.createElement('button');
+                btn.className = "w-full bg-[#1f1f20] border-2 border-transparent p-6 rounded-2xl text-left hover:border-[#ff8c00] transition-all duration-300 group shadow-lg mb-4";
+                btn.onclick = () => addTemplateToWorkout(templateName);
+                
+                btn.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-black text-white group-hover:text-[#ff8c00] uppercase italic transition-colors">${templateName}</h3>
+                        <span class="text-2xl font-black text-[#ff8c00] opacity-0 group-hover:opacity-100 transition-opacity">+</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-2 font-medium">Add ${mockDatabase[templateName].length} Exercises</p>
+                `;
+                container.appendChild(btn);
+            });
+        }
+
+        // ฟังก์ชันเวลากดเพิ่มโปรแกรม
+        function addTemplateToWorkout(templateName) {
+            // จับท่าใหม่มาต่อท้ายท่าเดิม
+            const newExercises = mockDatabase[templateName];
+            currentWorkoutList = currentWorkoutList.concat(newExercises);
+            renderPreview();
+        }
+
+        // ฟังก์ชันลบท่าออกกำลังกายทิ้ง
+        function removeExercise(index) {
+            currentWorkoutList.splice(index, 1);
+            renderPreview();
+        }
+
+        // วาดพรีวิวท่าทั้งหมด
+        function renderPreview() {
+            const previewContainer = document.getElementById('exercise-preview');
+            const badge = document.getElementById('preview-badge');
+            const assignBtn = document.getElementById('assign-btn');
+
+            if (currentWorkoutList.length === 0) {
+                previewContainer.innerHTML = `
+                    <div class="h-full min-h-[300px] flex flex-col items-center justify-center text-gray-600 border-2 border-dashed border-gray-800 rounded-3xl p-10 transition-all">
+                        <span class="text-5xl mb-4">📋</span>
+                        <p class="font-bold text-lg">No exercises added</p>
+                        <p class="text-sm mt-1">Click a template on the left to add exercises.</p>
+                    </div>`;
+                badge.innerText = "0 Exercises";
+                badge.className = "bg-gray-800 text-gray-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider";
+                assignBtn.disabled = true;
+                assignBtn.className = "bg-gray-800 text-gray-500 font-black px-12 py-5 rounded-2xl uppercase tracking-widest transition-all duration-300 cursor-not-allowed";
+                return;
+            }
+
+            previewContainer.innerHTML = ''; 
+            currentWorkoutList.forEach((ex, index) => {
+                const item = document.createElement('div');
+                item.className = "bg-[#1f1f20] p-5 rounded-2xl border border-gray-800 flex flex-col justify-center animate-in fade-in slide-in-from-bottom-2 hover:border-[#ff8c00]/50 transition-colors";
+                item.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <span class="font-black text-white text-lg tracking-wide">${index + 1}. ${ex.name}</span>
+                        <button onclick="removeExercise(${index})" class="text-gray-600 hover:text-red-500 transition text-[10px] uppercase font-bold mt-1">Remove</button>
+                    </div>
+                    <span class="text-sm text-[#ff8c00] font-bold mt-2">${ex.detail}</span>
+                `;
+                previewContainer.appendChild(item);
+            });
+
+            badge.innerText = `${currentWorkoutList.length} Exercises Ready`;
+            badge.className = "bg-[#ff8c00]/20 text-[#ff8c00] border border-[#ff8c00]/50 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider";
+            
+            assignBtn.disabled = false;
+            assignBtn.className = "bg-[#ff8c00] text-black font-black px-12 py-5 rounded-2xl uppercase tracking-widest transition-all duration-300 hover:bg-white hover:scale-105 active:scale-95 shadow-[0_10px_20px_rgba(255,140,0,0.3)] cursor-pointer";
+        }
+
+        // 🎯 กดยืนยันปุ๊บ บันทึกข้อมูลส่งไปหน้า Tracker
+        function assignToClient() {
+            if(currentWorkoutList.length === 0) return;
+            // เซฟลงกล่องความจำของ Browser
+            localStorage.setItem('clientWorkoutSession', JSON.stringify(currentWorkoutList));
+            window.location.href = 'progress_tracker.html';
+        }
+
+        window.onload = () => {
+            renderTemplateButtons();
+            renderPreview(); // โหลดมาปุ๊บจะโชว์ว่ายังไม่ได้เลือกท่า
+        };
+    </script>
+</body>
 </html>

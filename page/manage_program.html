@@ -11,116 +11,191 @@
     <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50">
         <nav class="flex items-center justify-between px-6 py-2">
             <div class="flex-shrink-0">
-                <a href="/page/trainer_dashboard.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
-                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+                <a href="/page/trainer_dashboard.html" class="text-white text-4xl font-bold flex mt-2">Gym<div class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
-
             <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
-                <input type="search" name="search" id="search-input"
-                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
-                    placeholder="Search">
-                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                </div>
+                <input type="search" placeholder="Search" class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 transition-all backdrop-blur-sm">
             </div>
-
-            <div id="guest-nav">
-                <ul class="flex gap-2 font-bold mt-2">
-                    <li><a href="/page/singup.html"
-                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
-                            up</a></li>
-                    <li><a href="/page/login.html"
-                            class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div id="user-nav"
-                class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
-                <div class="flex items-center gap-2.5">
-                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
-                        class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
-                    <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
-                        <span id="username-display"></span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                            </path>
-                        </svg>
-                    </button>
-                    <div id="dropdown-menu"
-                        class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
-                        <a href="/page/main_profile.html"
-                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors">My
-                            Profile</a>
-                        <a href="#" id="logout-btn"
-                            class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors">Logout</a>
-                    </div>
-                </div>
+            <div id="user-nav" class="relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 flex items-center gap-2 mt-2">
+                <img src="../img/pho_member.png" alt="User" class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                <span class="font-bold text-white">Trainer_Ball</span>
             </div>
         </nav>
     </header>
-    <div class="flex flex-1"> <!-- Container for sidebar and main content -->
+
+    <div class="flex flex-1 overflow-hidden"> 
+        
         <aside class="w-80 bg-[#181819] border-r border-[#2a2a2a] flex flex-col">
             <div class="p-[30px] border-b border-[#2a2a2a]">
                 <div class="text-[22px] font-black italic uppercase mb-5">Your Program</div>
-                <button onclick="createNewTemplate()"
-                    class="w-full p-4 bg-[#ff8c00] border-none rounded-[14px] font-black cursor-pointer transition-all duration-200 hover:bg-[#ff8c00]/50">
+                <button onclick="createNewTemplate()" class="w-full p-4 bg-[#ff8c00] border-none rounded-[14px] font-black cursor-pointer text-black transition-all duration-200 hover:bg-white hover:scale-105 active:scale-95">
                     + NEW TEMPLATE
                 </button>
             </div>
-            <div id="template-list" class="flex-1 overflow-y-auto p-4">
-                <div onclick="switchProgram(this,'LEG DAY')"
-                    class="sidebar-item bg-[#2a2a2b] border-l-4 border-[#ff8c00] p-4 rounded-xl mb-2.5 flex justify-between items-center cursor-pointer transition-all duration-200 hover:scale-106">
-                    <span>Name...</span>
-                    <button onclick="event.stopPropagation(); this.parentElement.remove();">
-                        <svg class="w-8 h-8 duration-200 hover:scale-110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                            <g id="SVGRepo_iconCarrier"> <path d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g>
-                        </svg>
-                    </button>
+            
+            <div id="sidebar-list" class="flex-1 overflow-y-auto p-4 space-y-3">
                 </div>
-            </div>
         </aside>
-        <main class="flex-1 flex flex-col overflow-y-auto">
+
+        <main class="flex-1 flex flex-col overflow-y-auto relative">
             <div class="flex-1 p-[60px]">
-                <h1 id="display-title" class="text-[64px] font-black italic mb-2.5">LEG DAY</h1>
+                <input type="text" id="program-title-input" value="UPPER" 
+                    class="bg-transparent border-none text-[64px] font-black italic mb-2.5 outline-none text-white w-full uppercase" 
+                    placeholder="ENTER PROGRAM NAME">
+                
                 <div class="w-[120px] h-1.5 bg-[#ff8c00] rounded-[10px] mb-10"></div>
+                
                 <div id="exercise-container" class="max-w-[900px]">
-                    <div
-                        class="bg-[#1f1f20] border border-[#2a2a2a] p-30px rounded-[30px] mb-5 flex flex-col gap-5 transition-all duration-200 hover:border-[#ff8c00] p-3">
-                        <input type="text" value="SQUAT"
-                            class="bg-transparent border-b border-[#333] text-[32px] font-black text-white outline-none"
-                            placeholder="Exercise Name" />
-                        <input type="text" value="20 reps / 4 sets"
-                            class="bg-transparent border-none text-xl text-[#ff8c00] font-bold outline-none"
-                            placeholder="Sets / Reps" />
-                        <button onclick="this.parentElement.remove()" class="text-white font-bold py-2 px-4 rounded-md mt-2 self-end hover:text-[#ff8c00]">
-                            REMOVE
-                        </button>
                     </div>
-                </div>
-                <button onclick="addExercise()"
-                    class="mt-[30px] w-100 p-[30px] border-2 border-dashed border-[#333] rounded-[30px] bg-transparent text-[#888] font-black cursor-pointer transition-all duration-200 hover:border-[#ff8c00] hover:text-[#ff8c00]">
+                
+                <button onclick="addExercise('', '')" class="mt-[30px] w-full p-[30px] border-2 border-dashed border-[#333] rounded-[30px] bg-transparent text-[#888] font-black cursor-pointer transition-all duration-200 hover:border-[#ff8c00] hover:text-[#ff8c00]">
                     + Add New Exercise
                 </button>
             </div>
-            <footer class="py-[25px] px-[60px] bg-[#181819] border-t border-[#2a2a2a] flex justify-end">
-                <button
-                    class="bg-[#ff8c00] border-none py-[18px] px-[60px] rounded-[14px] font-black cursor-pointer transition-all duration-200 hover:bg-[#ff8c00]/50">
+            
+            <footer class="py-[25px] px-[60px] bg-[#181819] border-t border-[#2a2a2a] flex justify-end sticky bottom-0 z-10">
+                <button onclick="saveProgram()" class="bg-[#ff8c00] text-black border-none py-[18px] px-[60px] rounded-[14px] font-black cursor-pointer transition-all duration-200 hover:bg-white hover:scale-105 active:scale-95 shadow-lg">
                     Save Template
                 </button>
             </footer>
         </main>
     </div>
-    <script src="../dist/js/helpers.js"></script>
-    <script src="../dist/js/nav.js"></script>
-    <script type="module" src="../dist/js/manage_program.js"></script>
-    
 
+    <script>
+        // 1. ฐานข้อมูลจำลอง (เก็บไว้ใน Array เพื่อให้แก้ไข/เพิ่ม/ลบ ได้)
+        let programDatabase = {
+            "UPPER": [
+                { name: "Smith Machine Flat Bench Press", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Smith Machine" },
+                { name: "Lat Pulldown", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Lat Pulldown Machine" },
+                { name: "Seated Cable Row", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Seated Cable Row Machine" }
+            ],
+            "LOWER": [
+                { name: "Barbell Squat", detail: "4 เซต 8-12 ครั้ง | อุปกรณ์: Squat Rack" },
+                { name: "Leg Press", detail: "4 เซต 10-15 ครั้ง | อุปกรณ์: Leg Press Machine" },
+                { name: "Leg Extension", detail: "3 เซต 12-15 ครั้ง | อุปกรณ์: Leg Extension Machine" }
+            ]
+        };
+
+        let activeProgram = "UPPER"; // โปรแกรมที่กำลังดูอยู่
+
+        // 2. ฟังก์ชันวาดเมนูฝั่งซ้าย (Sidebar)
+        function renderSidebar() {
+            const list = document.getElementById('sidebar-list');
+            list.innerHTML = '';
+
+            Object.keys(programDatabase).forEach(progName => {
+                const isActive = (progName === activeProgram);
+                const bgClass = isActive ? "bg-[#2a2a2b]" : "bg-[#1f1f20]";
+                const borderClass = isActive ? "border-[#ff8c00]" : "border-transparent";
+
+                const div = document.createElement('div');
+                div.className = `sidebar-item ${bgClass} border-l-4 ${borderClass} p-4 rounded-xl flex justify-between items-center cursor-pointer transition-all duration-200 hover:scale-105 hover:border-[#ff8c00] group`;
+                
+                div.innerHTML = `
+                    <span class="font-bold uppercase text-sm truncate w-3/4" onclick="loadProgram('${progName}')">${progName}</span>
+                    <button onclick="event.stopPropagation(); deleteProgram('${progName}');" class="text-[#888] group-hover:text-red-500 transition-colors">
+                        <svg class="w-6 h-6 duration-200 hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 7V18C6 19.1046 6.89543 20 8 20H16C17.1046 20 18 19.1046 18 18V7M6 7H5M6 7H8M18 7H19M18 7H16M10 11V16M14 11V16M8 7V5C8 3.89543 8.89543 3 10 3H14C15.1046 3 16 3.89543 16 5V7M8 7H16"/>
+                        </svg>
+                    </button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        // 3. ฟังก์ชันวาดกล่องให้พิมพ์ได้
+        function addExercise(nameStr = "", detailStr = "") {
+            const container = document.getElementById('exercise-container');
+            const newBox = document.createElement('div');
+            newBox.className = "exercise-box bg-[#1f1f20] border border-[#2a2a2a] p-[30px] rounded-[30px] mb-5 flex flex-col gap-5 transition-all duration-200 hover:border-[#ff8c00]";
+            
+            // 🎯 สังเกตคลาส ex-name กับ ex-detail ที่ซ่อนไว้ให้ JS ดึงข้อมูลง่ายๆ
+            newBox.innerHTML = `
+                <input type="text" value="${nameStr}" class="ex-name bg-transparent border-b border-[#333] text-[28px] font-black text-white outline-none" placeholder="Exercise Name" />
+                <input type="text" value="${detailStr}" class="ex-detail bg-transparent border-none text-lg text-[#ff8c00] font-bold outline-none" placeholder="Sets / Reps / Equipment" />
+                <button onclick="this.parentElement.remove()" class="text-gray-500 font-bold py-2 px-4 rounded-md mt-2 self-end hover:text-red-500 transition-colors">REMOVE</button>
+            `;
+            container.appendChild(newBox);
+        }
+
+        // 4. ฟังก์ชันโหลดข้อมูลมาโชว์ฝั่งขวา
+        function loadProgram(progName) {
+            activeProgram = progName;
+            renderSidebar(); // เปลี่ยนสีเมนูที่ถูกเลือก
+            
+            document.getElementById('program-title-input').value = progName;
+            document.getElementById('exercise-container').innerHTML = '';
+
+            const exercises = programDatabase[progName] || [];
+            exercises.forEach(ex => addExercise(ex.name, ex.detail));
+        }
+
+        // 5. ฟังก์ชันกดปุ่ม + NEW TEMPLATE
+        function createNewTemplate() {
+            activeProgram = ""; // ยกเลิกการเลือกเมนูซ้ายมือชั่วคราว
+            renderSidebar();
+            
+            document.getElementById('program-title-input').value = '';
+            document.getElementById('program-title-input').placeholder = 'ENTER NEW PROGRAM NAME...';
+            document.getElementById('exercise-container').innerHTML = '';
+            addExercise('', ''); 
+        }
+
+        // 6. 🎯 ฟังก์ชันบันทึกของจริง!
+        function saveProgram() {
+            const titleInput = document.getElementById('program-title-input').value.trim().toUpperCase();
+            
+            if(!titleInput) {
+                alert("กรุณาตั้งชื่อโปรแกรมด้วยครับ!");
+                return;
+            }
+
+            // กวาดอ่านข้อมูลจากทุกกล่องท่าออกกำลังกาย
+            const exerciseBoxes = document.querySelectorAll('.exercise-box');
+            const newExercises = [];
+            
+            exerciseBoxes.forEach(box => {
+                const name = box.querySelector('.ex-name').value.trim();
+                const detail = box.querySelector('.ex-detail').value.trim();
+                if(name) {
+                    newExercises.push({ name, detail });
+                }
+            });
+
+            if(newExercises.length === 0) {
+                alert("กรุณาเพิ่มท่าออกกำลังกายอย่างน้อย 1 ท่าครับ!");
+                return;
+            }
+
+            // อัปเดตเข้าฐานข้อมูลจำลอง
+            programDatabase[titleInput] = newExercises;
+            activeProgram = titleInput; // ตั้งให้โปรแกรมที่เพิ่งสร้างเป็นตัว active
+
+            // 🎯 สั่งให้ Sidebar วาดตัวเองใหม่ โปรแกรมใหม่ก็จะโผล่มาทันที!
+            renderSidebar();
+            
+            alert(`✅ บันทึกเทมเพลต "${titleInput}" เรียบร้อยแล้ว!`);
+            // โน้ต: ไม่เด้งไปหน้าอื่นแล้ว ตามคำขอครับ!
+        }
+
+        // 7. ฟังก์ชันลบโปรแกรม
+        function deleteProgram(progName) {
+            if(confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบโปรแกรม "${progName}"?`)) {
+                delete programDatabase[progName]; // หั่นทิ้งจากฐานข้อมูล
+                
+                // ถ้าลบโปรแกรมที่กำลังเปิดดูอยู่ ให้ล้างหน้าจอขวามือด้วย
+                if(activeProgram === progName) {
+                    createNewTemplate();
+                } else {
+                    renderSidebar(); // วาดเมนูใหม่
+                }
+            }
+        }
+
+        // โหลดหน้ามาปุ๊บ ให้โชว์ UPPER เลย
+        window.onload = () => {
+            loadProgram('UPPER');
+        };
+    </script>
 </body>
-
 </html>
