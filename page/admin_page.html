@@ -5,178 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/style.css">
     <title>Admin Dashboard - Gym Hub</title>
+    <!-- Add custom scrollbar style for consistency -->
+    <style>
+        .scroll-custom::-webkit-scrollbar { width: 5px; }
+        .scroll-custom::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .scroll-custom:hover::-webkit-scrollbar-thumb { background: #ff8c00; }
+    </style>
 </head>
-<<<<<<< HEAD
-<body class="bg-[#0a0a0b] text-white">
-    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
-        <div class="absolute top-[40%] left-[50%] w-[300px] h-[300px] bg-white/5 blur-[80px] rounded-full"></div>
-    </div>
-
-        <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50 items-center">
-            <nav class="flex items-center justify-between px-6 py-2">
-                <div class="flex-shrink-0">
-                    <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
-                            class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
-=======
-<body class="bg-[#0a0a0b] text-white font-sans h-screen flex flex-col overflow-hidden">
+<body class="bg-[#0a0a0b] text-white font-sans h-screen flex overflow-hidden">
     
+    <!-- Background Glows -->
     <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/5 blur-[120px] rounded-full"></div>
     </div>
 
-    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 sticky top-0 z-50 shrink-0">
-        <nav class="flex items-center justify-between px-6 py-2">
-            <div class="flex-shrink-0">
-                <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div><span class="text-sm text-gray-400 font-normal ml-3 self-end mb-1 border-l border-gray-600 pl-3">Admin Panel</span></a>
-            </div>
+    <!-- Sidebar -->
+    <aside class="bg-[#151517] w-64 border-r border-gray-800 flex-col shrink-0 hidden md:flex">
+        <div class="p-6 border-b border-gray-800">
+            <a href="/index.html" class="text-white text-3xl font-bold flex items-center">
+                Gym<div class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div>
+            </a>
+            <span class="text-xs text-gray-500 font-bold tracking-widest uppercase">Admin Panel</span>
+        </div>
+        
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 text-white font-bold border-l-4 border-[#ff8c00]">
+                <svg class="w-5 h-5 text-[#ff8c00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5V19C4 19.5523 4.44772 20 5 20H19"/><path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998"/></svg>
+                <span>Dashboard</span>
+            </a>
+        </nav>
 
-            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
-                <input type="search" name="search" id="search-input" class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm" placeholder="Search...">
+        <div class="p-4 mt-auto">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4 mb-3">
+                <div class="flex items-center">
+                    <img id="admin-sidebar-img" src="../img/Image-11 สำเนา.jpg" alt="Admin Profile" class="w-10 h-10 rounded-full object-cover border-2 border-[#ff8c00]">
+                    <div class="ml-3">
+                        <p id="admin-sidebar-name" class="font-bold text-white text-sm">BallKhonlhor</p>
+                        <p class="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">Admin</p>
+                    </div>
+                </div>
+            </div>
+            <a href="/index.html" class="bg-white/5 border border-white/10 p-3 w-full flex items-center justify-center cursor-pointer rounded-2xl duration-300 transition-all hover:bg-red-500/20 hover:border-red-500/50 group">
+                <svg class="w-5 h-5 mr-1.5 group-hover:text-red-500 text-gray-400 transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span class="font-bold text-gray-400 group-hover:text-red-500 transition-colors text-sm">Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Top Header in Main Content -->
+        <header class="bg-[#0a0a0b]/80 backdrop-blur-sm border-b border-gray-800 h-20 flex items-center justify-between px-8 shrink-0">
+            <h1 class="text-xl font-bold text-white">System Overview</h1>
+            <div class="relative w-full max-w-sm">
+                <input type="search" name="search" id="search-input" class="block w-full p-2.5 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm" placeholder="Search users, trainers, etc...">
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
->>>>>>> 7fa2dfa2ae27ecc874f7542368b45a3ef224294f
                 </div>
-
-<<<<<<< HEAD
-                <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
-                    <input type="search" name="search" id="search-input"
-                        class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
-                        placeholder="Search">
-                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
-                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                        </svg>
-                    </div>
-                </div>
-
-                <div id="guest-nav">
-                    <ul class="flex gap-2 font-bold mt-2">
-                        <li><a href="/page/singup.html"
-                                class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
-                                up</a></li>
-                        <li><a href="/page/login.html"
-                                class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div id="user-nav"
-                    class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
-                    <div class="flex items-center gap-2.5">
-                        <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
-                            class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
-                        <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
-                            <span id="username-display"></span>
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
-                                </path>
-                            </svg>
-                        </button>
-                        <div id="dropdown-menu"
-                            class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
-                            <a href="/page/main_profile.html"
-                                class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors rounded-lg">My
-                                Profile</a>
-                            <a href="#" id="logout-btn"
-                                class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors rounded-lg">Logout</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            </div>
         </header>
-        <aside class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl max-w-50 h-full my-2 mx-2 p-3">
-            <nav>
-                <div class="flex items-center px-3 h-10">
-                <svg class="w-5 h-5 mr-1.5" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" transform="matrix(1, 0, 0, 1, 0, 0)">
-                    <g id="SVGRepo_bgCarrier" stroke-width="2"/>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                    <g id="SVGRepo_iconCarrier"> <path d="M4 5V19C4 19.5523 4.44772 20 5 20H19" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/> </g>
-                </svg>
-                <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Dashbord</div>
-            </div>
-=======
-            <div id="user-nav" class="relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 flex items-center gap-2 mt-2">
-                <img src="../img/Image-11 สำเนา.jpg" alt="Admin" class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
-                <span class="font-bold text-white">Admin_Ball</span>
-            </div>
-        </nav>
-    </header>
->>>>>>> 7fa2dfa2ae27ecc874f7542368b45a3ef224294f
 
-    <main class="flex flex-1 overflow-hidden">
-        
-        <aside class="bg-[#151517] w-64 h-full border-r border-gray-800 flex flex-col shrink-0">
-            <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
-                <div class="flex items-center px-4 h-12 bg-white/10 border-l-4 border-[#ff8c00] rounded-lg cursor-pointer mb-2">
-                    <svg class="w-5 h-5 mr-3 text-[#ff8c00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5V19C4 19.5523 4.44772 20 5 20H19"/><path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998"/></svg>
-                    <span class="text-white font-bold">Dashboard</span>
-                </div>
-            </nav>
-<<<<<<< HEAD
-            <div class="mt-60">
-                <div class="flex items-center px-2.5 mt-1.1 h-10">
-                    <svg class="w-7 h-7 mr-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                        <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0175 19C10.6601 19 10.3552 18.7347 10.297 18.373C10.2434 18.0804 10.038 17.8413 9.76171 17.75C9.53658 17.6707 9.31645 17.5772 9.10261 17.47C8.84815 17.3365 8.54289 17.3565 8.30701 17.522C8.02156 17.7325 7.62943 17.6999 7.38076 17.445L6.41356 16.453C6.15326 16.186 6.11944 15.7651 6.33361 15.458C6.49878 15.2105 6.52257 14.8914 6.39601 14.621C6.31262 14.4332 6.23906 14.2409 6.17566 14.045C6.08485 13.7363 5.8342 13.5051 5.52533 13.445C5.15287 13.384 4.8779 13.0559 4.87501 12.669V11.428C4.87303 10.9821 5.18705 10.6007 5.61601 10.528C5.94143 10.4645 6.21316 10.2359 6.33751 9.921C6.37456 9.83233 6.41356 9.74433 6.45451 9.657C6.61989 9.33044 6.59705 8.93711 6.39503 8.633C6.1424 8.27288 6.18119 7.77809 6.48668 7.464L7.19746 6.735C7.54802 6.37532 8.1009 6.32877 8.50396 6.625L8.52638 6.641C8.82735 6.84876 9.21033 6.88639 9.54428 6.741C9.90155 6.60911 10.1649 6.29424 10.2375 5.912L10.2473 5.878C10.3275 5.37197 10.7536 5.00021 11.2535 5H12.1115C12.6248 4.99976 13.0629 5.38057 13.1469 5.9L13.1625 5.97C13.2314 6.33617 13.4811 6.63922 13.8216 6.77C14.1498 6.91447 14.5272 6.87674 14.822 6.67L14.8707 6.634C15.2842 6.32834 15.8528 6.37535 16.2133 6.745L16.8675 7.417C17.1954 7.75516 17.2366 8.28693 16.965 8.674C16.7522 8.99752 16.7251 9.41325 16.8938 9.763L16.9358 9.863C17.0724 10.2045 17.3681 10.452 17.7216 10.521C18.1837 10.5983 18.5235 11.0069 18.525 11.487V12.6C18.5249 13.0234 18.2263 13.3846 17.8191 13.454C17.4842 13.5199 17.2114 13.7686 17.1083 14.102C17.0628 14.2353 17.0121 14.3687 16.9562 14.502C16.8261 14.795 16.855 15.1364 17.0323 15.402C17.2662 15.7358 17.2299 16.1943 16.9465 16.485L16.0388 17.417C15.7792 17.6832 15.3698 17.7175 15.0716 17.498C14.8226 17.3235 14.5001 17.3043 14.2331 17.448C14.0428 17.5447 13.8475 17.6305 13.6481 17.705C13.3692 17.8037 13.1636 18.0485 13.1099 18.346C13.053 18.7203 12.7401 18.9972 12.3708 19H11.0175Z" stroke="#ffffff" stroke-width="1.252" stroke-linecap="round" stroke-linejoin="round"/> <path fill-rule="evenodd" clip-rule="evenodd" d="M13.9747 12C13.9747 13.2885 12.9563 14.333 11.7 14.333C10.4437 14.333 9.42533 13.2885 9.42533 12C9.42533 10.7115 10.4437 9.66699 11.7 9.66699C12.9563 9.66699 13.9747 10.7115 13.9747 12Z" stroke="#ffffff" stroke-width="1.152" stroke-linecap="round" stroke-linejoin="round"/> </g>
-                    </svg>
-                    <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Setting</div>
-                </div>
-                <div class="flex items-center px-3 mt-1.1 h-10">
-                    <svg class="w-6 h-6 mr-1.5 rounded-lg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                        <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.31317 12.463C6.20006 9.29213 8.60976 6.6252 11.701 6.5C14.7923 6.6252 17.202 9.29213 17.0889 12.463C17.0889 13.78 18.4841 15.063 18.525 16.383C18.525 16.4017 18.525 16.4203 18.525 16.439C18.5552 17.2847 17.9124 17.9959 17.0879 18.029H13.9757C13.9786 18.677 13.7404 19.3018 13.3098 19.776C12.8957 20.2372 12.3123 20.4996 11.701 20.4996C11.0897 20.4996 10.5064 20.2372 10.0923 19.776C9.66161 19.3018 9.42346 18.677 9.42635 18.029H6.31317C5.48869 17.9959 4.84583 17.2847 4.87602 16.439C4.87602 16.4203 4.87602 16.4017 4.87602 16.383C4.91795 15.067 6.31317 13.781 6.31317 12.463Z" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/> <path d="M9.42633 17.279C9.01212 17.279 8.67633 17.6148 8.67633 18.029C8.67633 18.4432 9.01212 18.779 9.42633 18.779V17.279ZM13.9757 18.779C14.3899 18.779 14.7257 18.4432 14.7257 18.029C14.7257 17.6148 14.3899 17.279 13.9757 17.279V18.779ZM12.676 5.25C13.0902 5.25 13.426 4.91421 13.426 4.5C13.426 4.08579 13.0902 3.75 12.676 3.75V5.25ZM10.726 3.75C10.3118 3.75 9.97601 4.08579 9.97601 4.5C9.97601 4.91421 10.3118 5.25 10.726 5.25V3.75ZM9.42633 18.779H13.9757V17.279H9.42633V18.779ZM12.676 3.75H10.726V5.25H12.676V3.75Z" fill="#ffffff"/> </g>
-                    </svg>
-                    <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Notification</div>
-                </div>
-                <div class="flex items-center bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-5 max-h-30 w-full mt-4">
-                    <div id="admin_profile" class="flex items-center">
-                        <img src="../img/Image-11 สำเนา.jpg" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-[#ff8c00]">
-                        <div class="ml-2">
-                            <p class="text-white flex items-center justify-center">BallKhonlhor</p>
-                            <p class="text-white flex opacity-30">Admin</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl mt-3 p-2 w-full flex items-center justify-center cursor-pointer duration-300 hover:bg-[#ff8c00]/60">
-                    <svg class="w-5 h-5 mr-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                        <g id="SVGRepo_iconCarrier"> <path d="M21 12L13 12" stroke="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="round"/> <path d="M18 15L20.913 12.087V12.087C20.961 12.039 20.961 11.961 20.913 11.913V11.913L18 9" stroke="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="round"/> <path d="M16 5V4.5V4.5C16 3.67157 15.3284 3 14.5 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H14.5C15.3284 21 16 20.3284 16 19.5V19.5V19" stroke="#ffffff" stroke-width="1.488" stroke-linecap="round" stroke-linejoin="round"/> </g>
-                    </svg>
-                    <a href="/index.html"><div class="text-white">Loguot</div></a>
-                </div>
-=======
+        <!-- Scrollable Content Area -->
+        <main class="flex-1 overflow-y-auto p-8 scroll-custom">
+            <p class="text-gray-400 text-sm mb-8">ยินดีต้อนรับกลับ แอดมิน Ball นี่คือสถานะระบบในวันนี้</p>
 
-            <div class="p-4 border-t border-gray-800">
-                <div class="bg-black/30 rounded-xl p-3 flex items-center mb-3 border border-gray-800">
-                    <img src="../img/Image-11 สำเนา.jpg" alt="Admin" class="w-10 h-10 rounded-full object-cover border border-[#ff8c00]">
-                    <div class="ml-3">
-                        <p class="text-white text-sm font-bold">BallKhonlhor</p>
-                        <p class="text-[#ff8c00] text-[10px] uppercase tracking-widest">Super Admin</p>
-                    </div>
-                </div>
-                <a href="/index.html" class="flex items-center justify-center w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-500 rounded-xl p-3 transition-colors group">
-                    <svg class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
-                    <span class="font-bold text-sm">Logout</span>
-                </a>
->>>>>>> 7fa2dfa2ae27ecc874f7542368b45a3ef224294f
-            </div>
-        </aside>
-
-        <section class="flex-1 overflow-y-auto p-8 scroll-custom">
-            
-            <div class="mb-8">
-                <h1 class="text-3xl font-black italic uppercase tracking-wider mb-1">System Overview</h1>
-                <p class="text-gray-400 text-sm">ยินดีต้อนรับกลับ แอดมิน Ball นี่คือสถานะระบบในวันนี้</p>
-            </div>
-
+            <!-- Stat Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
                 <div class="bg-[#151517] border border-gray-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:border-[#ff8c00]/50 transition-colors">
                     <div class="absolute -right-4 -top-4 text-gray-800 opacity-20 group-hover:text-[#ff8c00] transition-colors"><svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
@@ -207,7 +106,8 @@
                 </div>
             </div>
 
-            <div class="bg-[#151517] border border-gray-800 rounded-3xl overflow-hidden shadow-xl mb-10">
+            <!-- Pending Verifications Table -->
+            <div class="bg-[#151517] border border-gray-800 rounded-3xl overflow-hidden shadow-xl">
                 <div class="p-6 border-b border-gray-800 flex justify-between items-center bg-[#1a1a1c]">
                     <div>
                         <h2 class="text-xl font-black uppercase italic tracking-wider flex items-center gap-2">
@@ -219,70 +119,65 @@
                     <span class="bg-yellow-500/10 text-yellow-500 border border-yellow-500/30 px-3 py-1 rounded-full text-xs font-bold">2 Requests</span>
                 </div>
                 
-                <table class="w-full text-left">
-                    <thead class="bg-[#1f1f22] text-gray-400 text-[10px] uppercase tracking-widest">
-                        <tr>
-                            <th class="px-6 py-4">Trainer Name</th>
-                            <th class="px-6 py-4">Submitted Documents</th>
-                            <th class="px-6 py-4">Date Submitted</th>
-                            <th class="px-6 py-4 text-right">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="verification-table" class="divide-y divide-gray-800">
-                        <tr class="hover:bg-white/5 transition-colors" id="req-1">
-                            <td class="px-6 py-4 flex items-center gap-3">
-                                <img src="../img/gym hub-2 สำเนา.png" class="w-10 h-10 rounded-full object-cover border border-gray-600">
-                                <div>
-                                    <p class="font-bold text-white">Trainer_John</p>
-                                    <p class="text-xs text-gray-500">john.pro@email.com</p>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex gap-2">
-                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">ID Card</span>
-                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">Selfie</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 text-xs text-gray-400">Today, 10:30 AM</td>
-                            <td class="px-6 py-4 text-right space-x-2">
-                                <button onclick="approveTrainer('req-1', 'Trainer_John')" class="bg-green-500/20 text-green-500 hover:bg-green-500 hover:text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Approve</button>
-                                <button onclick="rejectTrainer('req-1')" class="bg-red-500/10 text-red-500 hover:bg-red-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Reject</button>
-                            </td>
-                        </tr>
-                        
-                        <tr class="hover:bg-white/5 transition-colors" id="req-2">
-                            <td class="px-6 py-4 flex items-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1583465551323-28f0997f020a?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full object-cover border border-gray-600">
-                                <div>
-                                    <p class="font-bold text-white">Sarah_Fit</p>
-                                    <p class="text-xs text-gray-500">sarah@email.com</p>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex gap-2">
-                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">ID Card</span>
-                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">Selfie</span>
-                                    <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2 py-1 rounded text-[10px] font-bold">Certificate</span>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 text-xs text-gray-400">Yesterday, 15:45 PM</td>
-                            <td class="px-6 py-4 text-right space-x-2">
-                                <button onclick="approveTrainer('req-2', 'Sarah_Fit')" class="bg-green-500/20 text-green-500 hover:bg-green-500 hover:text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Approve</button>
-                                <button onclick="rejectTrainer('req-2')" class="bg-red-500/10 text-red-500 hover:bg-red-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Reject</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left min-w-[700px]">
+                        <thead class="bg-[#1f1f22] text-gray-400 text-[10px] uppercase tracking-widest">
+                            <tr>
+                                <th class="px-6 py-4">Trainer Name</th>
+                                <th class="px-6 py-4">Submitted Documents</th>
+                                <th class="px-6 py-4">Date Submitted</th>
+                                <th class="px-6 py-4 text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="verification-table" class="divide-y divide-gray-800">
+                            <tr class="hover:bg-white/5 transition-colors" id="req-1">
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <img src="../img/Image-11 สำเนา.jpg" class="w-10 h-10 rounded-full object-cover border border-gray-600">
+                                    <div>
+                                        <p class="font-bold text-white">Trainer_John</p>
+                                        <p class="text-xs text-gray-500">john.pro@email.com</p>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex gap-2">
+                                        <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">ID Card</span>
+                                        <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">Selfie</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-xs text-gray-400">Today, 10:30 AM</td>
+                                <td class="px-6 py-4 text-right space-x-2">
+                                    <button onclick="approveTrainer('req-1', 'Trainer_John')" class="bg-green-500/20 text-green-500 hover:bg-green-500 hover:text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Approve</button>
+                                    <button onclick="rejectTrainer('req-1')" class="bg-red-500/10 text-red-500 hover:bg-red-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Reject</button>
+                                </td>
+                            </tr>
+                            
+                            <tr class="hover:bg-white/5 transition-colors" id="req-2">
+                                <td class="px-6 py-4 flex items-center gap-3">
+                                    <img src="../img/Image-11 สำเนา.jpg" class="w-10 h-10 rounded-full object-cover border border-gray-600">
+                                    <div>
+                                        <p class="font-bold text-white">Sarah_Fit</p>
+                                        <p class="text-xs text-gray-500">sarah@email.com</p>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex gap-2">
+                                        <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">ID Card</span>
+                                        <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">Selfie</span>
+                                        <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2 py-1 rounded text-[10px] font-bold">Certificate</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-xs text-gray-400">Yesterday, 15:45 PM</td>
+                                <td class="px-6 py-4 text-right space-x-2">
+                                    <button onclick="approveTrainer('req-2', 'Sarah_Fit')" class="bg-green-500/20 text-green-500 hover:bg-green-500 hover:text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Approve</button>
+                                    <button onclick="rejectTrainer('req-2')" class="bg-red-500/10 text-red-500 hover:bg-red-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Reject</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-        </section>
-    </main>
-
-    <style>
-        .scroll-custom::-webkit-scrollbar { width: 5px; }
-        .scroll-custom::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        .scroll-custom:hover::-webkit-scrollbar-thumb { background: #ff8c00; }
-    </style>
+        </main>
+    </div>
 
     <script src="../dist/js/helpers.js"></script>
     <script src="../dist/js/nav.js"></script>

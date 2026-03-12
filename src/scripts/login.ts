@@ -1,46 +1,50 @@
-// =============================================
-// Login Page Logic — GymHub
-// =============================================
+// อ้างอิงฟังก์ชันจาก helpers.js
+declare function getRegisteredUsers(): any[];
+declare function setCurrentUser(user: any): void;
 
 document.addEventListener('DOMContentLoaded', () => {
-    const loginButton = document.getElementById('login-button');
+    const loginBtn = document.getElementById('login-button') as HTMLButtonElement;
     const usernameInput = document.getElementById('userName') as HTMLInputElement;
     const passwordInput = document.getElementById('pass') as HTMLInputElement;
 
-    if (!loginButton || !usernameInput || !passwordInput) {
-        console.error('Login form elements not found!');
-        return;
-    }
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
 
-    loginButton.addEventListener('click', () => {
-        const username = usernameInput.value.trim();
-        const password = passwordInput.value.trim();
-
-        if (!username || !password) {
-            alert('Please enter both username and password.');
-            return;
-        }
-
-        const registeredUsers = getRegisteredUsers();
-        const foundUser = registeredUsers.find(user => user.username === username && user.password === password);
-
-        if (foundUser) {
-            // Login successful
-            const currentUserData: UserData = { ...foundUser };
-            delete currentUserData.password; // Don't store password in current session
-            setCurrentUser(currentUserData);
-
-            alert(`Welcome back, ${foundUser.username}!`);
-
-            // Redirect based on position
-            if (foundUser.position === 'trainer') {
-                window.location.href = 'trainer_profile.html';
-            } else {
-                window.location.href = '/index.html';
+            if (!username || !password) {
+                alert("กรุณากรอก Username และ Password");
+                return;
             }
-        } else {
-            // Login failed
-            alert('Invalid username or password.');
-        }
-    });
+
+            // 1. ตรวจสอบสิทธิ์ Admin (Hardcoded)
+            if (username === 'admin' && password === 'admin1234') {
+                const adminUser = {
+                    username: 'Admin',
+                    email: 'admin@gymhub.com',
+                    position: 'admin',
+                    fullname: 'System Administrator',
+                    profileImg: '../img/Image-11 สำเนา.jpg'
+                };
+                setCurrentUser(adminUser);
+                alert("เข้าสู่ระบบ Admin สำเร็จ!");
+                window.location.href = './admin_page.html';
+                return;
+            }
+
+            // 2. ตรวจสอบสิทธิ์ User ทั่วไปจาก LocalStorage
+            const users = getRegisteredUsers();
+            const foundUser = users.find((u: any) => u.username === username && u.password === password);
+
+            if (foundUser) {
+                setCurrentUser(foundUser);
+                alert(`ยินดีต้อนรับคุณ ${foundUser.username}`);
+                window.location.href = foundUser.position === 'trainer' ? './trainer_dashboard.html' : './main_profile.html';
+            } else {
+                alert("Username หรือ Password ไม่ถูกต้อง");
+            }
+        });
+    }
 });

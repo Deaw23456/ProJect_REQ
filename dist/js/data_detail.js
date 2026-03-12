@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setCurrentUser(currentUserData);
         // Redirect based on position
         if (newUserData.position === 'trainer') {
-            window.location.href = 'trainer_profile.html';
+            window.location.href = 'trainer_verification.html';
         }
         else {
             window.location.href = 'finish_singup.html';
