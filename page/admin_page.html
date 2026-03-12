@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/style.css">
-    <title>Admin</title>
+    <title>Admin Dashboard - Gym Hub</title>
 </head>
+<<<<<<< HEAD
 <body class="bg-[#0a0a0b] text-white">
     <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
@@ -18,8 +19,29 @@
                 <div class="flex-shrink-0">
                     <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
                             class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+=======
+<body class="bg-[#0a0a0b] text-white font-sans h-screen flex flex-col overflow-hidden">
+    
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/5 blur-[120px] rounded-full"></div>
+    </div>
+
+    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 sticky top-0 z-50 shrink-0">
+        <nav class="flex items-center justify-between px-6 py-2">
+            <div class="flex-shrink-0">
+                <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div><span class="text-sm text-gray-400 font-normal ml-3 self-end mb-1 border-l border-gray-600 pl-3">Admin Panel</span></a>
+            </div>
+
+            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
+                <input type="search" name="search" id="search-input" class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm" placeholder="Search...">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+>>>>>>> 7fa2dfa2ae27ecc874f7542368b45a3ef224294f
                 </div>
 
+<<<<<<< HEAD
                 <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
                     <input type="search" name="search" id="search-input"
                         class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
@@ -77,42 +99,25 @@
                 </svg>
                 <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Dashbord</div>
             </div>
+=======
+            <div id="user-nav" class="relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 flex items-center gap-2 mt-2">
+                <img src="../img/Image-11 สำเนา.jpg" alt="Admin" class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                <span class="font-bold text-white">Admin_Ball</span>
+            </div>
+        </nav>
+    </header>
+>>>>>>> 7fa2dfa2ae27ecc874f7542368b45a3ef224294f
 
-            <div class="flex items-center px-3 mt-1.1 h-10">
-                <svg class="w-5 h-5 mr-1.5" viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 14.6667V12.1C0 11.5806 0.133681 11.1031 0.401042 10.6677C0.668403 10.2323 1.02361 9.9 1.46667 9.67083C2.41389 9.19722 3.37639 8.84201 4.35417 8.60521C5.33194 8.3684 6.325 8.25 7.33333 8.25C8.34167 8.25 9.33472 8.3684 10.3125 8.60521C11.2903 8.84201 12.2528 9.19722 13.2 9.67083C13.6431 9.9 13.9983 10.2323 14.2656 10.6677C14.533 11.1031 14.6667 11.5806 14.6667 12.1V14.6667H0ZM16.5 14.6667V11.9167C16.5 11.2444 16.3128 10.599 15.9385 9.98021C15.5642 9.36146 15.0333 8.83055 14.3458 8.3875C15.125 8.47917 15.8583 8.63576 16.5458 8.85729C17.2333 9.07882 17.875 9.35 18.4708 9.67083C19.0208 9.97639 19.441 10.3163 19.7313 10.6906C20.0215 11.0649 20.1667 11.4736 20.1667 11.9167V14.6667H16.5ZM7.33333 7.33333C6.325 7.33333 5.46181 6.97431 4.74375 6.25625C4.02569 5.53819 3.66667 4.675 3.66667 3.66667C3.66667 2.65833 4.02569 1.79514 4.74375 1.07708C5.46181 0.359028 6.325 0 7.33333 0C8.34167 0 9.20486 0.359028 9.92292 1.07708C10.641 1.79514 11 2.65833 11 3.66667C11 4.675 10.641 5.53819 9.92292 6.25625C9.20486 6.97431 8.34167 7.33333 7.33333 7.33333ZM16.5 3.66667C16.5 4.675 16.141 5.53819 15.4229 6.25625C14.7049 6.97431 13.8417 7.33333 12.8333 7.33333C12.6653 7.33333 12.4514 7.31424 12.1917 7.27604C11.9319 7.23785 11.7181 7.19583 11.55 7.15C11.9625 6.66111 12.2795 6.11875 12.501 5.52292C12.7226 4.92708 12.8333 4.30833 12.8333 3.66667C12.8333 3.025 12.7226 2.40625 12.501 1.81042C12.2795 1.21458 11.9625 0.672222 11.55 0.183333C11.7639 0.106944 11.9778 0.0572917 12.1917 0.034375C12.4056 0.0114583 12.6194 0 12.8333 0C13.8417 0 14.7049 0.359028 15.4229 1.07708C16.141 1.79514 16.5 2.65833 16.5 3.66667ZM1.83333 12.8333H12.8333V12.1C12.8333 11.9319 12.7913 11.7792 12.7073 11.6417C12.6233 11.5042 12.5125 11.3972 12.375 11.3208C11.55 10.9083 10.7174 10.599 9.87708 10.3927C9.03681 10.1865 8.18889 10.0833 7.33333 10.0833C6.47778 10.0833 5.62986 10.1865 4.78958 10.3927C3.94931 10.599 3.11667 10.9083 2.29167 11.3208C2.15417 11.3972 2.0434 11.5042 1.95938 11.6417C1.87535 11.7792 1.83333 11.9319 1.83333 12.1V12.8333ZM7.33333 5.5C7.8375 5.5 8.2691 5.32049 8.62813 4.96146C8.98715 4.60243 9.16667 4.17083 9.16667 3.66667C9.16667 3.1625 8.98715 2.7309 8.62813 2.37188C8.2691 2.01285 7.8375 1.83333 7.33333 1.83333C6.82917 1.83333 6.39757 2.01285 6.03854 2.37188C5.67951 2.7309 5.5 3.1625 5.5 3.66667C5.5 4.17083 5.67951 4.60243 6.03854 4.96146C6.39757 5.32049 6.82917 5.5 7.33333 5.5Z" fill="#ffff"/>
-                </svg>
-                <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Person</div>
-            </div>
-            <div class="flex justify-center flex-col items-center">
-                <div class="text-white border-l-2 px-3 duration-300 hover:text-[#ff8c00] border-[#ff8c00] transition cursor-pointer group">Member</div>
-                <div class="text-white border-l-2 px-3 mr-2.5 pt-4 duration-300 hover:text-[#ff8c00] border-[#ff8c00] transition cursor-pointer group">Trainer</div>
-            </div>
-            <div class="flex items-center px-3 h-10 mt-10">
-                <svg fill="#ffff" class="w-5 h-5 mr-1.5" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" stroke="#000000" stroke-width="0.00512">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="19.456"/>
-                    <g id="SVGRepo_iconCarrier"> <g> <g> <g> <path d="M373.333,39.673c-27.389,0-49.958,20.671-52.978,47.255l-216.15,54.037c-6.812-21.611-27.016-37.292-50.872-37.292 C23.887,103.673,0,127.56,0,157.006v192c0,29.446,23.887,53.333,53.333,53.333c23.856,0,44.06-15.681,50.872-37.292l15.826,3.956 l-12.393,44.422c-3.225,11.561,3.718,23.506,15.36,26.425l126.933,31.829c11.555,2.897,23.244-4.23,25.96-15.829l10.592-45.235 l33.871,8.468c3.021,26.584,25.589,47.255,52.978,47.255c29.446,0,53.333-23.887,53.333-53.333v-320 C426.667,63.56,402.779,39.673,373.333,39.673z M64,349.006c0,5.882-4.785,10.667-10.667,10.667 c-5.882,0-10.667-4.785-10.667-10.667v-192c0-5.882,4.785-10.667,10.667-10.667c5.882,0,10.667,4.785,10.667,10.667v10.667 V338.34V349.006z M106.667,184.33L320,130.996v244.02l-44.055-11.014c-0.041-0.01-0.079-0.026-0.12-0.036l-124.181-31.04 c-0.007-0.002-0.014-0.002-0.021-0.004l-44.956-11.239V184.33z M239.29,425.025l-84.668-21.231l6.817-24.438l83.648,20.912 L239.29,425.025z M384,413.006c0,5.882-4.785,10.667-10.667,10.667c-5.882,0-10.667-4.785-10.667-10.667V402.34V103.673V93.006 c0-5.882,4.785-10.667,10.667-10.667c5.882,0,10.667,4.785,10.667,10.667V413.006z"/> <path d="M484.418,182.758l21.333-21.333c8.331-8.331,8.331-21.839,0-30.17c-8.331-8.331-21.839-8.331-30.17,0l-21.333,21.333 c-8.331,8.331-8.331,21.839,0,30.17S476.087,191.089,484.418,182.758z"/> <path d="M484.418,323.255c-8.331-8.331-21.839-8.331-30.17,0s-8.331,21.839,0,30.17l21.333,21.333 c8.331,8.331,21.839,8.331,30.17,0c8.331-8.331,8.331-21.839,0-30.17L484.418,323.255z"/> <path d="M469.333,274.34h21.333c11.782,0,21.333-9.551,21.333-21.333c0-11.782-9.551-21.333-21.333-21.333h-21.333 c-11.782,0-21.333,9.551-21.333,21.333C448,264.788,457.551,274.34,469.333,274.34z"/> </g> </g> </g> </g>
-                </svg>
-                <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Report</div>
-            </div>
-            <div class="flex items-center px-3 mt-1.1 h-10">
-                <svg class="w-5.5 h-5.5 mr-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                    <g id="SVGRepo_iconCarrier"> <path d="M9 3.51215C5.50442 4.74766 3 8.08137 3 12C3 16.9706 7.02944 21 12 21C15.9315 21 19.2743 18.4791 20.5 14.9655" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/> <path d="M12 3.99998C12 3.4477 12.4491 2.99424 12.998 3.05548C13.8372 3.14912 14.6609 3.36062 15.4442 3.68507C16.5361 4.13736 17.5282 4.8003 18.364 5.63602C19.1997 6.47175 19.8626 7.4639 20.3149 8.55583C20.6394 9.33912 20.8509 10.1627 20.9445 11.002C21.0057 11.5509 20.5523 12 20 12L13 12C12.4477 12 12 11.5523 12 11L12 3.99998Z" stroke="#ffffff" stroke-width="2"/> </g>
-                </svg>
-                <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Totals</div>
-            </div>
-            <div class="flex items-center px-2.5 mt-1.1 h-10">
-                <svg class="w-6.5 h-6.5 mr-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003">
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-                    <g id="SVGRepo_iconCarrier"> <path d="M16.2426 6.34319C16.6331 5.95266 17.2663 5.95266 17.6568 6.34319C18.0474 6.73371 18.0474 7.36688 17.6568 7.7574L7.75734 17.6569C7.36681 18.0474 6.73365 18.0474 6.34313 17.6569C5.9526 17.2664 5.9526 16.6332 6.34313 16.2427L16.2426 6.34319Z" fill="#ffffff"/> <path d="M9.87866 9.87872C9.09761 10.6598 7.83128 10.6598 7.05023 9.87872C6.26918 9.09767 6.26918 7.83134 7.05023 7.05029C7.83128 6.26924 9.09761 6.26924 9.87866 7.05029C10.6597 7.83134 10.6597 9.09767 9.87866 9.87872Z" fill="#ffffff"/> <path d="M14.1213 16.9498C14.9023 17.7308 16.1687 17.7308 16.9497 16.9498C17.7308 16.1687 17.7308 14.9024 16.9497 14.1214C16.1687 13.3403 14.9023 13.3403 14.1213 14.1214C13.3403 14.9024 13.3403 16.1687 14.1213 16.9498Z" fill="#ffffff"/> </g>
-                </svg>
-                <div class="text-white duration-300 hover:text-[#ff8c00] cursor-pointer">Promotion</div>
-            </div>
+    <main class="flex flex-1 overflow-hidden">
+        
+        <aside class="bg-[#151517] w-64 h-full border-r border-gray-800 flex flex-col shrink-0">
+            <nav class="flex-1 p-4 space-y-1 overflow-y-auto">
+                <div class="flex items-center px-4 h-12 bg-white/10 border-l-4 border-[#ff8c00] rounded-lg cursor-pointer mb-2">
+                    <svg class="w-5 h-5 mr-3 text-[#ff8c00]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5V19C4 19.5523 4.44772 20 5 20H19"/><path d="M18 9L13 13.9999L10.5 11.4998L7 14.9998"/></svg>
+                    <span class="text-white font-bold">Dashboard</span>
+                </div>
             </nav>
+<<<<<<< HEAD
             <div class="mt-60">
                 <div class="flex items-center px-2.5 mt-1.1 h-10">
                     <svg class="w-7 h-7 mr-1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,10 +152,158 @@
                     </svg>
                     <a href="/index.html"><div class="text-white">Loguot</div></a>
                 </div>
+=======
+
+            <div class="p-4 border-t border-gray-800">
+                <div class="bg-black/30 rounded-xl p-3 flex items-center mb-3 border border-gray-800">
+                    <img src="../img/Image-11 สำเนา.jpg" alt="Admin" class="w-10 h-10 rounded-full object-cover border border-[#ff8c00]">
+                    <div class="ml-3">
+                        <p class="text-white text-sm font-bold">BallKhonlhor</p>
+                        <p class="text-[#ff8c00] text-[10px] uppercase tracking-widest">Super Admin</p>
+                    </div>
+                </div>
+                <a href="/index.html" class="flex items-center justify-center w-full bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-500 rounded-xl p-3 transition-colors group">
+                    <svg class="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                    <span class="font-bold text-sm">Logout</span>
+                </a>
+>>>>>>> 7fa2dfa2ae27ecc874f7542368b45a3ef224294f
             </div>
         </aside>
+
+        <section class="flex-1 overflow-y-auto p-8 scroll-custom">
+            
+            <div class="mb-8">
+                <h1 class="text-3xl font-black italic uppercase tracking-wider mb-1">System Overview</h1>
+                <p class="text-gray-400 text-sm">ยินดีต้อนรับกลับ แอดมิน Ball นี่คือสถานะระบบในวันนี้</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+                <div class="bg-[#151517] border border-gray-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:border-[#ff8c00]/50 transition-colors">
+                    <div class="absolute -right-4 -top-4 text-gray-800 opacity-20 group-hover:text-[#ff8c00] transition-colors"><svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2 relative z-10">Total Members</p>
+                    <h3 class="text-4xl font-black text-white relative z-10">1,284</h3>
+                    <p class="text-green-500 text-xs mt-2 relative z-10 font-bold">↑ 12% from last month</p>
+                </div>
+                
+                <div class="bg-[#151517] border border-gray-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:border-[#ff8c00]/50 transition-colors">
+                    <div class="absolute -right-4 -top-4 text-gray-800 opacity-20 group-hover:text-[#ff8c00] transition-colors"><svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2 relative z-10">Active Trainers</p>
+                    <h3 class="text-4xl font-black text-[#ff8c00] relative z-10">45</h3>
+                    <p class="text-green-500 text-xs mt-2 relative z-10 font-bold">↑ 3 new this week</p>
+                </div>
+
+                <div class="bg-[#151517] border border-gray-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:border-[#ff8c00]/50 transition-colors">
+                    <div class="absolute -right-4 -top-4 text-gray-800 opacity-20 group-hover:text-[#ff8c00] transition-colors"><svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2 relative z-10">Monthly Revenue</p>
+                    <h3 class="text-4xl font-black text-white relative z-10">฿142K</h3>
+                    <p class="text-red-500 text-xs mt-2 relative z-10 font-bold">↓ 2% from last month</p>
+                </div>
+
+                <div class="bg-[#151517] border border-gray-800 p-6 rounded-2xl shadow-lg relative overflow-hidden group hover:border-[#ff8c00]/50 transition-colors">
+                    <div class="absolute -right-4 -top-4 text-gray-800 opacity-20 group-hover:text-[#ff8c00] transition-colors"><svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
+                    <p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-2 relative z-10">Active Packages</p>
+                    <h3 class="text-4xl font-black text-white relative z-10">89</h3>
+                    <p class="text-gray-500 text-xs mt-2 relative z-10 font-bold">Across all trainers</p>
+                </div>
+            </div>
+
+            <div class="bg-[#151517] border border-gray-800 rounded-3xl overflow-hidden shadow-xl mb-10">
+                <div class="p-6 border-b border-gray-800 flex justify-between items-center bg-[#1a1a1c]">
+                    <div>
+                        <h2 class="text-xl font-black uppercase italic tracking-wider flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></span>
+                            Pending Verifications
+                        </h2>
+                        <p class="text-xs text-gray-400 mt-1">รายการรอตรวจสอบเอกสารยืนยันตัวตนของเทรนเนอร์</p>
+                    </div>
+                    <span class="bg-yellow-500/10 text-yellow-500 border border-yellow-500/30 px-3 py-1 rounded-full text-xs font-bold">2 Requests</span>
+                </div>
+                
+                <table class="w-full text-left">
+                    <thead class="bg-[#1f1f22] text-gray-400 text-[10px] uppercase tracking-widest">
+                        <tr>
+                            <th class="px-6 py-4">Trainer Name</th>
+                            <th class="px-6 py-4">Submitted Documents</th>
+                            <th class="px-6 py-4">Date Submitted</th>
+                            <th class="px-6 py-4 text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="verification-table" class="divide-y divide-gray-800">
+                        <tr class="hover:bg-white/5 transition-colors" id="req-1">
+                            <td class="px-6 py-4 flex items-center gap-3">
+                                <img src="../img/gym hub-2 สำเนา.png" class="w-10 h-10 rounded-full object-cover border border-gray-600">
+                                <div>
+                                    <p class="font-bold text-white">Trainer_John</p>
+                                    <p class="text-xs text-gray-500">john.pro@email.com</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">ID Card</span>
+                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">Selfie</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-gray-400">Today, 10:30 AM</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button onclick="approveTrainer('req-1', 'Trainer_John')" class="bg-green-500/20 text-green-500 hover:bg-green-500 hover:text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Approve</button>
+                                <button onclick="rejectTrainer('req-1')" class="bg-red-500/10 text-red-500 hover:bg-red-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Reject</button>
+                            </td>
+                        </tr>
+                        
+                        <tr class="hover:bg-white/5 transition-colors" id="req-2">
+                            <td class="px-6 py-4 flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1583465551323-28f0997f020a?w=100&h=100&fit=crop" class="w-10 h-10 rounded-full object-cover border border-gray-600">
+                                <div>
+                                    <p class="font-bold text-white">Sarah_Fit</p>
+                                    <p class="text-xs text-gray-500">sarah@email.com</p>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="flex gap-2">
+                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">ID Card</span>
+                                    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-1 rounded text-[10px] font-bold">Selfie</span>
+                                    <span class="bg-purple-500/10 text-purple-400 border border-purple-500/30 px-2 py-1 rounded text-[10px] font-bold">Certificate</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-xs text-gray-400">Yesterday, 15:45 PM</td>
+                            <td class="px-6 py-4 text-right space-x-2">
+                                <button onclick="approveTrainer('req-2', 'Sarah_Fit')" class="bg-green-500/20 text-green-500 hover:bg-green-500 hover:text-black px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Approve</button>
+                                <button onclick="rejectTrainer('req-2')" class="bg-red-500/10 text-red-500 hover:bg-red-500/30 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Reject</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
     </main>
-<script src="../dist/js/helpers.js"></script>
-<script src="../dist/js/nav.js"></script>
+
+    <style>
+        .scroll-custom::-webkit-scrollbar { width: 5px; }
+        .scroll-custom::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .scroll-custom:hover::-webkit-scrollbar-thumb { background: #ff8c00; }
+    </style>
+
+    <script src="../dist/js/helpers.js"></script>
+    <script src="../dist/js/nav.js"></script>
+    <script>
+        // ฟังก์ชันจำลองการกด อนุมัติ (Approve)
+        function approveTrainer(rowId, name) {
+            if(confirm(`ยืนยันการอนุมัติเทรนเนอร์ "${name}" ใช่หรือไม่?`)) {
+                const row = document.getElementById(rowId);
+                row.innerHTML = `<td colspan="4" class="px-6 py-4 text-center text-green-500 text-sm font-bold bg-green-500/5">✅ อนุมัติ ${name} สำเร็จแล้ว ระบบได้ส่งอีเมลแจ้งเตือนไปยังเทรนเนอร์แล้ว</td>`;
+                setTimeout(() => row.remove(), 3000); 
+            }
+        }
+
+        // ฟังก์ชันจำลองการกด ปฏิเสธ (Reject)
+        function rejectTrainer(rowId) {
+            if(confirm(`คุณต้องการปฏิเสธเอกสารชุดนี้ใช่หรือไม่?`)) {
+                const row = document.getElementById(rowId);
+                row.innerHTML = `<td colspan="4" class="px-6 py-4 text-center text-red-500 text-sm font-bold bg-red-500/5">❌ ปฏิเสธเอกสารเรียบร้อยแล้ว</td>`;
+                setTimeout(() => row.remove(), 2000);
+            }
+        }
+    </script>
 </body>
 </html>
