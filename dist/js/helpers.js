@@ -1,14 +1,13 @@
-"use strict";
 // =============================================
 // Shared Helper Functions — GymHub
 // =============================================
 // --- Default Image Paths ---
-const DEFAULT_PROFILE_IMG = '/img/Image-11 สำเนา.jpg';
-const DEFAULT_BG_IMG = '/img/gym hub-2 สำเนา.png';
+var DEFAULT_PROFILE_IMG = '/img/Image-11 สำเนา.jpg';
+var DEFAULT_BG_IMG = '/img/gym hub-2 สำเนา.png';
 // --- LocalStorage Helpers ---
 /** อ่านรายชื่อผู้ใช้ทั้งหมดจาก localStorage */
 function getRegisteredUsers() {
-    const data = localStorage.getItem('registeredUsers');
+    var data = localStorage.getItem('registeredUsers');
     return data ? JSON.parse(data) : [];
 }
 /** บันทึกรายชื่อผู้ใช้ทั้งหมดลง localStorage */
@@ -17,7 +16,7 @@ function saveRegisteredUsers(users) {
 }
 /** อ่านข้อมูลผู้ใช้ที่ login อยู่ */
 function getCurrentUser() {
-    const data = localStorage.getItem('userData');
+    var data = localStorage.getItem('userData');
     return data ? JSON.parse(data) : null;
 }
 /** บันทึกข้อมูลผู้ใช้ที่ login อยู่ */
@@ -31,7 +30,7 @@ function removeCurrentUser() {
 // --- DOM Helpers ---
 /** ตั้งค่า textContent ของ element ตาม ID (null-safe) */
 function setTextContent(id, value) {
-    const el = document.getElementById(id);
+    var el = document.getElementById(id);
     if (el)
         el.textContent = value;
 }
@@ -61,10 +60,9 @@ function populateProfileFields(userData, fieldIds) {
     if (fieldIds.phone)
         setTextContent(fieldIds.phone, userData.phone || '-');
     if (fieldIds.weight)
-        setTextContent(fieldIds.weight, userData.weight ? `${userData.weight} kg` : '-');
+        setTextContent(fieldIds.weight, userData.weight ? "".concat(userData.weight, " kg") : '-');
     if (fieldIds.height)
-        setTextContent(fieldIds.height, userData.height ? `${userData.height} cm` : '-');
+        setTextContent(fieldIds.height, userData.height ? "".concat(userData.height, " cm") : '-');
     if (fieldIds.posiUpdate)
         setTextContent(fieldIds.posiUpdate, userData.position || '-');
 }
-//# sourceMappingURL=../../data/helpers.js.map

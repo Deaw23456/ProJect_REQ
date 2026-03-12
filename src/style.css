@@ -346,8 +346,17 @@
   .left-5 {
     left: calc(var(--spacing) * 5);
   }
+  .left-7 {
+    left: calc(var(--spacing) * 7);
+  }
   .left-10 {
     left: calc(var(--spacing) * 10);
+  }
+  .left-11 {
+    left: calc(var(--spacing) * 11);
+  }
+  .left-12 {
+    left: calc(var(--spacing) * 12);
   }
   .left-\[-10\%\] {
     left: -10%;
@@ -570,6 +579,9 @@
   }
   .h-0\.5 {
     height: calc(var(--spacing) * 0.5);
+  }
+  .h-1 {
+    height: calc(var(--spacing) * 1);
   }
   .h-1\.5 {
     height: calc(var(--spacing) * 1.5);
@@ -1159,6 +1171,10 @@
   }
   .rounded-tl-3xl {
     border-top-left-radius: var(--radius-3xl);
+  }
+  .rounded-b-lg {
+    border-bottom-right-radius: var(--radius-lg);
+    border-bottom-left-radius: var(--radius-lg);
   }
   .border {
     border-style: var(--tw-border-style);

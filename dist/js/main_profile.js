@@ -1,14 +1,13 @@
-"use strict";
 // =============================================
 // Main Profile Page — Current User's Profile
 // =============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize navigation
     initNav();
-    const profileImg = document.getElementById('profileImg');
-    const profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img');
-    const profileContent = document.getElementById('profileContent');
-    const noProfileMessage = document.getElementById('noProfileMessage');
+    var profileImg = document.getElementById('profileImg');
+    var profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img');
+    var profileContent = document.getElementById('profileContent');
+    var noProfileMessage = document.getElementById('noProfileMessage');
     if (!profileContent || !noProfileMessage) {
         console.error("Required profile elements (profileContent, noProfileMessage) not found.");
         if (noProfileMessage)
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
     try {
-        const userData = getCurrentUser();
+        var userData = getCurrentUser();
         if (!userData) {
             profileContent.classList.add('hidden');
             noProfileMessage.classList.remove('hidden');
@@ -53,4 +52,3 @@ document.addEventListener('DOMContentLoaded', () => {
         noProfileMessage.classList.remove('hidden');
     }
 });
-//# sourceMappingURL=../../data/main_profile.js.map

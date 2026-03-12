@@ -1,8 +1,7 @@
-"use strict";
 // =============================================
 // View Profile Page — View Other User's Profile
 // =============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize navigation
     initNav();
     // Load profile data from URL parameter
@@ -12,33 +11,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Render mini profiles sidebar
     renderMiniProfiles();
 });
-
 // --- Profile Loading ---
 function loadProfileFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const targetUsername = urlParams.get('username');
-    
+    var urlParams = new URLSearchParams(window.location.search);
+    var targetUsername = urlParams.get('username');
     if (!targetUsername) {
         console.log("No username parameter found in URL.");
         return;
     }
-    
-    const registeredUsers = getRegisteredUsers();
-    const userProfile = registeredUsers.find(user => user.username === targetUsername);
-    
+    var registeredUsers = getRegisteredUsers();
+    var userProfile = registeredUsers.find(function (user) { return user.username === targetUsername; });
     if (!userProfile) {
-        console.warn(`User with username '${targetUsername}' not found.`);
+        console.warn("User with username '".concat(targetUsername, "' not found."));
         return;
     }
-    
     // Set profile images
-    const profileImg = document.getElementById('profileImg');
-    const profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img');
+    var profileImg = document.getElementById('profileImg');
+    var profileBackgroundImg = document.querySelector('.relative.w-full.h-64.bg-gray-700.rounded-lg img');
     if (profileImg)
         profileImg.src = userProfile.profileImg || DEFAULT_PROFILE_IMG;
     if (profileBackgroundImg)
         profileBackgroundImg.src = userProfile.profileBackgroundImg || DEFAULT_BG_IMG;
-        
     // Populate profile fields ด้วย shared helper
     populateProfileFields(userProfile, {
         profileUsername: 'Profile_Username',
@@ -54,52 +47,23 @@ function loadProfileFromUrl() {
         height: 'Show_Height',
         posiUpdate: 'Posi_update'
     });
-
-    // 🎯 [ส่วนที่เพิ่มใหม่] เช็คว่าเป็นเทรนเนอร์ไหม ถ้าใช่ให้แสดงปุ่ม Booking Now
-    const userPosition = (userProfile.position || '').toLowerCase();
-    const isTrainer = userPosition.includes('trainer') || userPosition.includes('เทรนเนอร์');
-
-    if (isTrainer) {
-        // ป้องกันการสร้างปุ่มซ้ำ
-        if (!document.getElementById('booking-now-btn')) {
-            const bookingBtn = document.createElement('button');
-            bookingBtn.id = 'booking-now-btn';
-            bookingBtn.innerHTML = 'Booking Now 🚀';
-            // ใส่คลาส Tailwind ให้ปุ่มเด่นๆ สีส้มสไตล์ Gym Hub
-            bookingBtn.className = 'mt-6 w-full bg-[#ff8c00] text-black font-black py-3 px-6 rounded-xl hover:bg-white hover:shadow-[0_0_15px_rgba(255,140,0,0.5)] transition-all transform active:scale-95 uppercase tracking-widest';
-            
-            // ลิงก์ไปหน้าจองเมื่อกดปุ่ม
-            bookingBtn.onclick = () => {
-                window.location.href = '/page/RateLaka.html';
-            };
-
-            // หาจุดที่จะยัดปุ่มลงไป (เอาไปต่อท้ายส่วนที่แสดง Position หรือ Username รูปโปรไฟล์)
-            const positionDisplay = document.getElementById('Profile_Position') || document.getElementById('Profile_Username');
-            if (positionDisplay && positionDisplay.parentNode) {
-                positionDisplay.parentNode.appendChild(bookingBtn);
-            }
-        }
-    }
-
-    const noProfileMessage = document.getElementById('noProfileMessage');
+    var noProfileMessage = document.getElementById('noProfileMessage');
     if (noProfileMessage)
         noProfileMessage.classList.add('hidden');
 }
-
 // --- Review System ---
 function initReviewSystem() {
-    let currentRating = 0;
-    const reviews = [];
-    const stars = document.querySelectorAll('.star');
-    const ratingText = document.getElementById('rating-value');
-    const submitBtn = document.getElementById('submit-review');
-    const reviewInput = document.getElementById('review-text');
-    const reviewListArea = document.getElementById('review-list');
+    var currentRating = 0;
+    var reviews = [];
+    var stars = document.querySelectorAll('.star');
+    var ratingText = document.getElementById('rating-value');
+    var submitBtn = document.getElementById('submit-review');
+    var reviewInput = document.getElementById('review-text');
+    var reviewListArea = document.getElementById('review-list');
     if (!ratingText || !submitBtn || !reviewInput || !reviewListArea)
         return;
-        
-    const updateStars = (rating) => {
-        stars.forEach((star, index) => {
+    var updateStars = function (rating) {
+        stars.forEach(function (star, index) {
             if (index < rating) {
                 star.classList.replace('text-gray-400', 'text-yellow-400');
             }
@@ -108,33 +72,24 @@ function initReviewSystem() {
             }
         });
     };
-    
-    stars.forEach((star, index) => {
-        star.addEventListener('click', () => {
+    stars.forEach(function (star, index) {
+        star.addEventListener('click', function () {
             currentRating = index + 1;
             updateStars(currentRating);
-            ratingText.innerText = `${currentRating}/5`;
+            ratingText.innerText = "".concat(currentRating, "/5");
         });
     });
-    
-    const renderReviews = () => {
+    var renderReviews = function () {
         reviewListArea.innerHTML = '';
-        reviews.forEach(rev => {
-            const div = document.createElement('div');
+        reviews.forEach(function (rev) {
+            var div = document.createElement('div');
             div.className = "bg-[#1e1e1e] p-3 rounded-md border-l-4 border-[#ff8c00]";
-            div.innerHTML = `
-                <div class="flex text-yellow-400 text-xs mb-1">
-                    ${'★'.repeat(rev.rating)}${'☆'.repeat(5 - rev.rating)}
-                </div>
-                <p class="text-sm text-gray-200">${rev.text}</p>
-                <span class="text-[10px] text-gray-500">${rev.date}</span>
-            `;
+            div.innerHTML = "\n                <div class=\"flex text-yellow-400 text-xs mb-1\">\n                    ".concat('★'.repeat(rev.rating)).concat('☆'.repeat(5 - rev.rating), "\n                </div>\n                <p class=\"text-sm text-gray-200\">").concat(rev.text, "</p>\n                <span class=\"text-[10px] text-gray-500\">").concat(rev.date, "</span>\n            ");
             reviewListArea.prepend(div);
         });
     };
-    
-    submitBtn.addEventListener('click', () => {
-        const text = reviewInput.value.trim();
+    submitBtn.addEventListener('click', function () {
+        var text = reviewInput.value.trim();
         if (currentRating === 0)
             return alert("กรุณาให้ดาวก่อนนะเพื่อน!");
         if (!text)
@@ -152,31 +107,15 @@ function initReviewSystem() {
         renderReviews();
     });
 }
-
 // --- Mini Profiles Sidebar ---
 function renderMiniProfiles() {
-    const members = [
+    var members = [
         { name: "John Doe", role: "Trainer", img: "../img/Image-11.jpg", online: true },
         { name: "Somsak Gym", role: "Member", img: "../img/Image-11.jpg", online: false },
         { name: "Iron Man", role: "Bodybuilder", img: "../img/Image-11.jpg", online: true },
     ];
-    const listArea = document.getElementById('mini-profile-list');
+    var listArea = document.getElementById('mini-profile-list');
     if (!listArea)
         return;
-        
-    listArea.innerHTML = members.map(member => `
-        <div class="flex items-center p-2 hover:bg-[#3a3a3c] rounded-md transition cursor-pointer group">
-            <div class="relative">
-                <img src="${member.img}" class="w-10 h-10 rounded-full border border-[#ff8c00] object-cover">
-                ${member.online ? '<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#2d2d2f] rounded-full"></div>' : ''}
-            </div>
-            <div class="ml-3">
-                <p class="text-sm font-bold text-white group-hover:text-[#ff8c00]">${member.name}</p>
-                <p class="text-[10px] text-gray-400">${member.role}</p>
-            </div>
-            <button class="ml-auto text-[#ff8c00] opacity-0 group-hover:opacity-100 transition text-xs">
-                ทักทาย
-            </button>
-        </div>
-    `).join('');
+    listArea.innerHTML = members.map(function (member) { return "\n        <div class=\"flex items-center p-2 hover:bg-[#3a3a3c] rounded-md transition cursor-pointer group\">\n            <div class=\"relative\">\n                <img src=\"".concat(member.img, "\" class=\"w-10 h-10 rounded-full border border-[#ff8c00] object-cover\">\n                ").concat(member.online ? '<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#2d2d2f] rounded-full"></div>' : '', "\n            </div>\n            <div class=\"ml-3\">\n                <p class=\"text-sm font-bold text-white group-hover:text-[#ff8c00]\">").concat(member.name, "</p>\n                <p class=\"text-[10px] text-gray-400\">").concat(member.role, "</p>\n            </div>\n            <button class=\"ml-auto text-[#ff8c00] opacity-0 group-hover:opacity-100 transition text-xs\">\n                \u0E17\u0E31\u0E01\u0E17\u0E32\u0E22\n            </button>\n        </div>\n    "); }).join('');
 }

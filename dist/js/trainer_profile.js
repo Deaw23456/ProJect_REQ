@@ -1,17 +1,16 @@
-"use strict";
 // =============================================
 // Trainer Profile Page — GymHub
 // =============================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function () {
     // Initialize navigation bar
     initNav();
-    const trainerData = getCurrentUser();
+    var trainerData = getCurrentUser();
     if (!trainerData || trainerData.position !== 'trainer') {
         return;
     }
     // --- Profile Images ---
-    const profileImg = document.getElementById('trainer-main-profile-img');
-    const backgroundImg = document.getElementById('trainer-bg-img');
+    var profileImg = document.getElementById('trainer-main-profile-img');
+    var backgroundImg = document.getElementById('trainer-bg-img');
     if (profileImg) {
         profileImg.src = trainerData.profileImg || DEFAULT_PROFILE_IMG;
     }
@@ -35,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
         posiUpdate: 'trainer-posi-update',
     });
     // --- Sidebar Profile (bottom of sidebar) ---
-    const sidebarImg = document.getElementById('trainer-profile-img');
-    const sidebarName = document.getElementById('trainer-profile-name');
-    const sidebarPosition = document.getElementById('trainer-profile-position');
+    var sidebarImg = document.getElementById('trainer-profile-img');
+    var sidebarName = document.getElementById('trainer-profile-name');
+    var sidebarPosition = document.getElementById('trainer-profile-position');
     if (sidebarImg) {
         sidebarImg.src = trainerData.profileImg || DEFAULT_PROFILE_IMG;
     }
@@ -48,12 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
         sidebarPosition.textContent = capitalize(trainerData.position);
     }
     // --- Sidebar Logout ---
-    const logoutSidebar = document.getElementById('sidebar-logout-btn');
+    var logoutSidebar = document.getElementById('sidebar-logout-btn');
     if (logoutSidebar) {
-        logoutSidebar.addEventListener('click', () => {
+        logoutSidebar.addEventListener('click', function () {
             removeCurrentUser();
             window.location.href = '/index.html';
         });
     }
 });
-//# sourceMappingURL=../../data/trainer_profile.js.map
