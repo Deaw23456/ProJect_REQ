@@ -21,20 +21,73 @@
     <div class="relative w-full shrink-0">
         <div class="absolute inset-0 z-0 pointer-events-none">
             <img src="../img/Gym-bg.png" 
-                class="w-full h-full object-cover opacity-30" alt="Gym Background">
+                class="w-full h-full object-cover opacity-20" alt="Gym Background">
             
             <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0f] via-[#0d0d0f]/80 to-transparent"></div>
             
             <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#0d0d0f] to-transparent"></div>
         </div>
+        <div class="absolute inset-0 z-[-1] pointer-events-none overflow-hidden">
+            <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
+            <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+        </div>
+
+    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50 items-center">
+        <nav class="flex items-center justify-between px-6 py-2">
+            <div class="flex-shrink-0">
+                <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
+                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+            </div>
+
+            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
+                <input type="search" name="search" id="search-input"
+                    class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
+                    placeholder="Search">
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <div id="guest-nav">
+                <ul class="flex gap-2 font-bold mt-2">
+                    <li><a href="/page/singup.html"
+                            class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
+                            up</a></li>
+                    <li><a href="/page/login.html"
+                            class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="user-nav"
+                class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
+                <div class="flex items-center gap-2.5">
+                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                        class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                    <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
+                        <span id="username-display"></span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="dropdown-menu"
+                        class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
+                        <a href="/page/main_profile.html"
+                            class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors rounded-lg">My
+                            Profile</a>
+                        <a href="#" id="logout-btn"
+                            class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors rounded-lg">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
         <div class="max-w-3xl mx-auto relative z-10 pt-4 pb-8">
-            <header class="p-6 flex items-center justify-between">
-                <a href="trainer_dashboard.html" class="w-10 h-10 bg-[#1f1f22]/80 hover:bg-[#ff8c00] hover:text-black rounded-full flex items-center justify-center transition-all border border-gray-700 font-bold shadow-lg">←</a>
-                <h1 class="absolute left-1/2 -translate-x-1/2 text-[11px] text-[#ff8c00] font-black uppercase tracking-[0.4em]">Progress Tracker</h1>
-                <div class="w-10"></div>
-            </header>
-
             <div class="flex flex-col items-center mt-2">
                 <div class="w-24 h-24 rounded-full border-2 border-[#ff8c00] p-1 shadow-[0_0_20px_rgba(255,140,0,0.5)] mb-4 bg-[#121212]">
                     <img src="../img/pho_member.png" alt="Client" class="w-full h-full rounded-full object-cover">
@@ -47,7 +100,7 @@
     <main class="max-w-3xl mx-auto w-full flex-1 flex flex-col relative z-10 overflow-hidden px-4">
         
         <div class="flex-1 overflow-y-auto scroll-custom pb-32 pt-2">
-            <div class="bg-[#151517] border border-gray-800/50 p-6 rounded-[2rem] shadow-2xl">
+            <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-[2rem] shadow-2xl">
                 
                 <h3 class="font-black text-white text-lg mb-6 flex items-center gap-3 tracking-wide">
                     <span class="w-1.5 h-6 bg-[#ff8c00] rounded-full"></span>
@@ -78,79 +131,8 @@
             </button>
         </div>
     </div>
-
-    <script>
-        let activeWorkout = JSON.parse(localStorage.getItem('clientWorkoutSession')) || [];
-
-        function renderTracker() {
-            const listContainer = document.getElementById('exercise-list');
-            listContainer.innerHTML = '';
-
-            if (activeWorkout.length === 0) {
-                listContainer.innerHTML = `<p class="text-center text-gray-500 italic py-10">ยังไม่มีท่าออกกำลังกาย<br>กรุณากลับไปที่หน้า Assign Program</p>`;
-                return;
-            }
-
-            activeWorkout.forEach((ex, index) => {
-                const item = document.createElement('div');
-                item.className = "exercise-item bg-[#1e1e20] p-4 rounded-2xl flex justify-between items-center cursor-pointer hover:bg-[#252528] border border-transparent hover:border-gray-700 transition-all duration-200";
-                
-                // สั่งให้กดทั้งกล่องแล้วติ๊กถูกเลย
-                item.onclick = function() { toggleTask(this); };
-
-                item.innerHTML = `
-                    <div class="flex-1 pr-4">
-                        <h4 class="font-bold text-md text-white">${ex.name}</h4>
-                        <p class="text-xs text-gray-500 mt-1">${ex.detail}</p>
-                    </div>
-                    
-                    <div class="flex items-center">
-                        <div class="checkbox-circle w-6 h-6 rounded-full border-2 border-gray-600 flex items-center justify-center transition-all duration-300">
-                            <svg class="check-icon w-3.5 h-3.5 text-black hidden check-pop" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7"></path></svg>
-                        </div>
-                    </div>
-                `;
-                listContainer.appendChild(item);
-            });
-        }
-
-        // ฟังก์ชันสลับติ๊กถูก
-        function toggleTask(element) {
-            const circle = element.querySelector('.checkbox-circle');
-            const icon = element.querySelector('.check-icon');
-
-            if (circle.classList.contains('bg-[#ff8c00]')) {
-                // เอาติ๊กออก
-                circle.classList.remove('bg-[#ff8c00]', 'border-[#ff8c00]');
-                circle.classList.add('border-gray-600');
-                icon.classList.add('hidden');
-                element.classList.remove('border-[#ff8c00]/30', 'bg-[#ff8c00]/5');
-            } else {
-                // ใส่ติ๊ก
-                circle.classList.remove('border-gray-600');
-                circle.classList.add('bg-[#ff8c00]', 'border-[#ff8c00]');
-                icon.classList.remove('hidden');
-                element.classList.add('border-[#ff8c00]/30', 'bg-[#ff8c00]/5');
-            }
-        }
-
-        // 🎯 กดปุ๊บ เด้งยินดีปั๊บ ไม่ต้องถามแล้ว
-        function finishSession() {
-            const modal = document.getElementById('success-modal');
-            const modalContent = document.getElementById('modal-content');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modal.classList.add('opacity-100');
-                modalContent.classList.remove('scale-90');
-                modalContent.classList.add('scale-100');
-            }, 10);
-            
-            // จบงานเสร็จ เคลียร์ข้อมูลทิ้ง
-            localStorage.removeItem('clientWorkoutSession');
-        }
-
-        window.onload = renderTracker;
-    </script>
+    <script src="../dist/js/helpers.js"></script>
+    <script src="../dist/js/nav.js"></script>
+    <script src="../dist/js/progress_tracker.js"></script>
 </body>
 </html>

@@ -6,11 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize navigation
     initNav();
 
-    // --- Display trainer cards ---
+    // Get all trainers initially
+    const allTrainers = getRegisteredUsers().filter(user => user.position === 'trainer');
+    
+    // Initial Render
+    renderTrainers(allTrainers);
+
+    // --- Search Functionality ---
+    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = (e.target as HTMLInputElement).value.trim().toLowerCase();
+            const filteredTrainers = allTrainers.filter(t => 
+                (t.fullname || "").toLowerCase().includes(searchTerm) || 
+                (t.username || "").toLowerCase().includes(searchTerm)
+            );
+            renderTrainers(filteredTrainers);
+        });
+    }
+});
+
+function renderTrainers(trainers: UserData[]): void {
     const trainerCardsContainer = document.getElementById('trainer-cards-container');
     if (!trainerCardsContainer) return;
 
-    const trainers = getRegisteredUsers().filter(user => user.position === 'trainer');
+    trainerCardsContainer.innerHTML = '';
+
+    if (trainers.length === 0) {
+        trainerCardsContainer.innerHTML = '<p class="text-gray-400 text-center w-full col-span-full py-10">ไม่พบรายชื่อเทรนเนอร์ที่ค้นหา</p>';
+        return;
+    }
 
     trainers.forEach(trainer => {
         const card = document.createElement('a');
@@ -33,4 +58,4 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         trainerCardsContainer.appendChild(card);
     });
-});
+}

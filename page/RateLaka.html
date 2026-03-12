@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Kanit', sans-serif; background-color: #000; color: white; }
+        body { font-family: 'Kanit', sans-serif; background-color: #0a0a0b; color: white; }
         .selected-date { background-color: #f97316 !important; font-weight: bold; border-radius: 1rem; position: relative; box-shadow: 0 0 15px rgba(249, 115, 22, 0.4); }
         .selected-date::after { content: ''; position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; background: white; border-radius: 50%; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -19,20 +19,65 @@
     </head>
     <body class="min-h-screen">
 
-   <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50 items-center">
-        <nav class="flex items-center justify-between px-6 py-2">
-            <div class="flex-shrink-0">
-               <a href="../index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
-                        class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div>
-                    </a>
-            </div>
-            <div class="flex items-center gap-4">
-            <div class="bg-[#1a1a1a] px-4 py-1.5 rounded-full flex items-center gap-2 border border-gray-800">
-                <span class="material-icons text-orange-500 text-sm">person</span>
-                <span class="text-sm font-medium">SUPHAPHON</span>
-            </div>
-            </div>
-        </header>
+   <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+    </div>
+
+        <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50 items-center">
+                <nav class="flex items-center justify-between px-6 py-2">
+                    <div class="flex-shrink-0">
+                        <a href="/index.html" class="text-white text-4xl font-bold flex mt-2">Gym<div
+                                class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+                    </div>
+
+                    <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
+                        <input type="search" name="search" id="search-input"
+                            class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
+                            placeholder="Search">
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer">
+                            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div id="guest-nav">
+                        <ul class="flex gap-2 font-bold mt-2">
+                            <li><a href="/page/singup.html"
+                                    class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
+                                    up</a></li>
+                            <li><a href="/page/login.html"
+                                    class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="user-nav"
+                        class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
+                        <div class="flex items-center gap-2.5">
+                            <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                                class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
+                            <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
+                                <span id="username-display"></span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                                    </path>
+                                </svg>
+                            </button>
+                            <div id="dropdown-menu"
+                                class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
+                                <a href="/page/main_profile.html"
+                                    class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors rounded-lg">My
+                                    Profile</a>
+                                <a href="#" id="logout-btn"
+                                    class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors rounded-lg">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </header>
 
            <div id="booking-page" class="max-w-7xl mx-auto px-4"> 
 
@@ -42,7 +87,7 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-7xl mx-auto px-4 py-12">
-            <div id="plan-3" onclick="selectPlan(3, '3 Days Pass', 320)" class="plan-card bg-[#1c1c1c] border border-gray-800 rounded-[3rem] p-10 flex flex-col min-h-[520px] transition-all hover:border-gray-600">
+            <div id="plan-3" onclick="selectPlan(3, '3 Days Pass', 320)" class="plan-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-10 flex flex-col min-h-[520px] transition-all hover:border-gray-400">
             <div class="flex justify-between items-center mb-10">
                     <span class="text-[12px] tracking-[0.3em] text-gray-400 font-medium uppercase">STARTER</span>
                     <span class="material-icons text-gray-500 text-lg">info_outline</span>
@@ -71,7 +116,7 @@
 
             <div class="relative group">
             <div class="absolute -inset-0.5 bg-orange-500 rounded-[3rem] blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
-            <div id="plan-15" onclick="selectPlan(15, '15 Days Challenge', 1800)" class="relative plan-card bg-[#1c1c1c] border-2 border-orange-500 rounded-[3rem] p-10 flex flex-col min-h-[520px] h-full transition-all">
+            <div id="plan-15" onclick="selectPlan(15, '15 Days Challenge', 1800)" class="relative plan-card bg-white/5 backdrop-blur-xl border-2 border-orange-500 rounded-[3rem] p-10 flex flex-col min-h-[520px] h-full transition-all">
             <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-orange-400 text-black text-xs font-black px-6 py-2 rounded-2xl shadow-xl uppercase tracking-wider">ยอดนิยม</div>
             <div class="flex justify-between items-center mb-10 mt-2">
                     <span class="text-[12px] tracking-[0.3em] text-orange-400 font-medium uppercase">INTENSIVE</span>
@@ -93,7 +138,7 @@
             </div>
             </div>
 
-            <div id="plan-30" onclick="selectPlan(30, '30 Days Transformation', 3570)" class="plan-card bg-[#1c1c1c] border border-gray-800 rounded-[3rem] p-10 flex flex-col min-h-[520px] transition-all hover:border-gray-600">
+            <div id="plan-30" onclick="selectPlan(30, '30 Days Transformation', 3570)" class="plan-card bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] p-10 flex flex-col min-h-[520px] transition-all hover:border-gray-400">
             <div class="flex justify-between items-center mb-10">
                     <span class="text-[12px] tracking-[0.3em] text-gray-400 font-medium uppercase">LIFESTYLE</span>
                     <span class="material-icons text-gray-500 text-lg">verified_user</span>
@@ -114,10 +159,10 @@
             </div>
             </div>
             <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-12 lg:col-span-7 bg-[#0a0a0a] p-8 rounded-[2.5rem] border border-gray-900">
+            <div class="col-span-12 lg:col-span-7 bg-white/5 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/10">
                 <div class="flex justify-between items-center mb-8">
                     <h3 class="font-bold text-lg">ปฏิทินการจอง</h3>
-                    <div class="flex items-center gap-4 bg-[#1a1a1a] p-1.5 rounded-full px-4">
+                    <div class="flex items-center gap-4 bg-white/5 p-1.5 rounded-full px-4 border border-white/5">
                         <button onclick="changeMonth(-1)" class="material-icons text-sm text-gray-500">chevron_left</button>
                         <span id="currentMonthYear" class="text-xs font-bold min-w-[100px] text-center"></span>
                         <button onclick="changeMonth(1)" class="material-icons text-sm text-gray-500">chevron_right</button>
@@ -130,18 +175,18 @@
             </div>
 
             <div class="col-span-12 lg:col-span-5 flex flex-col gap-6">
-                <div class="bg-[#0a0a0a] p-6 rounded-[2rem] border border-gray-900">
+                <div class="bg-white/5 backdrop-blur-xl p-6 rounded-[2rem] border border-white/10">
                     <div class="flex justify-between text-sm mb-2">
                         <span>ความคืบหน้า</span>
                         <span id="progressLabel" class="text-orange-500 font-bold">0 / 15 วัน</span>
                     </div>
-                    <div class="w-full bg-[#1a1a1a] h-1.5 rounded-full overflow-hidden">
+                    <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
                         <div id="progressBar" class="bg-orange-500 h-full w-0 transition-all"></div>
                     </div>
                 </div>
 
-                <div class="bg-[#0a0a0a] rounded-[2rem] border border-gray-900 flex flex-col h-[400px]">
-                    <div class="p-6 border-b border-gray-900 flex justify-between">
+                <div class="bg-white/5 backdrop-blur-xl rounded-[2rem] border border-white/10 flex flex-col h-[400px]">
+                    <div class="p-6 border-b border-white/10 flex justify-between">
                         <h4 class="text-sm font-bold">สรุปรายการที่เลือก</h4>
                         <span id="badgeCount" class="bg-orange-500 text-black text-[10px] px-2 py-0.5 rounded-full font-black">0</span>
                     </div>
@@ -177,12 +222,12 @@
             
 </div>
 
-            <div class="col-span-12 lg:col-span-5 bg-[#0a0a0a] rounded-[2.5rem] border border-gray-900 p-8 flex flex-col justify-between">
+            <div class="col-span-12 lg:col-span-5 bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 p-8 flex flex-col justify-between">
                 <div>
                     <h3 class="font-bold text-lg mb-8 uppercase tracking-wider">สรุปรายการสั่งซื้อ</h3>
                     
                     <div class="space-y-6">
-                        <div class="flex justify-between items-start border-b border-gray-900 pb-6">
+                        <div class="flex justify-between items-start border-b border-white/10 pb-6">
                             <div>
                                 <p id="summaryPlanName" class="font-bold text-lg">---</p>
                                 <p class="text-[10px] text-gray-500 uppercase mt-1">วันที่เริ่ม: <span id="summaryStartDate" class="text-orange-500"></span></p>
@@ -207,130 +252,9 @@
             </div>
         </div>
     </div>
-   <script>
-        let date = new Date();
-        let selectedDates = [];
-        let maxQuota = 15;
-        let currentPrice = 1800;
-        let currentPlanName = "15 Days Challenge";
-
-        function selectPlan(days, name, price) {
-            if(selectedDates.length > 0 && !confirm("เปลี่ยนแพ็กเกจจะล้างข้อมูลที่เลือกใหม่?")) return;
-            maxQuota = days;
-            currentPrice = price;
-            currentPlanName = name;
-            selectedDates = [];
-            document.querySelectorAll('.plan-card').forEach(el => el.classList.remove('plan-active'));
-            document.getElementById(`plan-${days}`).classList.add('plan-active');
-            updateUI();
-        }
-
-        function renderCalendar() {
-            const grid = document.getElementById('calendarGrid');
-            const monthYear = document.getElementById('currentMonthYear');
-            const monthNames = ["มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
-            monthYear.innerText = `${monthNames[date.getMonth()]} ${date.getFullYear() + 543}`;
-
-            const firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-            const daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-            const prevDays = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
-
-            grid.innerHTML = '';
-            for (let i = firstDay; i > 0; i--) {
-                grid.innerHTML += `<div class="calendar-btn text-gray-800 text-sm">${prevDays - i + 1}</div>`;
-            }
-            for (let i = 1; i <= daysInMonth; i++) {
-                const key = `${date.getFullYear()}-${date.getMonth()}-${i}`;
-                const isSelected = selectedDates.includes(key);
-                const btn = document.createElement('button');
-                btn.className = `calendar-btn rounded-xl text-sm transition ${isSelected ? 'selected-date text-white' : 'bg-[#111] hover:bg-gray-800 text-gray-400'}`;
-                btn.innerText = i;
-                btn.onclick = () => toggleDate(key);
-                grid.appendChild(btn);
-            }
-        }
-
-        function toggleDate(key) {
-            const idx = selectedDates.indexOf(key);
-            if (idx > -1) selectedDates.splice(idx, 1);
-            else {
-                if (selectedDates.length >= maxQuota) return alert("ครบโควต้าแล้วครับ");
-                selectedDates.push(key);
-            }
-            updateUI();
-        }
-
-        function updateUI() {
-            renderCalendar();
-            const count = selectedDates.length;
-            document.getElementById('progressLabel').innerText = `${count} / ${maxQuota} วัน`;
-            document.getElementById('progressBar').style.width = `${(count / maxQuota) * 100}%`;
-            document.getElementById('badgeCount').innerText = count;
-
-            const list = document.getElementById('bookingList');
-            const btn = document.getElementById('confirmBtn');
-
-            if (count === 0) {
-                list.innerHTML = `<p class="text-center text-gray-700 py-20 text-xs">ยังไม่ได้เลือกวัน</p>`;
-            } else {
-                selectedDates.sort((a,b) => new Date(a) - new Date(b));
-                list.innerHTML = selectedDates.map(k => {
-                    const [y, m, d] = k.split('-').map(Number);
-                    const dName = new Intl.DateTimeFormat('th-TH', { weekday: 'long' }).format(new Date(y, m, d));
-                    return `<div class="bg-white text-black p-4 rounded-2xl flex justify-between items-center shadow-lg">
-                        <div class="flex items-center gap-3">
-                            <div class="bg-orange-500 text-white px-2 py-1 rounded-lg text-center leading-none">
-                                <p class="text-lg font-black">${d.toString().padStart(2, '0')}</p>
-                                <p class="text-[8px] uppercase">มี.ค.</p>
-                            </div>
-                            <div><p class="text-xs font-bold">${dName}</p><p class="text-[9px] text-gray-500">18:30 - 19:30</p></div>
-                        </div>
-                        <button onclick="toggleDate('${k}')" class="material-icons text-gray-300 text-sm">cancel</button>
-                    </div>`;
-                }).join('');
-            }
-
-            if (count === maxQuota) {
-                btn.disabled = false;
-                btn.className = "w-full bg-orange-500 text-black py-4 rounded-2xl font-black flex justify-center items-center gap-2 hover:bg-orange-600 transition active:scale-95 cursor-pointer";
-            } else {
-                btn.disabled = true;
-                btn.className = "w-full bg-gray-800 text-gray-500 py-4 rounded-2xl font-bold flex justify-center items-center gap-2 cursor-not-allowed";
-            }
-        }
-
-        function goToPayment() {
-            document.getElementById('summaryPlanName').innerText = currentPlanName;
-            document.getElementById('summaryTotal').innerText = `฿${currentPrice.toLocaleString()}`;
-            
-            selectedDates.sort((a,b) => new Date(a) - new Date(b));
-            const [y, m, d] = selectedDates[0].split('-').map(Number);
-            document.getElementById('summaryStartDate').innerText = `${d} ${new Intl.DateTimeFormat('th-TH', { month: 'long' }).format(new Date(y, m, d))} ${y + 543}`;
-
-            document.getElementById('booking-page').classList.add('hidden');
-            document.getElementById('payment-page').classList.remove('hidden');
-            window.scrollTo(0,0);
-        }
-
-       function changeMonth(v) { 
-            date.setMonth(date.getMonth() + v); 
-            renderCalendar(); 
-        }
-
-        // เพิ่มฟังก์ชันนี้เข้าไปครับ
-        function showSuccess() {
-            const modal = document.getElementById('success-modal');
-            if (modal) {
-                modal.classList.remove('hidden');
-            } else {
-                console.error("หา id 'success-modal' ไม่เจอครับ");
-            }
-        }
-
-        // ต้องมีบรรทัดนี้เพื่อให้ปฏิทินแสดงตอนโหลดหน้าแรก
-        renderCalendar();
-    </script>
-    </script>
+    <script src="../dist/js/helpers.js"></script>
+    <script src="../dist/js/nav.js"></script>
+    <script src="../dist/js/rate_laka.js"></script>
     <div id="success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
     <div class="relative bg-[#1c1c1c] border border-gray-800 w-full max-w-md rounded-[3rem] p-10 text-center shadow-2xl">
@@ -344,5 +268,7 @@
 </button>
     </div>
 </div>
+<script src="../dist/js/helpers.js"></script>
+<script src="../dist/js/nav.js"></script>
 </body>
 </html>

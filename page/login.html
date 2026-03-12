@@ -8,7 +8,13 @@
     <title>Login</title>
 </head>
 
-<body class="bg-[#181819]">
+<body class="bg-[#0a0a0b]">
+    <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
+        <div class="absolute top-[40%] left-[50%] w-[300px] h-[300px] bg-white/5 blur-[80px] rounded-full"></div>
+    </div>
+
     <header class="border-b-2 border-amber-50 pb-4">
         <div class="text-white opacity-30 flex justify-center">Project REQ & Font-end</div>
     </header>
@@ -17,17 +23,17 @@
             <a href="/index.html" class="text-white text-4xl font-bold flex">Gym<div
                     class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
         </div>
-        <div class="bg-[#2f2f2f] p-8 rounded-lg max-w-md mx-auto py-20">
+        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-lg max-w-md mx-auto py-20">
             <form action="#" method="POST" class="space-y-6">
                 <div>
                     <label for="user_Name" class="block text-sm font-medium text-white">Username</label>
                     <input type="text" id="userName" name="user_Name" placeholder="Enter Username" required
-                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                        class="mt-1 block w-full px-3 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-md shadow-sm placeholder-gray-400 text-white focus:outline-none focus:ring-1 focus:ring-[#ff8c00] focus:border-[#ff8c00] transition-all">
                 </div>
                 <div>
                     <label for="password" class="block text-sm font-medium text-white">Password</label>
                     <input type="PassWord" id="pass" name="password" placeholder="Enter Password" required
-                        class="mt-1 block w-full px-3 py-2 border border-[#4c4c4c] text-white bg-[#4c4c4c] rounded-md shadow-sm focus:outline-none focus:ring-[#ff8c00] focus:border-[#ff8c00]">
+                        class="mt-1 block w-full px-3 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-md shadow-sm placeholder-gray-400 text-white focus:outline-none focus:ring-1 focus:ring-[#ff8c00] focus:border-[#ff8c00] transition-all">
                 </div>
                 <button type="button" id="login-button"
                     class="w-full bg-[#ff8c00] text-black py-2 px-4 rounded-md hover:bg-[#ff8c00]/90 flex justify-center items-center cursor-pointer">Login</button>
