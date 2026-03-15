@@ -63,10 +63,10 @@ function addExercise(): void {
     if (!container) return;
 
     const div = document.createElement("div");
-    div.className = "bg-[#1f1f20] border border-[#2a2a2a] p-[30px] rounded-[30px] mb-5 flex flex-col gap-5 transition-all duration-200 hover:border-[#ff8c00]";
+    div.className = "bg-[#1f1f20] border border-[#2a2a2a] p-5 md:p-[30px] rounded-[30px] mb-5 flex flex-col gap-5 transition-all duration-200 hover:border-[#ff8c00]";
 
     div.innerHTML = `
-<input type="text" placeholder="Exercise Name" class="bg-transparent border-b border-[#333] text-[32px] font-black text-white outline-none p-3">
+<input type="text" placeholder="Exercise Name" class="bg-transparent border-b border-[#333] text-2xl md:text-[32px] font-black text-white outline-none p-3">
 <input type="text" placeholder="Sets / Reps" class="bg-transparent border-none text-xl text-[#ff8c00] font-bold outline-none">
 <button onclick="this.parentElement.remove()" class="text-white font-bold py-2 px-4 rounded-md mt-2 self-end hover:text-[#ff8c00]">REMOVE</button>
 `;
