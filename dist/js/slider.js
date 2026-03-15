@@ -1,9 +1,10 @@
+"use strict";
 // เลือกรูปภาพทั้งหมดที่มี class เป็น 'slide'
-var slides = document.querySelectorAll('.slide');
-var slideInterval = 3000; // เวลาในการเปลี่ยนรูป (3000ms = 3 วินาที)
-var currentSlideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const slideInterval = 3000; // เวลาในการเปลี่ยนรูป (3000ms = 3 วินาที)
+let currentSlideIndex = 0;
 function showSlide(index) {
-    slides.forEach(function (slide, i) {
+    slides.forEach((slide, i) => {
         // ถ้า index ตรงกับลำดับปัจจุบัน ให้แสดงรูป นั้น (block) นอกนั้นซ่อน (none)
         if (i === index) {
             slide.style.display = 'block';
@@ -18,10 +19,11 @@ function startSlider() {
         return; // ถ้าไม่มีรูปภาพให้จบการทำงาน
     showSlide(currentSlideIndex); // แสดงรูปแรก
     // ตั้งเวลาให้เปลี่ยนรูปทุก 3 วินาที
-    setInterval(function () {
+    setInterval(() => {
         currentSlideIndex = (currentSlideIndex + 1) % slides.length;
         showSlide(currentSlideIndex);
     }, slideInterval);
 }
 // เริ่มทำงานเมื่อโหลดหน้าเว็บเสร็จ
 document.addEventListener('DOMContentLoaded', startSlider);
+//# sourceMappingURL=../../data/slider.js.map

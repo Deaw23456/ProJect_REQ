@@ -5,48 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../src/style.css" rel="stylesheet">
-    <title>Login</title>
+    <title>Gym Hub - Login</title>
 </head>
 
 <body class="bg-[#0a0a0b]">
+    <!-- Background decorative elements -->
     <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
         <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
         <div class="absolute top-[40%] left-[50%] w-[300px] h-[300px] bg-white/5 blur-[80px] rounded-full"></div>
     </div>
 
-    <header class="border-b-2 border-amber-50 pb-4">
+    <header class="pb-4">
         <div class="text-white opacity-30 flex justify-center">Project REQ & Font-end</div>
     </header>
+    
     <main>
-        <div class="flex justify-center mt-30 mb-5">
-            <a href="/index.html" class="text-white text-4xl font-bold flex">Gym<div
-                    class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
+        <!-- Logo -->
+        <div class="flex justify-center mt-10 mb-10 hover:scale-105 transition-transform duration-300">
+            <a href="/index.html" class="text-white text-5xl font-black italic uppercase tracking-tighter flex">Gym<div
+                    class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5 shadow-[0_0_15px_rgba(255,140,0,0.5)]">Hub</div></a>
         </div>
-        <div class="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-lg max-w-md mx-auto py-20">
-            <form action="#" method="POST" class="space-y-6">
+
+        <!-- Login Form Container -->
+        <div class="bg-[#1f1f22] border border-gray-800 p-8 rounded-[2rem] max-w-md mx-auto py-10 shadow-2xl relative overflow-hidden">
+            
+            <div class="absolute top-[-50px] right-[-50px] w-32 h-32 bg-[#ff8c00]/10 blur-[40px] rounded-full pointer-events-none"></div>
+
+            <div class="mb-8 text-center">
+                <h2 class="text-2xl font-black text-white uppercase tracking-widest">Welcome Back!</h2>
+                <p class="text-gray-400 text-xs mt-1">เข้าสู่ระบบเพื่อใช้งาน Gym Hub ต่อ</p>
+            </div>
+
+            <form id="login-form" class="space-y-5 relative z-10">
                 <div>
-                    <label for="user_Name" class="block text-sm font-medium text-white">Username</label>
-                    <input type="text" id="userName" name="user_Name" placeholder="Enter Username" required
-                        class="mt-1 block w-full px-3 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-md shadow-sm placeholder-gray-400 text-white focus:outline-none focus:ring-1 focus:ring-[#ff8c00] focus:border-[#ff8c00] transition-all">
+                    <label for="email" class="block text-xs font-black text-gray-300 uppercase tracking-widest mb-1.5 ml-1">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required
+                        class="block w-full px-4 py-3.5 border border-gray-600 text-white bg-[#28282b] rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-[#ff8c00] focus:border-[#ff8c00] transition-all">
                 </div>
+                
                 <div>
-                    <label for="password" class="block text-sm font-medium text-white">Password</label>
-                    <input type="PassWord" id="pass" name="password" placeholder="Enter Password" required
-                        class="mt-1 block w-full px-3 py-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-md shadow-sm placeholder-gray-400 text-white focus:outline-none focus:ring-1 focus:ring-[#ff8c00] focus:border-[#ff8c00] transition-all">
+                    <label for="password" class="block text-xs font-black text-gray-300 uppercase tracking-widest mb-1.5 ml-1">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required
+                        class="block w-full px-4 py-3.5 border border-gray-600 text-white bg-[#28282b] rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-[#ff8c00] focus:border-[#ff8c00] transition-all">
+                    <div class="text-[#ff8c00] text-sm cursor-pointer transition-all duration-300 hover:underline">Forgot Password ?</div>
                 </div>
-                <button type="button" id="login-button"
-                    class="w-full bg-[#ff8c00] text-black py-2 px-4 rounded-md hover:bg-[#ff8c00]/90 flex justify-center items-center cursor-pointer">Login</button>
-                <div class="text-center text-white">
-                    <a href="#" class="text-[#ff8c00] hover:underline">Forgot Password?</a>
-                </div>
-                <div class="text-center text-white">
-                    Don't have an account? <a href="./singup.html" class="text-[#ff8c00] hover:underline">Signup</a>
-                </div>
+
+                <button type="submit" id="login-button" class="w-full bg-[#ff8c00] text-black py-4 px-4 rounded-xl hover:bg-[#ffaa00] font-bold items-center flex justify-center cursor-pointer transition-all !mt-8">
+                    Login
+                </button>
             </form>
+
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-400">
+                    Don't have an account? 
+                    <a href="./singup.html" class="font-bold text-[#ff8c00] hover:underline">Sign up</a>
+                </p>
+            </div>
         </div>
     </main>
-    <script src="../dist/js/helpers.js"></script>
+
     <script src="../dist/js/login.js"></script>
 </body>
 

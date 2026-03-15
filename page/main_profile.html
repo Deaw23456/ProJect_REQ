@@ -69,141 +69,135 @@
             </div>
         </nav>
     </header>
-    <main>
-        <div class="relative w-full h-64 bg-gray-700 rounded-lg">
-            <!-- Profile Background Image -->
-            <img src="../img/gym hub-2 สำเนา.png" alt="" class="w-full h-70 object-cover brightness-50">
-            <!-- Profile Image -->
-            <div class="absolute -bottom-18 left-1/2 transform -translate-x-1/2">
-                <img id="profileImg" src="../img/Image-11 สำเนา.jpg" alt="Profile Picture"
-                    class="w-40 h-40 rounded-full border-4 border-[#ff8c00] object-cover p-2 bg-[#2f2f2f] ">
-            </div>
+    <main class="flex-1 overflow-y-auto pr-2 scroll-custom">
+        <div class="relative w-full h-72 rounded-[2rem] overflow-hidden mb-[-90px] border border-white/10 shadow-2xl">
+            <img id="profileBgImg" src="../img/gym hub-2 สำเนา.png" alt="Background" class="w-full h-full object-cover brightness-75">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0b] via-[#0a0a0b]/40 to-transparent"></div>
         </div>
 
-        <div class="container mx-auto px-4 mt-20">
-            <div class="text-center mb-8">
-                <h1 id="profileUsername" class="text-white text-3xl font-bold">Your Profile</h1>
-                <p id="profilePosition" class="text-[#ff8c00] text-sm">N/A</p>
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="relative flex items-end gap-6 px-10">
+                <div class="w-44 h-44 rounded-full border-4 border-[#ff8c00] bg-[#181819] p-1.5 overflow-hidden shadow-[0_0_30px_rgba(255,140,0,0.3)]">
+                    <img id="profileImg" src="../img/Image-11 สำเนา.jpg" alt="Profile" class="w-full h-full object-cover rounded-full">
+                </div>
+                <div class="mb-4">
+                    <h1 id="profileUsername" class="text-5xl font-black italic uppercase tracking-tighter drop-shadow-lg">Your Profile</h1>
+                    <p id="profilePosition" class="text-lg font-bold text-[#ff8c00] tracking-widest uppercase">N/A</p>
+                </div>
             </div>
 
             <!-- About Section (with editable fields) -->
-            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-8">
-                <h2 class="text-white text-2xl font-semibold mb-4">About Me</h2>
+            <section class="bg-[#151517] border border-gray-800 rounded-[2.5rem] p-10 mt-12 shadow-xl mb-10">
+                <div class="flex justify-between items-center mb-8 pb-4 border-b border-gray-800">
+                    <h2 class="text-xl font-black text-white uppercase tracking-widest flex items-center gap-3">
+                        <span class="w-2 h-8 bg-[#ff8c00] rounded-full"></span>
+                        About Me
+                    </h2>
+                    <span id="posiupdate" class="font-bold bg-[#ff8c00]/10 border border-[#ff8c00]/30 text-[#ff8c00] px-4 py-1.5 rounded-full text-xs uppercase tracking-widest">-</span>
+                </div>
+
                 <div id="profileContent" class="w-full">
-                    <div class="w-full bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden mb-6">
-                        <!-- Header ส่วนข้อมูล -->
-                        <div class="bg-[#1f1f1f] px-5 py-3 border-b border-[#3e3e3e] flex justify-between items-center">
-                            <span class="text-gray-300 text-sm font-semibold">Profile Summary</span>
-                            <span id="posiupdate"
-                                class="text-[#ff8c00] text-[10px] font-bold px-5 py-1 border border-[#ff8c00] rounded-md">-</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Username</span>
+                            <span id="show_username" class="font-bold text-lg text-white">-</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Full Name</span>
+                            <span id="show_fullname" class="font-bold text-lg text-white">-</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Email</span>
+                            <span id="show_email" class="font-bold text-white">-</span>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Phone</span>
+                            <span id="show_phone" class="font-bold text-[#ff8c00]">-</span>
+                        </div>
+                        
+                        <div class="md:col-span-2 grid grid-cols-3 gap-4 mt-4 bg-black/30 p-6 rounded-2xl border border-gray-800/50">
+                            <div class="flex flex-col items-center justify-center border-r border-gray-800">
+                                <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Age</span>
+                                <span id="show_age" class="font-black text-2xl text-white">-</span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center border-r border-gray-800">
+                                <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Weight</span>
+                                <span id="show_weight" class="font-black text-2xl text-white">- <span class="text-sm text-gray-500 font-bold">kg</span></span>
+                            </div>
+                            <div class="flex flex-col items-center justify-center">
+                                <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Height</span>
+                                <span id="show_height" class="font-black text-2xl text-white">- <span class="text-sm text-gray-500 font-bold">cm</span></span>
+                            </div>
                         </div>
 
-                        <div class="p-4">
-                            <!-- ส่วนที่ 1: Account -->
-                            <div>
-                                <h4 class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2">Account
-                                    Info
-                                </h4>
-                                <div class="rounded-lg p-4 space-y-3">
-                                    <div class="flex text-sm mb-2">
-                                        <span class="text-gray-400">Username :</span>
-                                        <span id="show_username" class="text-white font-medium ml-4">-</span>
-                                    </div>
-                                    <div class="flex text-sm">
-                                        <span class="text-gray-400">Email :</span>
-                                        <span id="show_email" class="text-white ml-4">-</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- ส่วนที่ 2: Personal Details -->
-                            <h4 class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mb-2 mt-4">Personal
-                                Details</h4>
-                            <div class="flex flex-col mt-2 w-full rounded-lg p-4 space-y-3">
-                                <div>
-                                    <ul>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Name - Surname :</span>
-                                            <span id="show_fullname" class="text-white ml-4">-</span>
-                                        </li>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Age :</span>
-                                            <span id="show_age" class="text-white ml-4">-</span>
-                                        </li>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Gender :</span>
-                                            <span id="show_gender" class="text-white ml-4">-</span>
-                                        </li>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Position :</span>
-                                            <span id="show_position" class="text-white ml-4">-</span>
-                                        </li>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Phone :</span>
-                                            <span id="show_phone" class="text-white ml-4">-</span>
-                                        </li>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Weight :</span>
-                                            <span id="show_weight" class="text-white ml-4">-</span>
-                                        </li>
-                                        <li class="flex text-sm mb-2">
-                                            <span class="text-gray-400">Height :</span>
-                                            <span id="show_height" class="text-white ml-4">-</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="flex flex-col md:col-span-2 mt-2">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Gender</span>
+                            <span id="show_gender" class="font-bold text-white">-</span>
+                        </div>
+                        <div class="flex flex-col md:col-span-2">
+                            <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Position</span>
+                            <span id="show_position" class="font-bold text-[#ff8c00]">-</span>
                         </div>
                     </div>
                 </div>
                 <div id="noProfileMessage" class="hidden text-white text-center">
                     <p>No profile data found. Please log in or sign up.</p>
-                    <div class="flex max-w-50 items-center ml-30 gap-3">
+                    <div class="flex justify-center gap-3">
                         <a href="./singup.html"
-                        class="block w-full max-w-xs mx-auto  py-2 px-4 mt-4 rounded-md font-bold text-center border-2 border-[#ff8c00] text-white hover:bg-[#ffae00] transition-colors hover:text-black">Sing up
-                    </a>
-                    <a href="./login.html"
-                        class="block w-full max-w-xs mx-auto bg-[#ff8c00] py-2 px-4 mt-4 rounded-md text-black font-bold text-center hover:bg-[#ffae00] transition-colors">Login
-                    </a>
+                            class="block w-40  py-2 px-4 mt-4 rounded-md font-bold text-center items-center border-2 border-[#ff8c00] text-white hover:bg-[#ffae00] transition-colors hover:text-black">Sing
+                            up
+                        </a>
+                        <a href="./login.html"
+                            class="block w-40 bg-[#ff8c00] py-2 px-4 mt-4 rounded-md text-black font-bold text-center items-center hover:bg-[#ffae00] transition-colors">Login
+                        </a>
                     </div>
                 </div>
             </section>
             <!-- Show Work/Gallery Section -->
-            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-8">
-                <h2 class="text-white text-2xl font-semibold mb-4">My Work</h2>
+            <section class="bg-[#151517] border border-gray-800 rounded-[2.5rem] p-10 shadow-xl mb-10">
+                <h2 class="text-xl font-black text-white uppercase tracking-widest flex items-center gap-3 mb-6">
+                    <span class="w-2 h-8 bg-[#ff8c00] rounded-full"></span>
+                    My Work
+                </h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     <!-- Placeholder for work images -->
-                    <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work 1</div>
-                    <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work 2</div>
-                    <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work 3</div>
-                    <div class="bg-white/5 border border-white/10 h-48 rounded-md flex items-center justify-center text-gray-300">Work 4</div>
+                    <div class="bg-black/20 border border-gray-800 h-48 rounded-2xl flex items-center justify-center text-gray-500">Work 1</div>
+                    <div class="bg-black/20 border border-gray-800 h-48 rounded-2xl flex items-center justify-center text-gray-500">Work 2</div>
+                    <div class="bg-black/20 border border-gray-800 h-48 rounded-2xl flex items-center justify-center text-gray-500">Work 3</div>
+                    <div class="bg-black/20 border border-gray-800 h-48 rounded-2xl flex items-center justify-center text-gray-500">Work 4</div>
                 </div>
             </section>
             <!-- Reviews Section -->
-            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-8">
-                <h2 class="text-white text-2xl font-semibold mb-4">Reviews</h2>
+            <section class="bg-[#151517] border border-gray-800 rounded-[2.5rem] p-10 shadow-xl mb-10">
+                <h2 class="text-xl font-black text-white uppercase tracking-widest flex items-center gap-3 mb-6">
+                    <span class="w-2 h-8 bg-[#ff8c00] rounded-full"></span>
+                    Reviews
+                </h2>
                 <div class="space-y-4">
                     <!-- Placeholder for reviews -->
-                    <div class="bg-white/5 p-4 rounded-md text-white border border-white/10">
+                    <div class="bg-black/20 p-4 rounded-xl text-white border border-gray-800">
                         <p class="font-bold">Reviewer Name</p>
                         <p class="text-sm text-gray-300">"Great trainer, highly recommend!"</p>
                     </div>
-                    <div class="bg-white/5 p-4 rounded-md text-white border border-white/10">
+                    <div class="bg-black/20 p-4 rounded-xl text-white border border-gray-800">
                         <p class="font-bold">Another User</p>
                         <p class="text-sm text-gray-300">"Achieved my fitness goals with their help."</p>
                     </div>
                 </div>
             </section>
             <!-- Comments Section -->
-            <section class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 mb-8">
-                <h2 class="text-white text-2xl font-semibold mb-4">Comments</h2>
+            <section class="bg-[#151517] border border-gray-800 rounded-[2.5rem] p-10 shadow-xl mb-10">
+                <h2 class="text-xl font-black text-white uppercase tracking-widest flex items-center gap-3 mb-6">
+                    <span class="w-2 h-8 bg-[#ff8c00] rounded-full"></span>
+                    Comments
+                </h2>
                 <div class="space-y-4">
                     <!-- Placeholder for comments -->
-                    <div class="bg-white/5 p-4 rounded-md text-white border border-white/10">
+                    <div class="bg-black/20 p-4 rounded-xl text-white border border-gray-800">
                         <p class="font-bold">Commenter 1</p>
                         <p class="text-sm text-gray-300">"Very inspiring profile!"</p>
                     </div>
-                    <div class="bg-white/5 p-4 rounded-md text-white border border-white/10">
+                    <div class="bg-black/20 p-4 rounded-xl text-white border border-gray-800">
                         <p class="font-bold">Commenter 2</p>
                         <p class="text-sm text-gray-300">"Keep up the good work!"</p>
                     </div>
@@ -211,6 +205,11 @@
             </section>
         </div>
     </main>
+    <style>
+        .scroll-custom::-webkit-scrollbar { width: 5px; }
+        .scroll-custom::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+        .scroll-custom:hover::-webkit-scrollbar-thumb { background: #ff8c00; }
+    </style>
     <script src="../dist/js/helpers.js"></script>
     <script src="../dist/js/nav.js"></script>
     <script src="../dist/js/main_profile.js"></script>

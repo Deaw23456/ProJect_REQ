@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 setCurrentUser(adminUser);
                 alert("เข้าสู่ระบบ Admin สำเร็จ!");
-                window.location.href = './admin_page.html';
+                window.location.href = 'admin_page.html';
                 return;
             }
 

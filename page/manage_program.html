@@ -7,19 +7,19 @@
     <link href="../src/style.css" rel="stylesheet">
 </head>
 
-<body class="flex flex-col h-screen bg-[#0a0a0b] font-sans text-white relative">
+<body class="flex flex-col min-h-screen bg-[#0a0a0b] font-sans text-white relative">
     <div class="fixed inset-0 z-[-1] pointer-events-none overflow-hidden">
         <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff8c00]/10 blur-[120px] rounded-full"></div>
         <div class="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-[#ff8c00]/10 blur-[100px] rounded-full"></div>
     </div>
 
-    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50 items-center">
-        <nav class="flex items-center justify-between px-6 py-2">
+    <header class="bg-white/5 backdrop-blur-md border-b border-white/10 pb-4 mb-5 sticky top-0 z-50">
+        <nav class="flex flex-wrap items-center justify-between gap-3 px-4 sm:px-6 py-2 max-w-7xl mx-auto">
             <div class="flex-shrink-0">
                 <a href="./trainer_dashboard.html" class="text-white text-4xl font-bold flex mt-2">Gym<div class="text-black bg-[#ff8c00] rounded-md px-1 ml-0.5">Hub</div></a>
             </div>
 
-            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-5">
+            <div class="relative w-full max-w-md ml-auto flex items-center justify-end mr-0 sm:mr-5">
                 <input type="search" name="search" id="search-input"
                     class="block w-full p-2 pr-10 text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-[#ff8c00]/50 focus:bg-white/10 transition-all backdrop-blur-sm"
                     placeholder="Search">
@@ -33,10 +33,10 @@
 
             <div id="guest-nav">
                 <ul class="flex gap-2 font-bold mt-2">
-                    <li><a href="/page/singup.html"
+                    <li><a href="./singup.html"
                             class="text-white hover:bg-[#ff8c00] hover:text-black border border-[#ff8c00] rounded-lg px-4 py-2 transition-all shadow-[0_0_10px_rgba(255,140,0,0.2)]">Sign
                             up</a></li>
-                    <li><a href="/page/login.html"
+                    <li><a href="./login.html"
                             class="text-black bg-[#ff8c00] hover:bg-white hover:shadow-[0_0_15px_rgba(255,255,255,0.4)] rounded-lg px-6 py-2 transition-all">Login</a>
                     </li>
                 </ul>
@@ -45,7 +45,7 @@
             <div id="user-nav"
                 class="hidden relative bg-white/5 backdrop-blur-md border border-[#ff8c00]/50 rounded-xl px-4 py-2 items-center gap-2 transition-all duration-300 cursor-pointer hover:scale-105 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,140,0,0.3)] mt-2">
                 <div class="flex items-center gap-2.5">
-                    <img id="nav-profile-img" src="/img/Image-11 สำเนา.jpg" alt="User"
+                    <img id="nav-profile-img" src="../img/Image-11 สำเนา.jpg" alt="User"
                         class="w-8 h-8 rounded-full object-cover border-2 border-[#ff8c00]">
                     <button id="profile-btn" type="button" class="flex items-center gap-2 text-white font-bold">
                         <span id="username-display"></span>
@@ -56,10 +56,10 @@
                     </button>
                     <div id="dropdown-menu"
                         class="hidden absolute right-0 top-full mt-3 w-48 bg-[#1a1a1c]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-2 z-20">
-                        <a href="/page/main_profile.html"
+                        <a href="../main_profile.html"
                             class="block px-4 py-2 text-sm text-white hover:bg-[#ff8c00] hover:text-black transition-colors rounded-lg">My
                             Profile</a>
-                        <a href="#" id="logout-btn"
+                        <a href="/index.html" id="logout-btn"
                             class="block px-4 py-2 text-sm text-red-400 hover:bg-red-500 hover:text-white transition-colors rounded-lg">Logout</a>
                     </div>
                 </div>
@@ -67,9 +67,9 @@
         </nav>
     </header>
 
-    <div class="flex flex-1 overflow-hidden"> 
+    <div class="flex flex-1 overflow-hidden max-w-7xl mx-auto w-full px-4 sm:px-6 pb-6 gap-4 flex-col lg:flex-row"> 
         
-        <aside class="w-80 bg-white/5 backdrop-blur-xl border-r border-white/10 flex flex-col ml-4 my-4 rounded-3xl">
+        <aside class="w-full lg:w-80 bg-white/5 backdrop-blur-xl border border-white/10 flex flex-col rounded-3xl mb-4 lg:mb-0">
             <div class="p-[30px] border-b border-white/10">
                 <div class="text-[22px] font-black italic uppercase mb-5">Your Program</div>
                 <button onclick="createNewTemplate()" class="w-full p-4 bg-[#ff8c00] border-none rounded-[14px] font-black cursor-pointer text-black transition-all duration-200 hover:bg-white hover:scale-105 active:scale-95">
@@ -82,14 +82,14 @@
         </aside>
 
         <main class="flex-1 flex flex-col overflow-y-auto relative">
-            <div class="flex-1 p-[60px]">
+            <div class="flex-1 p-6 sm:p-10 lg:p-[60px]">
                 <input type="text" id="program-title-input" value="UPPER" 
-                    class="bg-transparent border-none text-[64px] font-black italic mb-2.5 outline-none text-white w-full uppercase" 
+                    class="bg-transparent border-none text-4xl sm:text-5xl lg:text-[64px] font-black italic mb-2.5 outline-none text-white w-full uppercase" 
                     placeholder="ENTER PROGRAM NAME">
                 
                 <div class="w-[120px] h-1.5 bg-[#ff8c00] rounded-[10px] mb-10"></div>
                 
-                <div id="exercise-container" class="max-w-[900px]">
+                <div id="exercise-container" class="max-w-3xl">
                     </div>
                 
                 <button onclick="addExercise('', '')" class="mt-[30px] w-full p-[30px] border-2 border-dashed border-white/20 rounded-[30px] bg-transparent text-gray-400 font-black cursor-pointer transition-all duration-200 hover:border-[#ff8c00] hover:text-[#ff8c00] hover:bg-white/5">
@@ -97,7 +97,7 @@
                 </button>
             </div>
             
-            <footer class="py-[25px] px-[60px] bg-white/5 backdrop-blur-xl border-t border-white/10 flex justify-end sticky bottom-0 z-10 rounded-tl-3xl">
+            <footer class="py-4 sm:py-[25px] px-6 sm:px-[60px] bg-white/5 backdrop-blur-xl border-t border-white/10 flex justify-end sticky bottom-0 z-10 rounded-tl-3xl">
                 <button onclick="saveProgram()" class="bg-[#ff8c00] text-black border-none py-[18px] px-[60px] rounded-[14px] font-black cursor-pointer transition-all duration-200 hover:bg-white hover:scale-105 active:scale-95 shadow-lg">
                     Save Template
                 </button>
