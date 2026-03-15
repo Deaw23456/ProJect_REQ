@@ -1,3 +1,4 @@
 node_modules/
 .DS_Store
-mapping/*.js.map
+mapping/
+.cursor/
