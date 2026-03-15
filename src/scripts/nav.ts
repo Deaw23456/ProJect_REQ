@@ -12,7 +12,13 @@ function initNav(): void {
     const logoutBtn = document.getElementById('logout-btn');
     const navProfileImg = document.getElementById('nav-profile-img') as HTMLImageElement | null;
 
-    const userData = getCurrentUser();
+    let userData: UserData | null = null;
+    try {
+        userData = getCurrentUser();
+    } catch (e) {
+        console.error("Failed to parse user data from localStorage. Clearing for safety.", e);
+        removeCurrentUser(); // ล้างข้อมูลที่เสียหายทิ้ง
+    }
 
     if (userData) {
         // User is logged in
@@ -23,9 +29,9 @@ function initNav(): void {
             navProfileImg.src = userData.profileImg;
         }
         // ถ้าเป็น trainer ให้ลิงก์ My Profile ไปที่ trainer_profile
-        const myProfileLink = document.querySelector('#dropdown-menu a[href="/page/main_profile.html"]') as HTMLAnchorElement | null;
+        const myProfileLink = dropdownMenu?.querySelector('a[href="./main_profile.html"]') as HTMLAnchorElement | null;
         if (myProfileLink && userData.position === 'trainer') {
-            myProfileLink.href = '/page/trainer_profile.html';
+            myProfileLink.href = './trainer_profile.html';
         }
     } else {
         // User is not logged in
