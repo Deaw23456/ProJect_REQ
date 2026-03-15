@@ -1,19 +1,19 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', () => {
-    const loginBtn = document.getElementById('login-button');
-    const usernameInput = document.getElementById('userName');
-    const passwordInput = document.getElementById('pass');
-    if (loginBtn) {
-        loginBtn.addEventListener('click', (e) => {
+    const loginForm = document.getElementById('login-form');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const username = usernameInput.value.trim();
+            const emailOrUsername = emailInput.value.trim();
             const password = passwordInput.value.trim();
-            if (!username || !password) {
-                alert("กรุณากรอก Username และ Password");
+            if (!emailOrUsername || !password) {
+                alert("กรุณากรอกอีเมล/Username และรหัสผ่าน");
                 return;
             }
             // 1. ตรวจสอบสิทธิ์ Admin (Hardcoded)
-            if (username === 'admin' && password === 'admin1234') {
+            if (emailOrUsername === 'admin' && password === 'admin1234') {
                 const adminUser = {
                     username: 'Admin',
                     email: 'admin@gymhub.com',
@@ -28,14 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // 2. ตรวจสอบสิทธิ์ User ทั่วไปจาก LocalStorage
             const users = getRegisteredUsers();
-            const foundUser = users.find((u) => u.username === username && u.password === password);
+            const foundUser = users.find((u) => (u.email === emailOrUsername || u.username === emailOrUsername) && u.password === password);
             if (foundUser) {
-                setCurrentUser(foundUser);
+                // Do not store password in the current user session
+                const { password, ...userToStore } = foundUser;
+                setCurrentUser(userToStore);
                 alert(`ยินดีต้อนรับคุณ ${foundUser.username}`);
                 window.location.href = foundUser.position === 'trainer' ? './trainer_dashboard.html' : './main_profile.html';
             }
             else {
-                alert("Username หรือ Password ไม่ถูกต้อง");
+                alert("อีเมล/Username หรือรหัสผ่านไม่ถูกต้อง");
             }
         });
     }
